@@ -17,13 +17,13 @@ public class CommercialProject extends Project
 
   }
 
-  public void setintendedUse(String intendedUse)
+  public void setIntendedUse(String intendedUse)
   {
     this.intendedUse = intendedUse;
 
   }
 
-  public String getintendedUse()
+  public String getIntendedUse()
   {
     return this.intendedUse;
   }

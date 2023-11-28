@@ -5,8 +5,8 @@ import java.util.ArrayList;
 
 public class ProjectListModelManager
 {
-  private ProjectList projectList;
-  private FileManagerSCV fileManagerSCV;
+  /*private ProjectList projectList;
+  private FileManagerInterface fileManagerSCV;
 
   @Override ProjectList getAllProjects(){
     return fileManagerSCV.readFromFile();
@@ -50,7 +50,7 @@ public class ProjectListModelManager
     project.setExpectedTotalHours(data[2]);
     project.setExpectedExpenses(data[3]);
     project.setBudget(data[4]);
-    project.setTimeline[data(5)]
+    project.setTimeline[data(5)];
 
     if (project.getClass() == ResidentialProject){
       project.setSize(data[6]);
@@ -74,5 +74,5 @@ public class ProjectListModelManager
       project.setGeoChallenge(data[8]);
       project.setNumBridTun(data[9]);
     }
-  }
+  }*/
 }

@@ -22,10 +22,10 @@ public class ProjectList {
   public void addProject(Project project){
     projects.add(project);
   }
-  public ProjectList getAllProjectByType(String type){
+  public ProjectList getAllProjectByType(Object obj){
     ProjectList ans = new ProjectList();
     for (Project i : projects) {
-      if (i.class.equals(type)){
+      if (i.getClass().equals(obj)){
         ans.addProject(i);
       }
     }
@@ -40,5 +40,8 @@ public class ProjectList {
   public void removeProject(String name){
     Project i = getProject(name);
     removeProject(i);
+  }
+  public ArrayList<Project> returnAsArrayList(){
+    return projects;
   }
 }
