@@ -67,6 +67,16 @@ public class RoadProject extends Project
     return this.width;
   }
 
+  public void setLength(long length)
+  {
+    this.length = 0;
+  }
+
+  public long getLength()
+  {
+    return this.length;
+  }
+
   @Override public String toString()
   {
     return super.toString();
