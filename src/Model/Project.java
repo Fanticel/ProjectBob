@@ -40,6 +40,11 @@ public abstract class Project
     return expectedExpenses;
   }
 
+  public void setBudget(long budget)
+  {
+    this.budget = 0;
+  }
+
   public long getBudget()
   {
     return budget;
