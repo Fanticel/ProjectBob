@@ -9,14 +9,11 @@ public class FileManagerXML implements FileManagerInterface{
   public void writeToFile(String filePath, ProjectList list) throws IOException {
     File file = new File(filePath);
     PrintWriter out = new PrintWriter(filePath);
-    ProjectList residentialProjects = list.getAllProjectByType(ResidentialProject.class); //reads all types of projects and then converts them into respective ArrayLists
-    ArrayList<ResidentialProject> residentialProjectsAL = (ArrayList<ResidentialProject>) ((ArrayList<?>)residentialProjects.returnAsArrayList());
-    ProjectList roadProjects = list.getAllProjectByType(RoadProject.class);
-    ArrayList<RoadProject> roadProjectsAL = (ArrayList<RoadProject>) ((ArrayList<?>)roadProjects.returnAsArrayList());
-    ProjectList commercialProjects = list.getAllProjectByType(CommercialProject.class);
-    ArrayList<CommercialProject> commercialProjectsAL = (ArrayList<CommercialProject>) ((ArrayList<?>)commercialProjects.returnAsArrayList());
-    ProjectList industrialProjects = list.getAllProjectByType(IndustrialProject.class);
-    ArrayList<IndustrialProject> industrialProjectsAL = (ArrayList<IndustrialProject>) ((ArrayList<?>)industrialProjects.returnAsArrayList());
+    //reads all types of projects and then converts them into respective ArrayLists
+    ArrayList<ResidentialProject> residentialProjectsAL = (ArrayList<ResidentialProject>) ((ArrayList<?>)list.getAllProjectByType(ResidentialProject.class).returnAsArrayList());
+    ArrayList<RoadProject> roadProjectsAL = (ArrayList<RoadProject>) ((ArrayList<?>)list.getAllProjectByType(RoadProject.class).returnAsArrayList());
+    ArrayList<CommercialProject> commercialProjectsAL = (ArrayList<CommercialProject>) ((ArrayList<?>)list.getAllProjectByType(CommercialProject.class).returnAsArrayList());
+    ArrayList<IndustrialProject> industrialProjectsAL = (ArrayList<IndustrialProject>) ((ArrayList<?>)list.getAllProjectByType(IndustrialProject.class).returnAsArrayList());
     out.println("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n"
         + "<root>\n" + "\t<ProjectList>"); //write the general xml version along with root and project list
     out.println("\t\t<ResidentialProjects>"); //begin the residential project section
