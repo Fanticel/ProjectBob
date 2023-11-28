@@ -1,5 +1,6 @@
 package Model;
 
+import java.security.PublicKey;
 import java.util.ArrayList;
 
 public class ProjectList {
@@ -17,5 +18,27 @@ public class ProjectList {
       }
     }
     return null;
+  }
+  public void addProject(Project project){
+    projects.add(project);
+  }
+  public ProjectList getAllProjectByType(String type){
+    ProjectList ans = new ProjectList();
+    for (Project i : projects) {
+      if (i.class.equals(type)){
+        ans.addProject(i);
+      }
+    }
+    return ans;
+  }
+  public void removeProject(Project project){
+    projects.remove(project);
+  }
+  public void removeProject(int index){
+    projects.remove(index);
+  }
+  public void removeProject(String name){
+    Project i = getProject(name);
+    removeProject(i);
   }
 }
