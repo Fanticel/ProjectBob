@@ -18,7 +18,7 @@ public class IndustrialProject extends Project
 
   public void setType(String type)
   {
-    this.type = "Industrial Project";
+    this.type = type;
   }
 
   public String getType()
@@ -28,7 +28,7 @@ public class IndustrialProject extends Project
 
   public void setSize(int size)
   {
-    this.size = 0;
+    this.size = size;
   }
 
   public int getSize()

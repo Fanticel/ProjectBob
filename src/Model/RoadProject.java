@@ -23,7 +23,6 @@ public class RoadProject extends Project
     this.width = width;
     this.numBridTun = numBridTun;
     this.geoChallenge = new ArrayList<>(geoChallenge);
-
   }
 
   public void setgeoChallenge(ArrayList<String> geoChallenge)
