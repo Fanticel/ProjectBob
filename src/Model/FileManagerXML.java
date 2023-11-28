@@ -1,13 +1,14 @@
 package Model;
 
-import java.io.File;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class FileManagerXML implements FileManagerInterface{
   public void writeToFile(String filePath, ProjectList list) throws IOException {
-    File file = new File(filePath);
     PrintWriter out = new PrintWriter(filePath);
     //reads all types of projects and then converts them into respective ArrayLists
     ArrayList<ResidentialProject> residentialProjectsAL = (ArrayList<ResidentialProject>) ((ArrayList<?>)list.getAllProjectByType(ResidentialProject.class).returnAsArrayList());
@@ -44,9 +45,6 @@ public class FileManagerXML implements FileManagerInterface{
     out.println("\t</ProjectList>\n</root>");//end project list and root
     out.close();
   }
-  public ProjectList readFromFile(String file) throws IOException{
-    return null;
-  }
   private String writeGeneral(Project i){
     StringBuilder ans = new StringBuilder();
     ans.append("\t\t\t\t<Name>").append(i.getName()).append("</Name>\n");
@@ -56,5 +54,36 @@ public class FileManagerXML implements FileManagerInterface{
     ans.append("\t\t\t\t<Budget>").append(i.getBudget()).append("</Budget>\n");
     ans.append("\t\t\t\t<Timeline>").append(i.getTimeline()).append("</Timeline>");
     return ans.toString();
+  }
+  public ProjectList readFromFile(String filePath) throws IOException{
+    Scanner in = new Scanner(new File(filePath));
+    StringBuilder totalBuilder = new StringBuilder();
+    while (in.hasNext()){
+      totalBuilder.append(in.nextLine() + "\n");
+    }
+    String total = totalBuilder.toString();
+    ArrayList<String> totalAL = new ArrayList<>();
+    total = total.replace("<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n" + "<root>\n"
+        + "\t<ProjectList>\n" + "\t\t<ResidentialProjects>", "");
+    totalAL.add(total.split("</ResidentialProjects>")[0]);
+    total = total.split("</ResidentialProjects>")[1].replace("<CommercialProjects>", "");
+    totalAL.add(total.split("</CommercialProjects>")[0]);
+    total = total.split("</CommercialProjects>")[1].replace("<RoadProjects>", "");
+    totalAL.add(total.split("</RoadProjects>")[0]);
+    total = total.split("</RoadProjects>")[1].replace("<IndustrialProjects>", "");
+    totalAL.add(total.split("</IndustrialProjects>")[0]);
+    //After all this stripping and splitting we have an ArrayList of strings in which there are four string, first contains all
+    //Residential projects, the second all commercial projects, the third all road projects, and the fourth all industrial ones
+    //now we can simply deal with all of them based on what type they are
+    for (String i : totalAL) {
+      System.out.println("\n\n_______________\n\n" + i);
+    }
+    return null;
+  }
+  private static String stripXml(String xmlString) {
+    String regex = "<[^>]*>";
+    Pattern pattern = Pattern.compile(regex);
+    Matcher matcher = pattern.matcher(xmlString);
+    return matcher.replaceAll("");
   }
 }

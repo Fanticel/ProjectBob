@@ -31,6 +31,9 @@ public class ProjectList {
     }
     return ans;
   }
+  public ProjectList getAllProjectsByData(ArrayList<Object> data){ //TODO implement this function :(
+    return null;
+  }
   public void removeProject(Project project){
     projects.remove(project);
   }
