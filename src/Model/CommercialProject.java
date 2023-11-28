@@ -7,19 +7,20 @@ public class CommercialProject extends Project
   private String intendedUse;
 
   public CommercialProject(String name, String description,
-      int expectedTotalHours, int expectedExpenses, long budget, MyDate timeline)
+      int expectedTotalHours, int expectedExpenses, long budget,
+      MyDate timeline, int size, int numFloor, String intendedUse)
   {
     super(name, description, expectedTotalHours, expectedExpenses, budget,
         timeline);
-    this.size = 0;
-    this.numFloor = 0;
-    this.intendedUse = "";
+    this.size = size;
+    this.numFloor = numFloor;
+    this.intendedUse = intendedUse;
 
   }
 
   public void setintendedUse(String intendedUse)
   {
-    this.intendedUse = intendedUse;
+    this.intendedUse = " ";
 
   }
 
@@ -30,7 +31,7 @@ public class CommercialProject extends Project
 
   public void setNumFloor(int numFloor)
   {
-    this.numFloor = numFloor;
+    this.numFloor = 0;
   }
 
   public int getNumFloor()
@@ -40,11 +41,16 @@ public class CommercialProject extends Project
 
   public void setSize(int size)
   {
-    this.size = size;
+    this.size = 0;
   }
 
   public int getSize()
   {
     return this.size;
+  }
+
+  @Override public String toString()
+  {
+    return super.toString();
   }
 }
