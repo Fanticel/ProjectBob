@@ -71,8 +71,8 @@ public class ProjectListModelManager implements ProjectListModel
     project.setDescription((String) data.get(1));
     project.setExpectedTotalHours((Integer) data.get(2));
     project.setExpectedExpenses((Integer) data.get(3));
-    project.setBudget(data.get(4));
-    project.setTimeline[data.get(5)]
+    project.setBudget((long) data.get(4));
+    project.setTimeline((MyDate) data.get(5));
 
     if (project instanceof ResidentialProject residentialProject){
       residentialProject.setSize((Integer) data.get(6));
