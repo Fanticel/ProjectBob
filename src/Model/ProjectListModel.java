@@ -13,6 +13,6 @@ public interface ProjectListModel
   void removeProject(Project project);
   void removeProject(int index);
   void removeProject(String name);
-  ProjectList getAllProjectsByType(String type);
+  ProjectList getAllProjectsByType(Object project);
   ProjectList getAllProjectsByData(ArrayList<Object> data);
 }

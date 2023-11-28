@@ -14,7 +14,7 @@ public class RoadProject extends Project
 
   public RoadProject(String name, String description, int expectedTotalHours,
       int expectedExpenses, long budget, MyDate timeline, long length,
-      int width, int numBridTun, ArrayList<String> geoChallenge, String type)
+      int width, int numBridTun, ArrayList<String> geoChallenge)
   {
     super(name, description, expectedTotalHours, expectedExpenses, budget,
         timeline);

@@ -14,7 +14,7 @@ public class ResidentialProject extends Project
   public ResidentialProject(String name, String description,
       int expectedTotalHours, int expectedExpenses, long budget,
       MyDate timeline, int size, int numKitchens, int numBathrooms,
-      int othWPlumbing, boolean isNewBuild, String type)
+      int othWPlumbing, boolean isNewBuild)
   {
     super(name, description, expectedTotalHours, expectedExpenses, budget,
         timeline);
