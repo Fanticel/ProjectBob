@@ -1,11 +1,3 @@
-.button{
--fx-background-color: #f5ba41;
-}
-
-.button:hover{
-  -fx-background-color: #f3ad22;
-}
-
 #backgroundImage{
     -fx-background-image: url("../Images/landingPageImg.png");
         -fx-background-repeat: no-repeat;
