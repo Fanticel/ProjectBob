@@ -15,5 +15,4 @@ public interface ProjectListModel
   void removeProject(String name);
   ProjectList getAllProjectsByType(Object project);
   ProjectList getAllProjectsByData(ArrayList<Object> data);
-  void reset();
 }

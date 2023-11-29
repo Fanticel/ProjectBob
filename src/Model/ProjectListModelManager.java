@@ -64,7 +64,7 @@ public class ProjectListModelManager implements ProjectListModel
     return projectList.getAllProjectsByData(data);
   }
 
-  void edit(Project project, Map<String,Object> data){
+  private void edit(Project project, Map<String,Object> data){
     project.setName((String) data.get("name"));
     project.setDescription((String) data.get("description"));
     project.setExpectedTotalHours((Integer) data.get("expectedTotalHours"));
