@@ -10,6 +10,13 @@ public class ProjectListModelManager implements ProjectListModel
   private ProjectList projectList;
   private FileManagerXML fileManagerXML;
 
+  public ProjectListModelManager(ProjectList projectList,
+      FileManagerXML fileManagerXML)
+  {
+    this.projectList = projectList;
+    this.fileManagerXML = fileManagerXML;
+  }
+
   @Override public ProjectList getAllProjects(){
     try
     {
