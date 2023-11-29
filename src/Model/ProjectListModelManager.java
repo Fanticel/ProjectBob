@@ -3,6 +3,8 @@ package Model;
 import java.awt.image.AreaAveragingScaleFilter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Map;
+
 public class ProjectListModelManager implements ProjectListModel
 {
   private ProjectList projectList;
@@ -62,36 +64,36 @@ public class ProjectListModelManager implements ProjectListModel
     return projectList.getAllProjectsByData(data);
   }
 
-  void edit(Project project, ArrayList<Object> data){
-    project.setName((String) data.get(0));
-    project.setDescription((String) data.get(1));
-    project.setExpectedTotalHours((Integer) data.get(2));
-    project.setExpectedExpenses((Integer) data.get(3));
-    project.setBudget((long) data.get(4));
-    project.setTimeline((MyDate) data.get(5));
+  void edit(Project project, Map<String,Object> data){
+    project.setName((String) data.get("name"));
+    project.setDescription((String) data.get("description"));
+    project.setExpectedTotalHours((Integer) data.get("expectedTotalHours"));
+    project.setExpectedExpenses((Integer) data.get("expectedExpenses"));
+    project.setBudget((long) data.get("budget"));
+    project.setTimeline((MyDate) data.get("timeline"));
 
     if (project instanceof ResidentialProject residentialProject){
-      residentialProject.setSize((Integer) data.get(6));
-      residentialProject.setNumKitchens((Integer) data.get(7));
-      residentialProject.setNumBathrooms((Integer) data.get(8));
-      residentialProject.setNewBuild((Boolean) data.get(9));
-      residentialProject.setOthWPlumbing((Integer) data.get(10));
+      residentialProject.setSize((Integer) data.get("size"));
+      residentialProject.setNumKitchens((Integer) data.get("numKitchens"));
+      residentialProject.setNumBathrooms((Integer) data.get("numBathrooms"));
+      residentialProject.setNewBuild((Boolean) data.get("isNewBuild"));
+      residentialProject.setOthWPlumbing((Integer) data.get("othWPlumbing"));
     }
     else if (project instanceof CommercialProject commercialProject){
-      commercialProject.setSize((Integer) data.get(6));
-      commercialProject.setNumFloor((Integer) data.get(7));
-      commercialProject.setIntendedUse((String) data.get(8));
+      commercialProject.setSize((Integer) data.get("size"));
+      commercialProject.setNumFloor((Integer) data.get("numFloor"));
+      commercialProject.setIntendedUse((String) data.get("intendedUse"));
     }
     else if (project instanceof IndustrialProject industrialProject){
-      industrialProject.setSize((Integer) data.get(6));
-      industrialProject.setType((String) data.get(7));
+      industrialProject.setSize((Integer) data.get("size"));
+      industrialProject.setType((String) data.get("type"));
     }else
     {
       RoadProject roadProject = (RoadProject) project;
-      roadProject.setLength((Integer) data.get(6));
-      roadProject.setWidth((Integer) data.get(7));
-      roadProject.setgeoChallenge((ArrayList<String>) data.get(8));
-      roadProject.setnumBridTun((Integer) data.get(9));
+      roadProject.setLength((Integer) data.get("length"));
+      roadProject.setWidth((Integer) data.get("width"));
+      roadProject.setgeoChallenge((ArrayList<String>) data.get("geoChallenge"));
+      roadProject.setnumBridTun((Integer) data.get("numBridTun"));
     }
   }
 }
