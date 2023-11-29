@@ -28,10 +28,6 @@ public class ProjectListModelManager implements ProjectListModel
     Project project = projectList.getProject(index);
     edit(project, data);
   }
-  @Override public void editProjectByName(String name, ArrayList<Object> data){
-    Project project = projectList.getProject(name);
-    edit(project, data);
-  }
   @Override public void addProject(ArrayList<Object> data){
     Project project;
     if (data.size() == 11){

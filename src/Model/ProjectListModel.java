@@ -8,7 +8,6 @@ public interface ProjectListModel
   Project getProject(int index);
   Project getProject(String name);
   void editProject(int index, ArrayList<Object> data);
-  void editProjectByName(String name, ArrayList<Object> data);
   void addProject(ArrayList<Object> data);
   void removeProject(Project project);
   void removeProject(int index);
