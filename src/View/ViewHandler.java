@@ -23,7 +23,7 @@ public class ViewHandler {
 
   public void start(Stage primaryStage) {
     this.primaryStage = primaryStage;
-    openView("ProjectList");
+    openView("");
     System.out.println("Starting view.");
   }
 

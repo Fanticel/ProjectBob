@@ -13,13 +13,12 @@ public class ResidentialProject extends Project
 
   public ResidentialProject(String name, String description,
       int expectedTotalHours, int expectedExpenses, long budget,
-      MyDate timeline, int size, int numKitchens, int numBathrooms,
+      MyDate timeline, String status, int size, int numKitchens, int numBathrooms,
       int othWPlumbing, boolean isNewBuild)
   {
     super(name, description, expectedTotalHours, expectedExpenses, budget,
-        timeline);
+        timeline, status);
     this.size = size;
-
     this.numKitchens = numKitchens;
     this.numBathrooms = numBathrooms;
     this.othWPlumbing = othWPlumbing;
@@ -69,12 +68,12 @@ public class ResidentialProject extends Project
 
   public void setNewBuild(boolean isNewBuild)
   {
-    this.isNewBuild = false;
+    this.isNewBuild = isNewBuild;
   }
 
-  public void isNewBuild(boolean isNewBuild)
+  public boolean isNewBuild()
   {
-    this.isNewBuild = isNewBuild;
+    return isNewBuild;
   }
 
   @Override public String toString()

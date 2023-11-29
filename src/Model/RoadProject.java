@@ -13,11 +13,11 @@ public class RoadProject extends Project
   private ArrayList<String> geoChallenge = new ArrayList<>();
 
   public RoadProject(String name, String description, int expectedTotalHours,
-      int expectedExpenses, long budget, MyDate timeline, long length,
+      int expectedExpenses, long budget, MyDate timeline, String status, long length,
       int width, int numBridTun, ArrayList<String> geoChallenge)
   {
     super(name, description, expectedTotalHours, expectedExpenses, budget,
-        timeline);
+        timeline, status);
     this.length = length;
 
     this.width = width;

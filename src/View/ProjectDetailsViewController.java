@@ -1,5 +1,6 @@
-package Model;
+package View;
 
+import Model.ProjectListModel;
 import javafx.fxml.FXML;
 import javafx.scene.layout.Region;
 

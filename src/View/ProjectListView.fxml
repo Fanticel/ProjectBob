@@ -53,7 +53,7 @@
                         <content>
                             <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="358.0" prefWidth="439.0">
                                 <children>
-                                    <TableView fx:id="projectTable" prefHeight="355.0" prefWidth="442.0">
+                                    <TableView onKeyPressed="#escapeClicked" fx:id="projectTable" prefHeight="355.0" prefWidth="442.0">
                                         <columns>
                                             <TableColumn fx:id="nameColumn" prefWidth="130.0" text="NAME" />
                                             <TableColumn fx:id="typeColumn" prefWidth="130.0" text="TYPE" />
