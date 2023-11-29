@@ -1,0 +1,14 @@
+#backgroundImage{
+    -fx-background-image: url("../Images/landingPageImg.png");
+        -fx-background-repeat: no-repeat;
+        -fx-background-size: cover;
+}
+
+#circularButton {
+    -fx-background-radius: 50em; /* Use a high value to create a circle */
+    -fx-min-width: 50px; /* Set the width of the button */
+    -fx-min-height: 50px; /* Set the height of the button */
+    -fx-max-width: 50px; /* Set the maximum width of the button */
+    -fx-max-height: 50px; /* Set the maximum height of the button */
+    /* Other button styling */
+}

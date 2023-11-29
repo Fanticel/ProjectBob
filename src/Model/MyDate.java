@@ -2,107 +2,85 @@ package Model;
 
 import java.time.LocalDate;
 import java.util.Arrays;
+import java.time.temporal.ChronoUnit;
 
-public class MyDate
-{
+public class MyDate {
   private int day, month, year;
 
-  public MyDate(int day, int month, int year)
-  {
+  public MyDate(int day, int month, int year) {
     set(day, month, year);
   }
 
-  public MyDate(int day, String monthName, int year)
-  {
+  public MyDate(int day, String monthName, int year) {
     set(day, convertToMonthNumber(monthName), year);
   }
 
-  public MyDate()
-  {
+  public MyDate() {
     LocalDate today = LocalDate.now();
     set(today.getDayOfMonth(), today.getMonthValue(), today.getYear());
   }
 
-  public void set(int day, int month, int year)
-  {
-    if (month < 1)
-    {
+  public void set(int day, int month, int year) {
+    if (month < 1) {
       month = 1;
     }
-    if (month > 12)
-    {
+    if (month > 12) {
       month = 12;
     }
     this.month = month;
-    if (year < 0)
-    {
+    if (year < 0) {
       year = -year;
     }
     this.year = year;
-    if (day < 1)
-    {
+    if (day < 1) {
       day = 1;
     }
-    if (day > numberOfDaysInMonth())
-    {
+    if (day > numberOfDaysInMonth()) {
       day = numberOfDaysInMonth();
     }
     this.day = day;
   }
 
-  public void setYear(int year)
-  {
+  public void setYear(int year) {
     this.year = year;
   }
 
-  public int getDay()
-  {
+  public int getDay() {
     return day;
   }
 
-  public int getMonth()
-  {
+  public int getMonth() {
     return month;
   }
 
-  public int getYear()
-  {
+  public int getYear() {
     return year;
   }
 
-  public boolean isLeapYear()
-  {
+  public boolean isLeapYear() {
     return ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0));
   }
 
-  public int numberOfDaysInMonth()
-  {
-    if (month == 2)
-    {
-      if (isLeapYear())
-      {
+  public int numberOfDaysInMonth() {
+    if (month == 2) {
+      if (isLeapYear()) {
         return 29;
       }
-      else
-      {
+      else {
         return 28;
       }
     }
-    else if (Arrays.asList(1, 3, 5, 7, 8, 10, 12).contains(month))
-    {
+    else if (Arrays.asList(1, 3, 5, 7, 8, 10, 12).contains(month)) {
       return 31;
     }
-    else
-    {
+    else {
       return 30;
     }
   }
 
-  public int yearsBetween(MyDate other)
-  { //the smaller date will be in variables 1
+  public int yearsBetween(MyDate other) { //the smaller date will be in variables 1
     int x1 = other.day, x2 = day, y1 = other.month, y2 = month, z1 = other.year, z2 = year;
-    if (isBefore(other))
-    {
+    if (isBefore(other)) {
       x1 = day;
       y1 = month;
       z1 = year;
@@ -110,63 +88,89 @@ public class MyDate
       y2 = other.month;
       z2 = other.year;
     }
-    if (y2 > y1 || y2 == y1 && x2 >= x1)
-    {
+    if (y2 > y1 || y2 == y1 && x2 >= x1){
       return z2 - z1;
     }
-    return (z2 - z1) - 1;
+    return (z2 - z1) -1;
   }
 
-  public void stepForwardOneDay()
-  {
+  public int daysBetween(MyDate other) {
+    int days1 = getTotalDays(this);
+    int days2 = getTotalDays(other);
+
+    return Math.abs(days2 - days1);
+  }
+
+  private int getTotalDays(MyDate date) {
+    int totalDays = date.getYear() * 365; // Approximating based on years
+    totalDays += countDaysUntilMonth(date.getMonth(), date.getYear()); // Days in the months passed in the year
+    totalDays += date.getDay(); // Adding days
+    totalDays += countLeapYearsUntil(date.getYear()); // Adjusting for leap years
+
+    return totalDays;
+  }
+
+  private int countLeapYearsUntil(int year) {
+    int count = 0;
+    for (int i = 1; i < year; i++) {
+      MyDate tempDate = new MyDate(1, 1, i);
+      if (tempDate.isLeapYear()) {
+        count++;
+      }
+    }
+    return count;
+  }
+
+
+  private int countDaysUntilMonth(int month, int year) {
+    int days = 0;
+    for (int i = 1; i < month; i++) {
+      MyDate tempDate = new MyDate(1, i, year);
+      days += tempDate.numberOfDaysInMonth();
+    }
+    return days;
+  }
+
+  public void stepForwardOneDay() {
     day++;
-    if (day > numberOfDaysInMonth())
-    {
+    if (day > numberOfDaysInMonth()) {
       day = 1;
       month++;
-      if (month == 13)
-      {
+      if (month == 13) {
         month = 1;
         year++;
       }
     }
   }
 
-  public void stepForwardManyDays(int x)
-  {
-    for (int i = 0; i < x; i++)
-    {
+  public void stepForwardManyDays(int x) {
+    for (int i = 0; i < x; i++) {
       stepForwardOneDay();
     }
   }
 
-  public boolean isBefore(MyDate other)
-  {
+  public boolean isBefore(MyDate other) {
     int totalDaysOne = getYear() * 10000 + getMonth() * 100 + getDay();
     int totalDatsTwo =
         other.getYear() * 10000 + other.getMonth() * 100 + other.getDay();
     return (totalDaysOne < totalDatsTwo);
   }
 
-  public String dayOfWeek()
-  {
+  public String dayOfWeek() {
     int q, m, k, j, h;
     q = day;
     m = month;
-    if (m < 3)
-    {
+    if (m < 3) {
       m += 12;
       k = (year - 1) % 100;
       j = (year - 1) / 100;
     } //If month is jan or feb, add 12 to month, process year as - 1
-    else
-    {
+    else {
       k = year % 100;
       j = year / 100;
     } //Else process everything normally
     h = (q + (13 * (m + 1)) / 5 + k + (k / 4) + (j / 4) + 5 * j) % 7;
-    switch (h)
-    {
+    switch (h) {
       case 0:
         return "Saturday";
       case 1:
@@ -186,10 +190,8 @@ public class MyDate
     }
   }
 
-  public String getMonthName()
-  {
-    switch (month)
-    {
+  public String getMonthName() {
+    switch (month) {
       case 1:
         return "January";
       case 2:
@@ -219,10 +221,8 @@ public class MyDate
     }
   }
 
-  public static int convertToMonthNumber(String monthName)
-  {
-    switch (monthName)
-    {
+  public static int convertToMonthNumber(String monthName) {
+    switch (monthName) {
       case "February":
         return 2;
       case "March":
@@ -250,56 +250,44 @@ public class MyDate
     }
   }
 
-  public String toString()
-  {
+  public String toString() {
     String all = "";
-    if (day < 10)
-    {
+    if (day < 10) {
       all += "0" + day;
     }
-    else
-    {
+    else {
       all += day;
     }
-    if (month < 10)
-    {
+    if (month < 10) {
       all += "/0" + month;
     }
-    else
-    {
+    else {
       all += "/" + month;
     }
-    if (year < 10)
-    {
+    if (year < 10) {
       all += "/000" + year;
     }
-    else if (year < 100)
-    {
+    else if (year < 100) {
       all += "/00" + year;
     }
-    else if (year < 1000)
-    {
+    else if (year < 1000) {
       all += "/0" + year;
     }
-    else
-    {
+    else {
       all += "/" + year;
     }
     return all;
   }
 
-  public boolean equals(Object obj)
-  {
-    if (obj == null || getClass() != obj.getClass())
-    {
+  public boolean equals(Object obj) {
+    if (obj == null || getClass() != obj.getClass()) {
       return false;
     }
     MyDate other = (MyDate) obj;
     return day == other.day && month == other.month && year == other.year;
   }
 
-  public MyDate copy()
-  {
+  public MyDate copy() {
     MyDate copy = new MyDate(day, month, year);
     return copy;
   }
