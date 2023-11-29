@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox prefHeight="471.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ResidentialProjectView">
+   <children>
+      <ScrollPane prefHeight="471.0" prefWidth="608.0">
+        <content>
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="471.0" prefWidth="610.0">
+               <children>
+                  <VBox prefHeight="581.0" prefWidth="608.0">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="608.0" spacing="10.0">
+                           <children>
+                              <Label prefHeight="27.0" prefWidth="228.0" text="Size">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="sizeField" prefHeight="40.0" prefWidth="275.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="608.0" spacing="10.0">
+                           <children>
+                              <Label prefHeight="27.0" prefWidth="228.0" text="Number of kitchens">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="numKitchensField" prefHeight="40.0" prefWidth="275.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="608.0" spacing="10.0">
+                           <children>
+                              <Label prefHeight="27.0" prefWidth="228.0" text="Number of bathrooms">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="numBathroomsField" prefHeight="40.0" prefWidth="275.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox fx:id="othWPlumbingField" alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="608.0" spacing="10.0">
+                           <children>
+                              <Label prefHeight="27.0" prefWidth="228.0" text="Other rooms with plumbing">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField prefHeight="40.0" prefWidth="275.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="608.0" spacing="10.0">
+                           <children>
+                              <Label prefHeight="27.0" prefWidth="228.0" text="New build/ renovation">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <RadioButton mnemonicParsing="false" text="New build">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="newBuildGroup" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton mnemonicParsing="false" text="Renovation" toggleGroup="$newBuildGroup">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </RadioButton>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="608.0" spacing="10.0">
+                           <children>
+                              <Label prefHeight="27.0" prefWidth="228.0" text="Expected total hours">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField prefHeight="40.0" prefWidth="275.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="598.0" spacing="10.0">
+                           <children>
+                              <Label prefHeight="27.0" prefWidth="228.0" text="Expected expenses">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField prefHeight="40.0" prefWidth="275.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="598.0" spacing="10.0">
+                           <children>
+                              <Label prefHeight="27.0" prefWidth="228.0" text="Total hours">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField prefHeight="40.0" prefWidth="275.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="598.0" spacing="10.0">
+                           <children>
+                              <Label prefHeight="27.0" prefWidth="228.0" text="Expenses">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField prefHeight="40.0" prefWidth="275.0">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                           <padding>
+                              <Insets left="10.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="10.0" />
+                     </padding>
+                  </VBox>
+               </children>
+            </AnchorPane>
+        </content>
+      </ScrollPane>
+   </children>
+</HBox>
