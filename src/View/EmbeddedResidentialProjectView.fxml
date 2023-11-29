@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox prefHeight="471.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ResidentialProjectViewController">
+<HBox prefHeight="471.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.EmbeddedResidentialProjectViewController">
    <children>
       <ScrollPane prefHeight="471.0" prefWidth="608.0">
         <content>
@@ -73,7 +73,7 @@
                               <Insets left="10.0" />
                            </padding>
                         </HBox>
-                        <HBox fx:id="othWPlumbingField" alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="608.0" spacing="10.0">
+                        <HBox  alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="608.0" spacing="10.0">
                            <children>
                               <Label prefHeight="27.0" prefWidth="228.0" text="Other rooms with plumbing">
                                  <font>
