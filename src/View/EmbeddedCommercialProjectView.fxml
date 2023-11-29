@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="471.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.EmbeddedCommercialProjectViewController">
+<children>
+    <ScrollPane prefHeight="471.0" prefWidth="608.0">
+        <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="471.0" prefWidth="610.0">
+                <children>
+                    <VBox prefHeight="581.0" prefWidth="608.0">
+                        <children>
+                            <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="608.0" spacing="10.0">
+                                <children>
+                                    <Label prefHeight="27.0" prefWidth="228.0" text="Size">
+                                        <font>
+                                            <Font size="18.0" />
+                                        </font>
+                                    </Label>
+                                    <TextField fx:id="sizeField" prefHeight="40.0" prefWidth="275.0">
+                                        <font>
+                                            <Font size="18.0" />
+                                        </font>
+                                    </TextField>
+                                </children>
+                                <VBox.margin>
+                                    <Insets />
+                                </VBox.margin>
+                                <padding>
+                                    <Insets left="10.0" />
+                                </padding>
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="608.0" spacing="10.0">
+                                <children>
+                                    <Label prefHeight="27.0" prefWidth="228.0" text="Number of floors">
+                                        <font>
+                                            <Font size="18.0" />
+                                        </font>
+                                    </Label>
+                                    <TextField fx:id="numKitchensField" prefHeight="40.0" prefWidth="275.0">
+                                        <font>
+                                            <Font size="18.0" />
+                                        </font>
+                                    </TextField>
+                                </children>
+                                <padding>
+                                    <Insets left="10.0" />
+                                </padding>
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" prefHeight="135.0" prefWidth="598.0" spacing="10.0">
+                                <children>
+                                    <Label prefHeight="27.0" prefWidth="228.0" text="Intended use">
+                                        <font>
+                                            <Font size="18.0" />
+                                        </font>
+                                    </Label>
+                              <TextArea fx:id="intendedUseArea" prefHeight="70.0" prefWidth="326.0" />
+                                </children>
+                                <padding>
+                                    <Insets left="10.0" />
+                                </padding>
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="608.0" spacing="10.0">
+                                <children>
+                                    <Label prefHeight="27.0" prefWidth="228.0" text="Expected total hours">
+                                        <font>
+                                            <Font size="18.0" />
+                                        </font>
+                                    </Label>
+                                    <TextField fx:id="expectedTotalHoursField" prefHeight="40.0" prefWidth="275.0">
+                                        <font>
+                                            <Font size="18.0" />
+                                        </font>
+                                    </TextField>
+                                </children>
+                                <padding>
+                                    <Insets left="10.0" />
+                                </padding>
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="598.0" spacing="10.0">
+                                <children>
+                                    <Label prefHeight="27.0" prefWidth="228.0" text="Expected expenses">
+                                        <font>
+                                            <Font size="18.0" />
+                                        </font>
+                                    </Label>
+                                    <TextField fx:id="expectedExpensesField" prefHeight="40.0" prefWidth="275.0">
+                                        <font>
+                                            <Font size="18.0" />
+                                        </font>
+                                    </TextField>
+                                </children>
+                                <padding>
+                                    <Insets left="10.0" />
+                                </padding>
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="598.0" spacing="10.0">
+                                <children>
+                                    <Label prefHeight="27.0" prefWidth="228.0" text="Total hours">
+                                        <font>
+                                            <Font size="18.0" />
+                                        </font>
+                                    </Label>
+                                    <TextField fx:id="totalHoursField" prefHeight="40.0" prefWidth="275.0">
+                                        <font>
+                                            <Font size="18.0" />
+                                        </font>
+                                    </TextField>
+                                </children>
+                                <padding>
+                                    <Insets left="10.0" />
+                                </padding>
+                            </HBox>
+                            <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="598.0" spacing="10.0">
+                                <children>
+                                    <Label prefHeight="27.0" prefWidth="228.0" text="Expenses">
+                                        <font>
+                                            <Font size="18.0" />
+                                        </font>
+                                    </Label>
+                                    <TextField fx:id="expensesField" prefHeight="40.0" prefWidth="275.0">
+                                        <font>
+                                            <Font size="18.0" />
+                                        </font>
+                                    </TextField>
+                                </children>
+                                <padding>
+                                    <Insets left="10.0" />
+                                </padding>
+                            </HBox>
+                        </children>
+                        <padding>
+                            <Insets left="10.0" />
+                        </padding>
+                    </VBox>
+                </children>
+            </AnchorPane>
+        </content>
+    </ScrollPane>
+</children>
+</VBox>
