@@ -8,7 +8,9 @@ public class MyApplication extends Application
 {
   public void start(Stage primaryStage)
   {
-    ViewHandler view = new ViewHandler(new ProjectListModelManager());
+    ProjectListModelManager projectListModelManager = new ProjectListModelManager();
+    projectListModelManager.createSampleData();
+    ViewHandler view = new ViewHandler(projectListModelManager);
     view.start(primaryStage);
   }
 }

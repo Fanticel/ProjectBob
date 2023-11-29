@@ -2,8 +2,7 @@ package Model;
 
 import Model.Project;
 
-public class ResidentialProject extends Project
-{
+public class ResidentialProject extends Project {
   private int size;
   private String type;
   private int numKitchens;
@@ -13,11 +12,10 @@ public class ResidentialProject extends Project
 
   public ResidentialProject(String name, String description,
       int expectedTotalHours, int expectedExpenses, long budget,
-      MyDate timeline, int size, int numKitchens, int numBathrooms,
-      int othWPlumbing, boolean isNewBuild)
-  {
+      MyDate timeline, String status, int size, int numKitchens,
+      int numBathrooms, int othWPlumbing, boolean isNewBuild) {
     super(name, description, expectedTotalHours, expectedExpenses, budget,
-        timeline);
+        timeline, status);
     this.size = size;
     this.type = type;
     this.numKitchens = numKitchens;
@@ -27,68 +25,55 @@ public class ResidentialProject extends Project
 
   }
 
-  public void setSize(int size)
-  {
+  public void setSize(int size) {
     this.size = size;
   }
 
-  public void setType(String type)
-  {
+  public void setType(String type) {
     this.type = "Residential Project";
   }
 
-  public String getType()
-  {
+  public String getType() {
     return this.type;
   }
 
-  public int getSize()
-  {
+  public int getSize() {
     return size;
   }
 
-  public void setNumKitchens(int numKitchens)
-  {
+  public void setNumKitchens(int numKitchens) {
     this.numKitchens = numKitchens;
   }
 
-  public int getNumKitchens()
-  {
+  public int getNumKitchens() {
     return numKitchens;
   }
 
-  public void setNumBathrooms(int numBathrooms)
-  {
+  public void setNumBathrooms(int numBathrooms) {
     this.numBathrooms = numBathrooms;
   }
 
-  public int getNumBathrooms()
-  {
+  public int getNumBathrooms() {
     return this.numBathrooms;
   }
 
-  public void setOthWPlumbing(int othWPlumbing)
-  {
+  public void setOthWPlumbing(int othWPlumbing) {
     this.othWPlumbing = othWPlumbing;
   }
 
-  public int getOthWPlumbing()
-  {
+  public int getOthWPlumbing() {
     return this.othWPlumbing;
   }
 
-  public boolean isNewBuild()
-  {
+  public boolean isNewBuild() {
     return isNewBuild;
   }
 
-  public void setNewBuild(boolean isNewBuild)
-  {
+  public void setNewBuild(boolean isNewBuild) {
     this.isNewBuild = isNewBuild;
   }
 
-  @Override public String toString()
-  {
+  @Override public String toString() {
     return super.toString();
 
   }

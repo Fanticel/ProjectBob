@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<HBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ProjectListViewController" >
+<HBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ProjectListViewController">
    <children>
       <VBox alignment="CENTER" prefHeight="400.0" prefWidth="158.0">
          <children>
@@ -52,11 +52,11 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="358.0" prefWidth="439.0">
                      <children>
-                        <TableView prefHeight="355.0" prefWidth="442.0">
+                        <TableView fx:id="projectTable" prefHeight="355.0" prefWidth="442.0">
                           <columns>
-                            <TableColumn prefWidth="130.0" text="NAME" />
-                            <TableColumn prefWidth="130.0" text="TYPE" />
-                              <TableColumn prefWidth="182.0" text="STATUS" />
+                            <TableColumn fx:id="nameColumn" prefWidth="130.0" text="NAME" />
+                            <TableColumn fx:id="typeColumn" prefWidth="130.0" text="TYPE" />
+                              <TableColumn fx:id="StatusColumn" prefWidth="182.0" text="STATUS" />
                           </columns>
                         </TableView>
                      </children>

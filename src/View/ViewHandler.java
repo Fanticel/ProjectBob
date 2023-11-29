@@ -6,8 +6,7 @@ import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import Model.ProjectListModel;
 
-public class ViewHandler
-{
+public class ViewHandler {
   private Scene currentScene;
   private Stage primaryStage;
   private ProjectListModel model;
@@ -15,30 +14,26 @@ public class ViewHandler
   private HomeViewController homeViewController;
   private ProjectListViewController projectListViewController;
 
-  public ViewHandler(ProjectListModel model)
-  {
+  public ViewHandler(ProjectListModel model) {
     this.currentScene = new Scene(new Region());
     this.model = model;
     viewState = new ViewState();
   }
 
-  public void start(Stage primaryStage)
-  {
+  public void start(Stage primaryStage) {
     this.primaryStage = primaryStage;
     openView("ProjectList");
     System.out.println("Starting view.");
   }
 
-  public void openView(String id)
-  {
+  public void openView(String id) {
     Region root = loadHomeView("HomeView.fxml");
-    switch (id){
+    switch (id) {
       case "ProjectList" -> root = loadProjectListView("ProjectListView.fxml");
     }
     currentScene.setRoot(root);
     String title = "";
-    if (root.getUserData() != null)
-    {
+    if (root.getUserData() != null) {
       title += root.getUserData();
     }
     primaryStage.setTitle(title);
@@ -69,6 +64,7 @@ public class ViewHandler
     System.out.println("root works");
     return homeViewController.getRoot();
   }
+
   private Region loadProjectListView(String fxmlFile) {
     Region root = null;
     if (projectListViewController == null) {
