@@ -33,18 +33,18 @@ public class ProjectListModelManager implements ProjectListModel
   @Override public void addProject(ArrayList<Object> data){
     Project project;
     if (data.size() == 11){
-       project = new ResidentialProject((String)data.get(0), (String)data.get(1), (int) data.get(2),(int) data.get(3),(long) data.get(4),(MyDate) data.get(5),(int) data.get(6), (int) data.get(7), (int) data.get(8), (int) data.get(9) ,(Boolean) data.get(10));
+       project = new ResidentialProject((String)data.get(0), (String)data.get(1), (Integer) data.get(2),(Integer) data.get(3),(Long) data.get(4),(MyDate) data.get(5),(Integer) data.get(6), (Integer) data.get(7), (Integer) data.get(8), (Integer) data.get(9) ,(Boolean) data.get(10));
     }
     else if (data.size() == 9)
     {
-       project = new CommercialProject((String)data.get(0), (String)data.get(1), (int) data.get(2),(int) data.get(3),(long) data.get(4),(MyDate) data.get(5),(int) data.get(6), (int) data.get(7), (String) data.get(8));
+       project = new CommercialProject((String)data.get(0), (String)data.get(1), (Integer) data.get(2),(Integer) data.get(3),(Long) data.get(4),(MyDate) data.get(5),(Integer) data.get(6), (Integer) data.get(7), (String) data.get(8));
     }
     else if (data.size() == 8)
     {
-       project = new IndustrialProject((String)data.get(0), (String)data.get(1), (int) data.get(2),(int) data.get(3),(long) data.get(4),(MyDate) data.get(5),(String) data.get(6), (int) data.get(7));
+       project = new IndustrialProject((String)data.get(0), (String)data.get(1), (Integer) data.get(2),(Integer) data.get(3),(Long) data.get(4),(MyDate) data.get(5),(String) data.get(6), (Integer) data.get(7));
     }
     else {
-       project = new RoadProject((String)data.get(0), (String)data.get(1), (int) data.get(2),(int) data.get(3),(long) data.get(4),(MyDate) data.get(5),(int) data.get(6), (int) data.get(7),(int) data.get(8),(ArrayList<String>) data.get(9));
+       project = new RoadProject((String)data.get(0), (String)data.get(1), (Integer) data.get(2),(Integer) data.get(3),(Long) data.get(4),(MyDate) data.get(5),(Integer) data.get(6), (Integer) data.get(7),(Integer) data.get(8),(ArrayList<String>) data.get(9));
     }
     projectList.addProject(project);
   }
