@@ -13,6 +13,7 @@ public class ViewHandler
   private ProjectListModel model;
   private ViewState viewState;
   private HomeViewController homeViewController;
+  private ProjectListViewController projectListViewController;
 
   public ViewHandler(ProjectListModel model)
   {
@@ -24,7 +25,7 @@ public class ViewHandler
   public void start(Stage primaryStage)
   {
     this.primaryStage = primaryStage;
-    openView("");
+    openView("ProjectList");
     System.out.println("Starting view.");
   }
 
@@ -32,7 +33,7 @@ public class ViewHandler
   {
     Region root = loadHomeView("HomeView.fxml");
     switch (id){
-//      case "ProjectList" -> root = ("ProjectListView.fxml");
+      case "ProjectList" -> root = loadProjectListView("ProjectListView.fxml");
     }
     currentScene.setRoot(root);
     String title = "";
@@ -67,6 +68,26 @@ public class ViewHandler
     }
     System.out.println("root works");
     return homeViewController.getRoot();
+  }
+  private Region loadProjectListView(String fxmlFile) {
+    Region root = null;
+    if (projectListViewController == null) {
+      try {
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        root = loader.load();
+        projectListViewController = loader.getController();
+        projectListViewController.init(this, model, root);
+      }
+      catch (Exception e) {
+        e.printStackTrace();
+      }
+    }
+    else {
+      projectListViewController.reset();
+    }
+    System.out.println("root works");
+    return projectListViewController.getRoot();
   }
 }
 
