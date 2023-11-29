@@ -14,12 +14,12 @@ public class RoadProject extends Project
 
   public RoadProject(String name, String description, int expectedTotalHours,
       int expectedExpenses, long budget, MyDate timeline, long length,
-      int width, int numBridTun, ArrayList<String> geoChallenge, String type)
+      int width, int numBridTun, ArrayList<String> geoChallenge)
   {
     super(name, description, expectedTotalHours, expectedExpenses, budget,
         timeline);
     this.length = length;
-    this.type = type;
+
     this.width = width;
     this.numBridTun = numBridTun;
     this.geoChallenge = new ArrayList<>(geoChallenge);
@@ -40,16 +40,6 @@ public class RoadProject extends Project
   public void setnumBridTun(int numBridTun)
   {
     this.numBridTun = 0;
-  }
-
-  public void setType(String type)
-  {
-    this.type = "Road Project";
-  }
-
-  public String getType()
-  {
-    return this.type;
   }
 
   public int getnumBridTun()

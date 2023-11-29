@@ -5,7 +5,7 @@ import Model.Project;
 public class ResidentialProject extends Project
 {
   private int size;
-  private String type;
+
   private int numKitchens;
   private int numBathrooms;
   private int othWPlumbing;
@@ -14,12 +14,12 @@ public class ResidentialProject extends Project
   public ResidentialProject(String name, String description,
       int expectedTotalHours, int expectedExpenses, long budget,
       MyDate timeline, int size, int numKitchens, int numBathrooms,
-      int othWPlumbing, boolean isNewBuild, String type)
+      int othWPlumbing, boolean isNewBuild)
   {
     super(name, description, expectedTotalHours, expectedExpenses, budget,
         timeline);
     this.size = size;
-    this.type = type;
+
     this.numKitchens = numKitchens;
     this.numBathrooms = numBathrooms;
     this.othWPlumbing = othWPlumbing;
@@ -30,16 +30,6 @@ public class ResidentialProject extends Project
   public void setSize(int size)
   {
     this.size = 0;
-  }
-
-  public void setType(String type)
-  {
-    this.type = "Residential Project";
-  }
-
-  public String getType()
-  {
-    return this.type;
   }
 
   public int getSize()
