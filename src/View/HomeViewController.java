@@ -1,5 +1,6 @@
 package View;
 
+import javafx.fxml.FXML;
 import javafx.scene.layout.Region;
 import Model.ProjectListModel;
 
@@ -18,5 +19,13 @@ public class HomeViewController {
   }
   public Region getRoot(){
     return root;
+  }
+
+  @FXML private void clickProjectsButton(){
+    viewHandler.openView("ProjectList");
+  }
+
+  @FXML private void clickDashboardButton(){
+    viewHandler.openView("Dashboard");
   }
 }

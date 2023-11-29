@@ -40,11 +40,11 @@
       </HBox>
       <HBox alignment="CENTER" prefHeight="70.0" prefWidth="1023.0" spacing="50.0">
          <children>
-            <Button fx:id="button" mnemonicParsing="false" prefHeight="40.0" prefWidth="95.0" text="Dashboard" textFill="WHITE">
+            <Button fx:id="button" mnemonicParsing="false" prefHeight="40.0" prefWidth="95.0" text="Dashboard" textFill="WHITE" onAction="#clickDashboardButton">
                <font>
                   <Font size="15.0" />
                </font></Button>
-            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="95.0" text="Projects" textFill="WHITE">
+            <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="95.0" text="Projects" textFill="WHITE" onAction="#clickProjectsButton">
                <font>
                   <Font size="15.0" />
                </font></Button>
