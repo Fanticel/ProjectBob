@@ -31,8 +31,25 @@ public class ProjectList {
     }
     return ans;
   }
-  public ProjectList getAllProjectsByData(ArrayList<Object> data){ //TODO implement this function :(
-    return null;
+  public ProjectList getAllProjectsByData(ArrayList<Object> data){
+    ProjectList ans = new ProjectList();
+    int PType = Integer.parseInt(data.get(0).toString());
+    switch (PType){
+      case 0 : {
+        ArrayList<ResidentialProject> residentialProjectsAL = (ArrayList<ResidentialProject>) ((ArrayList<?>)getAllProjectByType(ResidentialProject.class).returnAsArrayList());
+        break;
+      }
+      case 1 : {
+        break;
+      }
+      case 2 : {
+        break;
+      }
+      case 3 : {
+
+      }
+    }
+    return ans;
   }
   public void removeProject(Project project){
     projects.remove(project);

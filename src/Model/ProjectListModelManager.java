@@ -28,7 +28,7 @@ public class ProjectListModelManager implements ProjectListModel
   }
   @Override public void editProject(int index, ArrayList<Object> data){
     Project project = projectList.getProject(index);
-    edit(project, data);
+//    edit(project, data);
   }
   @Override public void addProject(ArrayList<Object> data){
     Project project;

@@ -1,6 +1,6 @@
 package Model;
 
-public class IndustrialProject extends Project
+public class  IndustrialProject extends Project
 {
   private int size;
   private String type;
