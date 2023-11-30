@@ -13,7 +13,10 @@ public class ProjectListViewController {
   private ViewHandler viewHandler;
   private Region root;
   private ProjectListViewModel projectListViewModel;
+  private String projectName;
   @FXML private Button AddButton;
+  @FXML private Button EditButton;
+  @FXML private Button DetailsButton;
   @FXML private TableView<ProjectViewModel> projectTable;
   @FXML private TableColumn<ProjectViewModel, String> nameColumn;
   @FXML private TableColumn<ProjectViewModel, String> typeColumn;
@@ -41,8 +44,12 @@ public class ProjectListViewController {
     projectTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
       if (newSelection != null) {
         System.out.println("Selected: " + newSelection.namePropertyProperty().getValue() + ", " + newSelection.typePropertyProperty().getValue() + ", " + newSelection.statusPropertyProperty().getValue());
+        projectName = newSelection.namePropertyProperty().getValue();
+        EditButton.disableProperty().setValue(false);
+        DetailsButton.disableProperty().setValue(false);
       }
     });
+
   }
 
   public void reset() {
@@ -56,11 +63,30 @@ public class ProjectListViewController {
   @FXML private void clickBackButt() {
     viewHandler.openView("");
   }
+  @FXML private void clickEditButt(){
+    System.out.println("Editing: " + projectName);
+  }
+  @FXML private void clickDetailButt(){
+    System.out.println("Details: " + projectName);
+  }
+  @FXML private void clickAddButt(){
+    viewHandler.openView("CreateProject");
+    unselected();
+  }
+  @FXML private void clickSearchButt(){
+    System.out.println("Searching a project");
+    unselected();
+  }
   @FXML private void escapeClicked(KeyEvent event){
     if (event.getCode().toString().equals("ESCAPE")) {
-      AddButton.requestFocus();
-      System.out.println("Unselected");
+      unselected();
     }
+  }
+  private void unselected(){
+    AddButton.requestFocus();
+    EditButton.disableProperty().setValue(true);
+    DetailsButton.disableProperty().setValue(true);
+    System.out.println("Unselected");
   }
 
 }

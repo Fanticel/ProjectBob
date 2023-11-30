@@ -43,28 +43,30 @@ public class ProjectListModelManager implements ProjectListModel {
     if (data.size() == 12) {
       project = new ResidentialProject((String) data.get(0),
           (String) data.get(1), (Integer) data.get(2), (Integer) data.get(3),
-          Long.parseLong(data.get(4).toString()), (MyDate) data.get(5), (String) data.get(6),
-          (Integer) data.get(7), (Integer) data.get(8), (Integer) data.get(9),
-          (Integer) data.get(10), (Boolean) data.get(11));
+          Long.parseLong(data.get(4).toString()), (MyDate) data.get(5),
+          (String) data.get(6), (Integer) data.get(7), (Integer) data.get(8),
+          (Integer) data.get(9), (Integer) data.get(10),
+          (Boolean) data.get(11));
     }
     else if (data.size() == 10) {
       project = new CommercialProject((String) data.get(0),
           (String) data.get(1), (Integer) data.get(2), (Integer) data.get(3),
-          Long.parseLong(data.get(4).toString()), (MyDate) data.get(5), (String) data.get(6),
-          (Integer) data.get(7), (Integer) data.get(8), (String) data.get(9));
+          Long.parseLong(data.get(4).toString()), (MyDate) data.get(5),
+          (String) data.get(6), (Integer) data.get(7), (Integer) data.get(8),
+          (String) data.get(9));
     }
     else if (data.size() == 9) {
       project = new IndustrialProject((String) data.get(0),
           (String) data.get(1), (Integer) data.get(2), (Integer) data.get(3),
-          Long.parseLong(data.get(4).toString()), (MyDate) data.get(5), (String) data.get(6),
-          (String) data.get(7), (Integer) data.get(8));
+          Long.parseLong(data.get(4).toString()), (MyDate) data.get(5),
+          (String) data.get(6), (String) data.get(7), (Integer) data.get(8));
     }
     else {
       project = new RoadProject((String) data.get(0), (String) data.get(1),
           (Integer) data.get(2), (Integer) data.get(3),
-          Long.parseLong(data.get(4).toString()), (MyDate) data.get(5), (String) data.get(6),
-          (Integer) data.get(7), (Integer) data.get(8), (Integer) data.get(9),
-          (ArrayList<String>) data.get(10));
+          Long.parseLong(data.get(4).toString()), (MyDate) data.get(5),
+          (String) data.get(6), (Integer) data.get(7), (Integer) data.get(8),
+          (Integer) data.get(9), (ArrayList<String>) data.get(10));
     }
     projectList.addProject(project);
   }
@@ -88,21 +90,27 @@ public class ProjectListModelManager implements ProjectListModel {
   @Override public ProjectList getAllProjectsByData(ArrayList<Object> data) {
     return projectList.getAllProjectsByData(data);
   }
+  public void getFromFile(){
+    try{
+      for (Project i : fileManagerXML.readFromFile("Save.xml").returnAsArrayList()) {
+        projectList.addProject(i);
+      }
+    }
+    catch (IOException e){
+      System.out.println(e.getMessage());
+    }
+  }
 
   public void createSampleData() {
     ArrayList<Object> data1 = new ArrayList<>(
-        Arrays.asList("Dupa", "Zupa", 2, 3, 4, new MyDate(), "Ongoing", "Kupa", 10));
-    addProject(data1);
-    addProject(data1);
-    addProject(data1);
+        Arrays.asList("Dupa", "Zupa", 2, 3, 4, new MyDate(), "Ongoing", "Kupa",
+            10));
     ArrayList<Object> data2 = new ArrayList<>(
-        Arrays.asList("Dupa2", "Zupa2", 5, 6, 7, new MyDate(), "Ongoing", 11, 12,
-            "Kupa2"));
-    addProject(data2);
-    addProject(data1);
-    addProject(data2);
+        Arrays.asList("Dupa2", "Zupa2", 5, 6, 7, new MyDate(), "Ongoing", 11,
+            12, "Kupa2"));
     ArrayList<Object> data3 = new ArrayList<>(
-        Arrays.asList("Dupa3", "Zupa3", 8, 9, 10, new MyDate(), "Ongoing", 13, 14, 15,
+        Arrays.asList("Dupa3", "Zupa3", 8, 9, 10, new MyDate(), "Ongoing", 13,
+            14, 15,
             new ArrayList<String>(Arrays.asList("Lupa1", "lupa2", "lupa3"))));
     addProject(data1);
     addProject(data2);

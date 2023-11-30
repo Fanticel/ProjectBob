@@ -9,7 +9,7 @@ public class MyApplication extends Application
   public void start(Stage primaryStage)
   {
     ProjectListModelManager projectListModelManager = new ProjectListModelManager();
-    projectListModelManager.createSampleData();
+    projectListModelManager.getFromFile();
     ViewHandler view = new ViewHandler(projectListModelManager);
     view.start(primaryStage);
   }

@@ -14,6 +14,7 @@ public class ViewHandler {
   private HomeViewController homeViewController;
   private ProjectListViewController projectListViewController;
   private DashboardViewController dashboardViewController;
+  private CreateProjectViewController createProjectViewController;
 
   public ViewHandler(ProjectListModel model) {
     this.currentScene = new Scene(new Region());
@@ -23,7 +24,7 @@ public class ViewHandler {
 
   public void start(Stage primaryStage) {
     this.primaryStage = primaryStage;
-    openView("");
+    openView("CreateProject");
     System.out.println("Starting view.");
   }
 
@@ -32,6 +33,7 @@ public class ViewHandler {
     switch (id) {
       case "ProjectList" -> root = loadProjectListView("ProjectListView.fxml");
       case "Dashboard" -> root = loadDashboardView("DashboardView.fxml");
+      case "CreateProject" -> root = loadCreateProjectView("CreateProjectView.fxml");
     }
     currentScene.setRoot(root);
     String title = "";
@@ -107,6 +109,26 @@ public class ViewHandler {
     }
     System.out.println("root works");
     return dashboardViewController.getRoot();
+  }
+  private Region loadCreateProjectView(String fxmlFile){
+    Region root = null;
+    if (createProjectViewController==null){
+      try{
+        FXMLLoader loader =new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        root = loader.load();
+        createProjectViewController = loader.getController();
+        createProjectViewController.init(this, model, root);
+      }
+      catch (Exception e){
+        e.printStackTrace();
+      }
+    }
+    else {
+      createProjectViewController.reset();
+    }
+    System.out.println("root works");
+    return createProjectViewController.getRoot();
   }
 }
 

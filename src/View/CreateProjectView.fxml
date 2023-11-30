@@ -7,55 +7,78 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<VBox prefHeight="400.0" prefWidth="412.0" spacing="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.CreateProjectViewController">
-   <children>
-      <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="518.0" spacing="10.0">
-         <children>
-            <Label prefHeight="27.0" prefWidth="70.0" text="Type">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <ChoiceBox fx:id="typeChoiceBox" prefWidth="150.0" />
-         </children>
-      </HBox>
-      <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="518.0" spacing="10.0">
-         <children>
-            <Label prefHeight="27.0" prefWidth="70.0" text="Name">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <TextField fx:id="nameField" prefHeight="26.0" prefWidth="248.0" />
-         </children>
-      </HBox>
-      <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="518.0" spacing="10.0">
-         <children>
-            <Label prefHeight="27.0" prefWidth="108.0" text="Description">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <TextArea fx:id="descriptionArea" prefHeight="109.0" prefWidth="263.0" />
-         </children>
-      </HBox>
-      <Label prefHeight="18.0" prefWidth="286.0" text="Error label" textFill="#f20303" wrapText="true">
-         <font>
-            <Font size="16.0" />
-         </font>
-      </Label>
-      <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="518.0" spacing="10.0">
-         <children>
-            <Button mnemonicParsing="false" onAction="#create" prefHeight="34.0" prefWidth="91.0" text="Create" />
-            <Button mnemonicParsing="false" onAction="#back" prefHeight="35.0" prefWidth="86.0" text="Back" />
-         </children>
-      </HBox>
-   </children>
-   <padding>
-      <Insets left="10.0" right="10.0" />
-   </padding>
+<VBox alignment="CENTER" prefHeight="533.0" prefWidth="1042.0" spacing="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.CreateProjectViewController">
+    <children>
+        <HBox prefHeight="534.0" prefWidth="1050.0">
+            <children>
+                <VBox alignment="TOP_CENTER" prefHeight="516.0" prefWidth="387.0">
+                    <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="518.0" spacing="10.0">
+                            <children>
+                                <Label prefHeight="27.0" prefWidth="70.0" text="Type">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <ChoiceBox fx:id="typeChoiceBox" prefWidth="150.0" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="518.0" spacing="10.0">
+                            <children>
+                                <Label prefHeight="27.0" prefWidth="70.0" text="Name">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <TextField fx:id="nameField" prefHeight="26.0" prefWidth="248.0" />
+                            </children>
+                        </HBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="518.0" spacing="10.0">
+                            <children>
+                                <Label prefHeight="27.0" prefWidth="108.0" text="Description">
+                                    <font>
+                                        <Font size="18.0" />
+                                    </font>
+                                </Label>
+                                <TextArea fx:id="descriptionArea" prefHeight="109.0" prefWidth="263.0" />
+                            </children>
+                        </HBox>
+                        <Label alignment="TOP_LEFT" prefHeight="44.0" prefWidth="301.0" textFill="#f20303" wrapText="true">
+                            <font>
+                                <Font size="16.0" />
+                            </font>
+                            <VBox.margin>
+                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                            </VBox.margin>
+                        </Label>
+                        <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="518.0" spacing="10.0">
+                            <children>
+                                <Button mnemonicParsing="false" onAction="#create" prefHeight="34.0" prefWidth="91.0" text="Create" />
+                                <Button mnemonicParsing="false" onAction="#back" prefHeight="35.0" prefWidth="86.0" text="Back" />
+                            </children>
+                        </HBox>
+                    </children>
+                </VBox>
+                <StackPane fx:id="stackPane" prefHeight="484.0" prefWidth="632.0">
+                    <children>
+                        <fx:include fx:id="view1" source="EmbeddedCommercialProjectView.fxml" visible="false" />
+                        <fx:include fx:id="view2" source="EmbeddedIndustrialProjectView.fxml" visible="false" />
+                        <fx:include fx:id="view3" source="EmbeddedResidentialProjectView.fxml" visible="false" />
+                        <fx:include fx:id="view4" source="EmbeddedRoadProjectView.fxml" visible="false" />
+                    </children>
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin>
+               
+                </StackPane>
+            </children>
+        </HBox>
+    </children>
+    <padding>
+        <Insets left="10.0" right="10.0" />
+    </padding>
 </VBox>

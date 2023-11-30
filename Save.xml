@@ -16,30 +16,6 @@
 				<NumFloors>12</NumFloors>
 				<IntendedUse>Kupa2</IntendedUse>
 			</Project>
-			<Project>
-				<Name>Dupa2</Name>
-				<Description>Zupa2</Description>
-				<ExpectedTotalHours>5</ExpectedTotalHours>
-				<ExpectedExpenses>6</ExpectedExpenses>
-				<Budget>7</Budget>
-				<Timeline>29/11/2023</Timeline>
-				<Status>Ongoing</Status>
-				<Size>11</Size>
-				<NumFloors>12</NumFloors>
-				<IntendedUse>Kupa2</IntendedUse>
-			</Project>
-			<Project>
-				<Name>Dupa2</Name>
-				<Description>Zupa2</Description>
-				<ExpectedTotalHours>5</ExpectedTotalHours>
-				<ExpectedExpenses>6</ExpectedExpenses>
-				<Budget>7</Budget>
-				<Timeline>29/11/2023</Timeline>
-				<Status>Ongoing</Status>
-				<Size>11</Size>
-				<NumFloors>12</NumFloors>
-				<IntendedUse>Kupa2</IntendedUse>
-			</Project>
 		</CommercialProjects>
 		<RoadProjects>
 			<Project>
@@ -57,50 +33,6 @@
 			</Project>
 		</RoadProjects>
 		<IndustrialProjects>
-			<Project>
-				<Name>Dupa</Name>
-				<Description>Zupa</Description>
-				<ExpectedTotalHours>2</ExpectedTotalHours>
-				<ExpectedExpenses>3</ExpectedExpenses>
-				<Budget>4</Budget>
-				<Timeline>29/11/2023</Timeline>
-				<Status>Ongoing</Status>
-				<Type>Kupa</Type>
-				<Size>10</Size>
-			</Project>
-			<Project>
-				<Name>Dupa</Name>
-				<Description>Zupa</Description>
-				<ExpectedTotalHours>2</ExpectedTotalHours>
-				<ExpectedExpenses>3</ExpectedExpenses>
-				<Budget>4</Budget>
-				<Timeline>29/11/2023</Timeline>
-				<Status>Ongoing</Status>
-				<Type>Kupa</Type>
-				<Size>10</Size>
-			</Project>
-			<Project>
-				<Name>Dupa</Name>
-				<Description>Zupa</Description>
-				<ExpectedTotalHours>2</ExpectedTotalHours>
-				<ExpectedExpenses>3</ExpectedExpenses>
-				<Budget>4</Budget>
-				<Timeline>29/11/2023</Timeline>
-				<Status>Ongoing</Status>
-				<Type>Kupa</Type>
-				<Size>10</Size>
-			</Project>
-			<Project>
-				<Name>Dupa</Name>
-				<Description>Zupa</Description>
-				<ExpectedTotalHours>2</ExpectedTotalHours>
-				<ExpectedExpenses>3</ExpectedExpenses>
-				<Budget>4</Budget>
-				<Timeline>29/11/2023</Timeline>
-				<Status>Ongoing</Status>
-				<Type>Kupa</Type>
-				<Size>10</Size>
-			</Project>
 			<Project>
 				<Name>Dupa</Name>
 				<Description>Zupa</Description>
