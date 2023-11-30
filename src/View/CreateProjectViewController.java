@@ -42,7 +42,7 @@ public class CreateProjectViewController {
     view4Controller.init(viewHandler, model, root);
     typeChoiceBox.getItems().add("Commercial");
     typeChoiceBox.getItems().add("Industrial");
-    typeChoiceBox.getItems().add("Resident");
+    typeChoiceBox.getItems().add("Residential");
     typeChoiceBox.getItems().add("Road");
     typeChoiceBox.getSelectionModel()
         .selectedItemProperty()
