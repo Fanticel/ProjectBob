@@ -1,6 +1,6 @@
 package View;
 
-import Model.ProjectListModelManager;
+import Model.ProjectListModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
@@ -30,10 +30,14 @@ public class EmbeddedCommercialProjectViewController {
   private TextField totalHoursField;
 
   private Region root;
-  private ProjectListModelManager model;
+  private ProjectListModel model;
   private ViewHandler viewHandler;
 
-  public void init(ViewHandler viewHandler, ProjectListModelManager model, Region root)
+  public EmbeddedCommercialProjectViewController()
+  {
+  }
+
+  public void init(ViewHandler viewHandler, ProjectListModel model, Region root)
   {
     this.model = model;
     this.viewHandler = viewHandler;

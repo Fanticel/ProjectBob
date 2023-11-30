@@ -1,35 +1,32 @@
 package View;
 
 import Model.ProjectListModel;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 
-public class EmbeddedIndustrialProjectViewController {
+public class CreateProjectViewController
+{
+  @FXML
+  private TextArea descriptionArea;
 
   @FXML
-  private TextField expectedExpensesField;
+  private TextField nameField;
 
   @FXML
-  private TextField expectedTotalHoursField;
+  private ChoiceBox<?> typeChoiceBox;
 
   @FXML
-  private TextField expensesField;
+  void back(ActionEvent event) {
 
-  @FXML
-  private TextField facilityTypeField;
-
-  @FXML
-  private TextField sizeField;
-
-  @FXML
-  private TextField totalHoursField;
+  }
   private Region root;
   private ProjectListModel model;
   private ViewHandler viewHandler;
-
-  public EmbeddedIndustrialProjectViewController()
-  {
+  public CreateProjectViewController() {
   }
 
   public void init(ViewHandler viewHandler, ProjectListModel model, Region root)
@@ -44,6 +41,12 @@ public class EmbeddedIndustrialProjectViewController {
   }
   public Region getRoot(){
     return root;
+  }
+
+
+  @FXML
+  void create(ActionEvent event) {
+
   }
 
 }
