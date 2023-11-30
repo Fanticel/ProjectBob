@@ -65,7 +65,7 @@ public class CreateProjectViewController {
   }
 
   @FXML void back(ActionEvent event) {
-    viewHandler.openView("");
+    viewHandler.openView("ProjectList");
   }
   private void changeView(String id){
     switch (id){
