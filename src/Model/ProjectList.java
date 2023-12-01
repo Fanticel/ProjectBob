@@ -44,15 +44,29 @@ public class ProjectList {
     }
     ProjectList ans = new ProjectList();
     switch ((Integer) data.get(0)) {
-      case 0 -> ans.projects = getAllProjectByType(
-          ResidentialProject.class).returnAsArrayList();
-      case 1 -> ans.projects = getAllProjectByType(
-          CommercialProject.class).returnAsArrayList();
-      case 2 -> ans.projects = getAllProjectByType(
-          RoadProject.class).returnAsArrayList();
-      case 3 -> ans.projects = getAllProjectByType(
-          IndustrialProject.class).returnAsArrayList();
-      default -> ans.projects = projects;
+      case 0: {
+        ans.projects = getAllProjectByType(
+            ResidentialProject.class).returnAsArrayList();
+        break;
+      }
+      case 1: {
+        ans.projects = getAllProjectByType(
+            CommercialProject.class).returnAsArrayList();
+        break;
+      }
+      case 2: {
+        ans.projects = getAllProjectByType(
+            RoadProject.class).returnAsArrayList();
+        break;
+      }
+      case 3: {
+        ans.projects = getAllProjectByType(
+            IndustrialProject.class).returnAsArrayList();
+        break;
+      }
+      default: {
+        for (Project i : returnAsArrayList()){ans.addProject(i);}
+      }
     }
     if (data.get(1) != null) {
       for (int i = 0; i < ans.returnAsArrayList().size(); i++) {
@@ -75,7 +89,7 @@ public class ProjectList {
     if (data.get(3) != null) {
       for (int i = 0; i < ans.returnAsArrayList().size(); i++) {
         if (ans.returnAsArrayList().get(i).getExpectedExpenses()
-            < (Integer) data.get(3)) {
+            < Integer.parseInt(data.get(3).toString())) {
           ans.returnAsArrayList().remove(i);
           i--;
         }
@@ -84,7 +98,7 @@ public class ProjectList {
     if (data.get(4) != null) {
       for (int i = 0; i < ans.returnAsArrayList().size(); i++) {
         if (ans.returnAsArrayList().get(i).getExpectedExpenses()
-            > (Integer) data.get(4)) {
+            > Integer.parseInt(data.get(4).toString())) {
           ans.returnAsArrayList().remove(i);
           i--;
         }
@@ -93,7 +107,7 @@ public class ProjectList {
     if (data.get(5) != null) {
       for (int i = 0; i < ans.returnAsArrayList().size(); i++) {
         if (ans.returnAsArrayList().get(i).getExpectedTotalHours()
-            < (Integer) data.get(5)) {
+            < Integer.parseInt(data.get(5).toString())) {
           ans.returnAsArrayList().remove(i);
           i--;
         }
@@ -102,7 +116,7 @@ public class ProjectList {
     if (data.get(6) != null) {
       for (int i = 0; i < ans.returnAsArrayList().size(); i++) {
         if (ans.returnAsArrayList().get(i).getExpectedTotalHours()
-            > (Integer) data.get(6)) {
+            > Integer.parseInt(data.get(6).toString())) {
           ans.returnAsArrayList().remove(i);
           i--;
         }

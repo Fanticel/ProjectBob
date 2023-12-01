@@ -8,6 +8,7 @@ import java.util.Arrays;
 
 public class Main {
   public static void main(String[] args) {
+//    ProjectListModelManager projectListModelManager = new ProjectListModelManager();
     Application.launch(MyApplication.class);
   }
 }
