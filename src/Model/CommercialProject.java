@@ -10,7 +10,7 @@ public class CommercialProject extends Project
   private int numFloor;
   private String intendedUse;
   private static final Object[] defaults = {600000, 15, 40, 5, "Office Complex",
-      "On Time", "New Build"};
+      "On time", "New Build"};
 
   public CommercialProject(String name, String description,
       int expectedTotalHours, int expectedExpenses, long budget,
