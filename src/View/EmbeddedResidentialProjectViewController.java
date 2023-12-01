@@ -107,21 +107,21 @@ public class EmbeddedResidentialProjectViewController
   }
   public void create(){
     ArrayList<Object> data = viewState.getData();
-    data.add((Object) Integer.valueOf(expectedTotalHoursField.getText()));
-    data.add((Object) Integer.valueOf(expectedExpensesField.getText()));
-    data.add((Object) budgetField.getText());
+    data.add(Integer.valueOf(expectedTotalHoursField.getText()));
+    data.add(Integer.valueOf(expectedExpensesField.getText()));
+    data.add(budgetField.getText());
     LocalDate chosenDate = timelineDatePicker.getValue();
     MyDate date = new MyDate(chosenDate.getDayOfMonth(), chosenDate.getMonthValue(), chosenDate.getYear());
-    data.add((Object) date);
-    data.add((Object) "Created");
-    data.add((Object) Integer.valueOf(sizeField.getText()));
-    data.add((Object) Integer.valueOf(numKitchensField.getText()));
-    data.add((Object) Integer.valueOf(numBathroomsField.getText()));
-    data.add((Object) Integer.valueOf(othWPlumbingField.getText()));
+    data.add(date);
+    data.add("Ongoing");
+    data.add(Integer.valueOf(sizeField.getText()));
+    data.add(Integer.valueOf(numKitchensField.getText()));
+    data.add(Integer.valueOf(numBathroomsField.getText()));
+    data.add(Integer.valueOf(othWPlumbingField.getText()));
 
     if (newBuildGroup.getSelectedToggle() == buildRButton)
-      data.add((Object) true);
-    else data.add((Object) false);
+      data.add( true);
+    else data.add( false);
 
     model.addProject(data);
   }

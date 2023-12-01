@@ -1,5 +1,6 @@
 package View;
 
+import Model.MyDate;
 import Model.ProjectListModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
@@ -8,6 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Optional;
 
@@ -43,16 +45,18 @@ public class EmbeddedCommercialProjectViewController {
   private Region root;
   private ProjectListModel model;
   private ViewHandler viewHandler;
+  private ViewState viewState;
 
   public EmbeddedCommercialProjectViewController()
   {
   }
 
-  public void init(ViewHandler viewHandler, ProjectListModel model, Region root)
+  public void init(ViewHandler viewHandler, ProjectListModel model, Region root, ViewState viewState)
   {
     this.model = model;
     this.viewHandler = viewHandler;
     this.root = root;
+    this.viewState = viewState;
   }
 
   public void reset(){
@@ -86,5 +90,21 @@ public class EmbeddedCommercialProjectViewController {
   }
   public Region getRoot(){
     return root;
+  }
+
+  public void create(){
+    ArrayList<Object> data = viewState.getData();
+    data.add(Integer.valueOf(expectedTotalHoursField.getText()));
+    data.add(Integer.valueOf(expectedExpensesField.getText()));
+    data.add(budgetField.getText());
+    LocalDate chosenDate = timelineDatePicker.getValue();
+    MyDate date = new MyDate(chosenDate.getDayOfMonth(), chosenDate.getMonthValue(), chosenDate.getYear());
+    data.add(date);
+    data.add("Ongoing");
+    data.add(Integer.valueOf(sizeField.getText()));
+    data.add(Integer.valueOf(numFloorsField.getText()));
+    data.add(intendedUseArea.getText());
+
+    model.addProject(data);
   }
 }

@@ -29,9 +29,9 @@ public class EmbeddedViewController
     this.root = root;
     createProjectViewController.init(viewHandler, model, root, viewState);
     embeddedResidentialProjectViewController.init(viewHandler, model, root, viewState);
-    embeddedCommercialProjectViewController.init(viewHandler, model, root);
-    embeddedIndustrialProjectViewController.init(viewHandler, model, root);
-    embeddedRoadProjectViewController.init(viewHandler, model, root);
+    embeddedCommercialProjectViewController.init(viewHandler, model, root, viewState);
+    embeddedIndustrialProjectViewController.init(viewHandler, model, root, viewState);
+    embeddedRoadProjectViewController.init(viewHandler, model, root, viewState);
   }
 
   public void reset(){

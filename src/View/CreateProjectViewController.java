@@ -45,10 +45,10 @@ public class CreateProjectViewController {
     this.viewHandler = viewHandler;
     this.root = root;
     this.viewState = viewState;
-    view1Controller.init(viewHandler, model, root);
-    view2Controller.init(viewHandler, model, root);
+    view1Controller.init(viewHandler, model, root, viewState);
+    view2Controller.init(viewHandler, model, root, viewState);
     view3Controller.init(viewHandler, model, root, viewState);
-    view4Controller.init(viewHandler, model, root);
+    view4Controller.init(viewHandler, model, root, viewState);
     typeChoiceBox.getItems().add("Commercial");
     typeChoiceBox.getItems().add("Industrial");
     typeChoiceBox.getItems().add("Residential");
@@ -63,6 +63,7 @@ public class CreateProjectViewController {
 
     nameField.setText("");
     descriptionArea.setText("");
+    errorLabel.setText("");
     view1Controller.reset();
     view2Controller.reset();
     view3Controller.reset();
@@ -74,13 +75,28 @@ public class CreateProjectViewController {
   }
 
   @FXML void create(ActionEvent event) {
-    ArrayList<Object> data = new ArrayList<Object>();
-    data.add((Object)nameField.getText());
-    data.add((Object)descriptionArea.getText());
-    viewState.setData(data);
-    view3Controller.create();
-    viewState.reset();
-    viewHandler.openView("ProjectList");
+   /* try
+    {*/
+      ArrayList<Object> data = new ArrayList<Object>();
+      data.add((Object) nameField.getText());
+      data.add((Object) descriptionArea.getText());
+      viewState.setData(data);
+      switch (typeChoiceBox.getValue()){
+        case "Residential" -> view3Controller.create();
+        case "Commercial" -> view1Controller.create();
+        case "Industrial" -> view2Controller.create();
+        case "Road" -> view4Controller.create();
+      }
+      viewHandler.openView("ProjectList");
+    /*}
+    catch (NumberFormatException e)
+    {
+      errorLabel.setText("Input error: " + e.getMessage());
+    }
+    catch (Exception e)
+    {
+      errorLabel.setText(e.getMessage());
+    }*/
   }
 
   @FXML void back(ActionEvent event) {

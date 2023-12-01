@@ -19,7 +19,7 @@ public class ProjectListModelManager implements ProjectListModel {
 
   @Override public ProjectList getAllProjects() {
     try {
-      return fileManagerXML.readFromFile("placeholder");
+      return fileManagerXML.readFromFile("Save.xml");
     }
     catch (IOException e) {
       System.out.println(e);
@@ -41,36 +41,42 @@ public class ProjectListModelManager implements ProjectListModel {
   }
 
   @Override public void addProject(ArrayList<Object> data) {
-    Project project;
-    if (data.size() == 12) {
-      project = new ResidentialProject((String) data.get(0),
-          (String) data.get(1), (Integer) data.get(2), (Integer) data.get(3),
-          Long.parseLong(data.get(4).toString()), (MyDate) data.get(5),
-          (String) data.get(6), (Integer) data.get(7), (Integer) data.get(8),
-          (Integer) data.get(9), (Integer) data.get(10),
-          (Boolean) data.get(11));
+    try
+    {
+      Project project;
+      if (data.size() == 12) {
+        project = new ResidentialProject((String) data.get(0),
+            (String) data.get(1), (Integer) data.get(2), (Integer) data.get(3),
+            Long.parseLong(data.get(4).toString()), (MyDate) data.get(5),
+            (String) data.get(6), (Integer) data.get(7), (Integer) data.get(8),
+            (Integer) data.get(9), (Integer) data.get(10),
+            (Boolean) data.get(11));
+      }
+      else if (data.size() == 10) {
+        project = new CommercialProject((String) data.get(0),
+            (String) data.get(1), (Integer) data.get(2), (Integer) data.get(3),
+            Long.parseLong(data.get(4).toString()), (MyDate) data.get(5),
+            (String) data.get(6), (Integer) data.get(7), (Integer) data.get(8),
+            (String) data.get(9));
+      }
+      else if (data.size() == 9) {
+        project = new IndustrialProject((String) data.get(0),
+            (String) data.get(1), (Integer) data.get(2), (Integer) data.get(3),
+            Long.parseLong(data.get(4).toString()), (MyDate) data.get(5),
+            (String) data.get(6), (String) data.get(7), (Integer) data.get(8));
+      }
+      else {
+        project = new RoadProject((String) data.get(0), (String) data.get(1),
+            (Integer) data.get(2), (Integer) data.get(3),
+            Long.parseLong(data.get(4).toString()), (MyDate) data.get(5),
+            (String) data.get(6), (Integer) data.get(7), (Integer) data.get(8),
+            (Integer) data.get(9), (ArrayList<String>) data.get(10));
+      }
+      projectList.addProject(project);
+      fileManagerXML.writeToFile("Save.xml", projectList);
+    }catch (IOException e){
+      System.out.println(e.getMessage());
     }
-    else if (data.size() == 10) {
-      project = new CommercialProject((String) data.get(0),
-          (String) data.get(1), (Integer) data.get(2), (Integer) data.get(3),
-          Long.parseLong(data.get(4).toString()), (MyDate) data.get(5),
-          (String) data.get(6), (Integer) data.get(7), (Integer) data.get(8),
-          (String) data.get(9));
-    }
-    else if (data.size() == 9) {
-      project = new IndustrialProject((String) data.get(0),
-          (String) data.get(1), (Integer) data.get(2), (Integer) data.get(3),
-          Long.parseLong(data.get(4).toString()), (MyDate) data.get(5),
-          (String) data.get(6), (String) data.get(7), (Integer) data.get(8));
-    }
-    else {
-      project = new RoadProject((String) data.get(0), (String) data.get(1),
-          (Integer) data.get(2), (Integer) data.get(3),
-          Long.parseLong(data.get(4).toString()), (MyDate) data.get(5),
-          (String) data.get(6), (Integer) data.get(7), (Integer) data.get(8),
-          (Integer) data.get(9), (ArrayList<String>) data.get(10));
-    }
-    projectList.addProject(project);
   }
 
   @Override public void removeProject(Project project) {
