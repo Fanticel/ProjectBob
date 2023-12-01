@@ -7,6 +7,10 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 
+import java.time.LocalDate;
+import java.util.Map;
+import java.util.Optional;
+
 public class EmbeddedCommercialProjectViewController {
 
   @FXML
@@ -28,7 +32,7 @@ public class EmbeddedCommercialProjectViewController {
   private TextArea intendedUseArea;
 
   @FXML
-  private TextField numKitchensField;
+  private TextField numFloorsField;
 
   @FXML
   private TextField sizeField;
@@ -52,7 +56,33 @@ public class EmbeddedCommercialProjectViewController {
   }
 
   public void reset(){
+    Map<String, Optional<Object>> defaults = model.getDefaults("Commercial");
+    setField("budget",budgetField, defaults);
 
+    if (defaults.get("timeline").isPresent()){
+      LocalDate defaultDate = model.getDateMonthsAway((Integer) defaults.get("timeline").get());
+      timelineDatePicker.setValue(defaultDate);
+    }
+    setField("size",sizeField, defaults);
+    setField("numFloor",numFloorsField, defaults);
+
+    if (defaults.get("intendedUse").isPresent()){
+      intendedUseArea.setText(defaults.get("intendedUse").get().toString());
+    }
+    else {
+      intendedUseArea.setText(null);
+    }
+
+    setField("expectedTotalHours",expectedTotalHoursField, defaults);
+    setField("expectedExpenses",expectedExpensesField, defaults);
+  }
+  private static void setField(String fieldName, TextField field,Map<String, Optional<Object>> defaults){
+    if (defaults.get(fieldName).isPresent()){
+      field.setText(defaults.get(fieldName).get().toString());
+    }
+    else {
+      field.setText(null);
+    }
   }
   public Region getRoot(){
     return root;

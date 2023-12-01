@@ -9,8 +9,7 @@ public class CommercialProject extends Project
   private int size;
   private int numFloor;
   private String intendedUse;
-  private static final Object[] defaults = {600000, 15, 40, 5, "Office Complex",
-      "On time", "New Build"};
+  private static final Object[] defaults = {600000, 18, 1};
 
   public CommercialProject(String name, String description,
       int expectedTotalHours, int expectedExpenses, long budget,
@@ -70,11 +69,9 @@ public class CommercialProject extends Project
     fields.put("expectedExpenses", Optional.empty());
     fields.put("budget", Optional.of(defaults[0]));
     fields.put("timeline", Optional.of(defaults[1]));
-    fields.put("size", Optional.of(defaults[2]));
-    fields.put("numFloor", Optional.of(defaults[3]));
-    fields.put("intendedUse", Optional.of(defaults[4]));
-    fields.put("status", Optional.of(defaults[5]));
-    fields.put("isNewBuild", Optional.of(defaults[6]));
+    fields.put("size", Optional.empty());
+    fields.put("numFloor", Optional.of(defaults[2]));
+    fields.put("intendedUse", Optional.empty());
 
     return fields;
   }

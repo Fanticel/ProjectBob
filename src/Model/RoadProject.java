@@ -14,8 +14,7 @@ public class RoadProject extends Project
   private int width;
   private int numBridTun;
   private ArrayList<String> geoChallenge = new ArrayList<>();
-  private static final Object[] defaults = {1500000, 10, "On Going", 8000, 3048,
-      2};
+  private static final Object[] defaults = {1500000, 18, 0, "none"};
 
   public RoadProject(String name, String description, int expectedTotalHours,
       int expectedExpenses, long budget, MyDate timeline, String status,
@@ -86,10 +85,10 @@ public class RoadProject extends Project
     fields.put("expectedExpenses", Optional.empty());
     fields.put("budget", Optional.of(defaults[0]));
     fields.put("timeline", Optional.of(defaults[1]));
-    fields.put("status", Optional.of(defaults[2]));
-    fields.put("length", Optional.of(defaults[3]));
-    fields.put("width", Optional.of(defaults[4]));
-    fields.put("numBridTun", Optional.of(defaults[5]));
+    fields.put("length", Optional.empty());
+    fields.put("width", Optional.empty());
+    fields.put("numBridTun", Optional.of(defaults[2]));
+    fields.put("geoChallenge", Optional.of(defaults[3]));
 
     return fields;
   }

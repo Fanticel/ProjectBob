@@ -14,10 +14,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 
+import java.util.ArrayList;
+
 public class CreateProjectViewController {
   private Region root;
   private ProjectListModel model;
   private ViewHandler viewHandler;
+
+  private ViewState viewState;
 
   @FXML private Label errorLabel;
 
@@ -36,13 +40,14 @@ public class CreateProjectViewController {
   }
 
   public void init(ViewHandler viewHandler, ProjectListModel model,
-      Region root) {
+      Region root, ViewState viewState) {
     this.model = model;
     this.viewHandler = viewHandler;
     this.root = root;
+    this.viewState = viewState;
     view1Controller.init(viewHandler, model, root);
     view2Controller.init(viewHandler, model, root);
-    view3Controller.init(viewHandler, model, root);
+    view3Controller.init(viewHandler, model, root, viewState);
     view4Controller.init(viewHandler, model, root);
     typeChoiceBox.getItems().add("Commercial");
     typeChoiceBox.getItems().add("Industrial");
@@ -55,6 +60,9 @@ public class CreateProjectViewController {
   }
 
   public void reset() {
+
+    nameField.setText("");
+    descriptionArea.setText("");
     view1Controller.reset();
     view2Controller.reset();
     view3Controller.reset();
@@ -66,7 +74,13 @@ public class CreateProjectViewController {
   }
 
   @FXML void create(ActionEvent event) {
-
+    ArrayList<Object> data = new ArrayList<Object>();
+    data.add((Object)nameField.getText());
+    data.add((Object)descriptionArea.getText());
+    viewState.setData(data);
+    view3Controller.create();
+    viewState.reset();
+    viewHandler.openView("ProjectList");
   }
 
   @FXML void back(ActionEvent event) {

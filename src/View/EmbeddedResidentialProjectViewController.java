@@ -7,6 +7,7 @@ import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Map;
 import java.util.Optional;
 
@@ -51,20 +52,23 @@ public class EmbeddedResidentialProjectViewController
 
   @FXML
   private TextField totalHoursField;
-  
+
   private Region root;
   private ProjectListModel model;
   private ViewHandler viewHandler;
+
+  private ViewState viewState;
 
   public EmbeddedResidentialProjectViewController()
   {
   }
 
-  public void init(ViewHandler viewHandler, ProjectListModel model, Region root)
+  public void init(ViewHandler viewHandler, ProjectListModel model, Region root, ViewState viewState)
   {
     this.model = model;
     this.viewHandler = viewHandler;
     this.root = root;
+    this.viewState = viewState;
   }
 
   public void reset(){
@@ -100,6 +104,26 @@ public class EmbeddedResidentialProjectViewController
     else {
       field.setText(null);
     }
+  }
+  public void create(){
+    ArrayList<Object> data = viewState.getData();
+    data.add((Object) Integer.valueOf(expectedTotalHoursField.getText()));
+    data.add((Object) Integer.valueOf(expectedExpensesField.getText()));
+    data.add((Object) budgetField.getText());
+    LocalDate chosenDate = timelineDatePicker.getValue();
+    MyDate date = new MyDate(chosenDate.getDayOfMonth(), chosenDate.getMonthValue(), chosenDate.getYear());
+    data.add((Object) date);
+    data.add((Object) "Created");
+    data.add((Object) Integer.valueOf(sizeField.getText()));
+    data.add((Object) Integer.valueOf(numKitchensField.getText()));
+    data.add((Object) Integer.valueOf(numBathroomsField.getText()));
+    data.add((Object) Integer.valueOf(othWPlumbingField.getText()));
+
+    if (newBuildGroup.getSelectedToggle() == buildRButton)
+      data.add((Object) true);
+    else data.add((Object) false);
+
+    model.addProject(data);
   }
 
 }

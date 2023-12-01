@@ -19,14 +19,16 @@ public class EmbeddedViewController
   @FXML private EmbeddedRoadProjectViewController embeddedRoadProjectViewController;
   private Region root;
 
+  private ViewState viewState;
+
   public EmbeddedViewController()
   {
   }
 
-  public void init(ViewHandler viewHandler, ProjectListModel model, Region root){
+  public void init(ViewHandler viewHandler, ProjectListModel model, Region root, ViewState viewState){
     this.root = root;
-    createProjectViewController.init(viewHandler, model, root);
-    embeddedResidentialProjectViewController.init(viewHandler, model, root);
+    createProjectViewController.init(viewHandler, model, root, viewState);
+    embeddedResidentialProjectViewController.init(viewHandler, model, root, viewState);
     embeddedCommercialProjectViewController.init(viewHandler, model, root);
     embeddedIndustrialProjectViewController.init(viewHandler, model, root);
     embeddedRoadProjectViewController.init(viewHandler, model, root);

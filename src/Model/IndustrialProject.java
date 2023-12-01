@@ -9,8 +9,7 @@ public class IndustrialProject extends Project
   private int size;
   private String type;
 
-  private static final Object[] defaults = {7500000, 20, "On hold", "New Build",
-      "Refinery", 20000};
+  private static final Object[] defaults = {7500000, 30};
 
   public IndustrialProject(String name, String description,
       int expectedTotalHours, int expectedExpenses, long budget,
@@ -58,10 +57,8 @@ public class IndustrialProject extends Project
     fields.put("expectedExpenses", Optional.empty());
     fields.put("budget", Optional.of(defaults[0]));
     fields.put("timeline", Optional.of(defaults[1]));
-    fields.put("status", Optional.of(defaults[2]));
-    fields.put("isNewBuild", Optional.of(defaults[3]));
-    fields.put("type", Optional.of(defaults[4]));
-    fields.put("size", Optional.of(defaults[5]));
+    fields.put("type", Optional.empty());
+    fields.put("size", Optional.empty());
 
     return fields;
   }

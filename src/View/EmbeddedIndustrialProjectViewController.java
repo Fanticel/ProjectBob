@@ -6,6 +6,10 @@ import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 
+import java.time.LocalDate;
+import java.util.Map;
+import java.util.Optional;
+
 public class EmbeddedIndustrialProjectViewController {
 
   @FXML
@@ -47,7 +51,27 @@ public class EmbeddedIndustrialProjectViewController {
   }
 
   public void reset(){
+    Map<String, Optional<Object>> defaults = model.getDefaults("Industrial");
+    setField("budget",budgetField, defaults);
 
+    if (defaults.get("timeline").isPresent()){
+      LocalDate defaultDate = model.getDateMonthsAway((Integer) defaults.get("timeline").get());
+      timelineDatePicker.setValue(defaultDate);
+    }
+    setField("size",sizeField, defaults);
+    setField("type",facilityTypeField, defaults);
+    setField("expectedTotalHours",expectedTotalHoursField, defaults);
+    setField("expectedExpenses",expectedExpensesField, defaults);
+
+  }
+  private static void setField(String fieldName, TextField field,
+      Map<String, Optional<Object>> defaults){
+    if (defaults.get(fieldName).isPresent()){
+      field.setText(defaults.get(fieldName).get().toString());
+    }
+    else {
+      field.setText(null);
+    }
   }
   public Region getRoot(){
     return root;

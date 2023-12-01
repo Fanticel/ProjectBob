@@ -147,7 +147,7 @@ public class ViewHandler {
         loader.setLocation(getClass().getResource(fxmlFile));
         root = loader.load();
         createProjectViewController = loader.getController();
-        createProjectViewController.init(this, model, root);
+        createProjectViewController.init(this, model, root, viewState);
       }
       catch (Exception e){
         e.printStackTrace();

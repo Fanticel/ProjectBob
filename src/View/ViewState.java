@@ -15,4 +15,7 @@ public class ViewState {
   public void setData(ArrayList<Object> data) {
     this.data = data;
   }
+  public void reset(){
+    data = null;
+  }
 }
