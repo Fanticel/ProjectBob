@@ -8,16 +8,20 @@ import Model.ProjectListModel;
 
 public class ViewHandler {
   private Scene currentScene;
+  private Scene popupScene;
   private Stage primaryStage;
+  private Stage popupStage;
   private ProjectListModel model;
   private ViewState viewState;
   private HomeViewController homeViewController;
   private ProjectListViewController projectListViewController;
   private DashboardViewController dashboardViewController;
   private CreateProjectViewController createProjectViewController;
+  private SearchAProjectPopupViewController searchAProjectPopupViewController;
 
   public ViewHandler(ProjectListModel model) {
     this.currentScene = new Scene(new Region());
+    this.popupScene = new Scene(new Region());
     this.model = model;
     viewState = new ViewState();
   }
@@ -26,6 +30,10 @@ public class ViewHandler {
     this.primaryStage = primaryStage;
     openView("ProjectList");
     System.out.println("Starting view.");
+  }
+  public void startPopup(Stage popupStage){
+    this.popupStage = popupStage;
+    System.out.println("Starting popupView");
   }
 
   public void openView(String id) {
@@ -46,6 +54,27 @@ public class ViewHandler {
     primaryStage.setHeight(root.getPrefHeight());
     primaryStage.show();
     System.out.println("Open view works.");
+  }
+  public void closePopupView(){
+    popupStage.close();
+  }
+  public void openPopupView() {
+    startPopup(new Stage());
+    Region root = loadSearchAProjectPopupView("SearchAProjectPopupView.fxml");
+    popupScene.setRoot(root);
+    String title = "";
+    if (root.getUserData() != null) {
+      title += root.getUserData();
+    }
+    popupStage.setTitle(title);
+    popupStage.setScene(popupScene);
+    popupStage.setWidth(root.getPrefWidth());
+    popupStage.setHeight(root.getPrefHeight());
+    popupStage.show();
+    System.out.println("Open view works.");
+  }
+  public void searchHelper(){
+    projectListViewController.search();
   }
 
   private Region loadHomeView(String fxmlFile) {
@@ -77,7 +106,7 @@ public class ViewHandler {
         loader.setLocation(getClass().getResource(fxmlFile));
         root = loader.load();
         projectListViewController = loader.getController();
-        projectListViewController.init(this, model, root);
+        projectListViewController.init(this, model, root, viewState);
       }
       catch (Exception e) {
         e.printStackTrace();
@@ -129,6 +158,26 @@ public class ViewHandler {
     }
     System.out.println("root works");
     return createProjectViewController.getRoot();
+  }
+  private Region loadSearchAProjectPopupView(String fxmlFile){
+    Region root = null;
+    if (searchAProjectPopupViewController==null){
+      try{
+        FXMLLoader loader =new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        root = loader.load();
+        searchAProjectPopupViewController = loader.getController();
+        searchAProjectPopupViewController.init(this, model, root, viewState);
+      }
+      catch (Exception e){
+        e.printStackTrace();
+      }
+    }
+    else {
+      searchAProjectPopupViewController.reset();
+    }
+    System.out.println("root works");
+    return searchAProjectPopupViewController.getRoot();
   }
 }
 

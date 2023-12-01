@@ -28,4 +28,12 @@ public class ProjectListViewModel {
       list.add(new ProjectViewModel(i));
     }
   }
+  public void updateSearch(String name){
+    list.clear();
+    for (Project i : model.getAllProjects().returnAsArrayList()) {
+      if (i.getName().contains(name)){
+        list.add(new ProjectViewModel(i));
+      }
+    }
+  }
 }
