@@ -12,6 +12,7 @@ public class ProjectListViewController {
   private ProjectListModel model;
   private ViewHandler viewHandler;
   private Region root;
+  private ViewState viewState;
   private ProjectListViewModel projectListViewModel;
   private String projectName;
   @FXML private Button AddButton;
@@ -26,10 +27,11 @@ public class ProjectListViewController {
   }
 
   public void init(ViewHandler viewHandler, ProjectListModel model,
-      Region root) {
+      Region root, ViewState viewState) {
     this.viewHandler = viewHandler;
     this.model = model;
     this.root = root;
+    this.viewState = viewState;
     this.projectListViewModel = new ProjectListViewModel(model);
     nameColumn.setCellValueFactory(
         cellData -> cellData.getValue().namePropertyProperty()
@@ -55,6 +57,9 @@ public class ProjectListViewController {
   public void reset() {
     projectListViewModel.update();
   }
+  public void search(){
+    projectListViewModel.updateSearch(viewState.getName());
+  }
 
   public Region getRoot() {
     return root;
@@ -74,7 +79,7 @@ public class ProjectListViewController {
     unselected();
   }
   @FXML private void clickSearchButt(){
-    System.out.println("Searching a project");
+    viewHandler.openPopupView();
     unselected();
   }
   @FXML private void escapeClicked(KeyEvent event){
