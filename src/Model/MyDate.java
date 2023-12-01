@@ -1,6 +1,7 @@
 package Model;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.time.temporal.ChronoUnit;
 
@@ -277,6 +278,18 @@ public class MyDate {
       all += "/" + year;
     }
     return all;
+  }
+  public static LocalDate getDateMonthsAway(int months){
+    LocalDate today = LocalDate.now();
+    int month = today.getMonthValue();
+    int year = today.getYear();
+
+    if ((month + months / 12) != 0){
+      year += (month + months) / 12;
+    }
+    month = (month + months) % 12;
+    MyDate date = new MyDate(today.getDayOfMonth(), month, year);
+    return LocalDate.parse(date.toString(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
   }
 
   public boolean equals(Object obj) {

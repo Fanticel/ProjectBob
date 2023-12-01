@@ -2,6 +2,7 @@ package Model;
 
 import java.awt.image.AreaAveragingScaleFilter;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
@@ -164,5 +165,8 @@ public class ProjectListModelManager implements ProjectListModel {
       return IndustrialProject.getDefaults();
     }else
     return RoadProject.getDefaults();
+  }
+  @Override public LocalDate getDateMonthsAway(int months){
+    return MyDate.getDateMonthsAway(months);
   }
 }
