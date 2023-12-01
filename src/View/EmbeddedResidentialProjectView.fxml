@@ -97,7 +97,7 @@
                                     <Font size="18.0" />
                                  </font>
                               </Label>
-                              <RadioButton mnemonicParsing="false" text="New build">
+                              <RadioButton fx:id="buildRButton" mnemonicParsing="false" text="New build">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
@@ -105,7 +105,7 @@
                                     <ToggleGroup fx:id="newBuildGroup" />
                                  </toggleGroup>
                               </RadioButton>
-                              <RadioButton mnemonicParsing="false" text="Renovation" toggleGroup="$newBuildGroup">
+                              <RadioButton fx:id="renovationRButton" mnemonicParsing="false" text="Renovation" toggleGroup="$newBuildGroup">
                                  <font>
                                     <Font size="14.0" />
                                  </font>

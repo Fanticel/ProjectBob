@@ -8,6 +8,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
@@ -17,6 +18,9 @@ public class CreateProjectViewController {
   private Region root;
   private ProjectListModel model;
   private ViewHandler viewHandler;
+
+  @FXML private Label errorLabel;
+
   @FXML private TextArea descriptionArea;
 
   @FXML private TextField nameField;
@@ -47,6 +51,7 @@ public class CreateProjectViewController {
     typeChoiceBox.getSelectionModel()
         .selectedItemProperty()
         .addListener( (ObservableValue<? extends String> observable, String oldValue, String newValue) -> changeView(newValue) );
+    reset();
   }
 
   public void reset() {

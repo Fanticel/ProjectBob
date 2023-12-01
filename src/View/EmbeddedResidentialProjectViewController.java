@@ -3,15 +3,19 @@ package View;
 import Model.ProjectListModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.Region;
+
+import java.util.Map;
+import java.util.Optional;
 
 public class EmbeddedResidentialProjectViewController
 {
 
   @FXML
-  private RadioButton RenovationRButton;
+  private RadioButton renovationRButton;
 
   @FXML
   private RadioButton buildRButton;
@@ -59,9 +63,32 @@ public class EmbeddedResidentialProjectViewController
   }
 
   public void reset(){
+    Map<String, Optional<Object>> defaults = model.getDefaults("Residential");
+    setField("size",sizeField, defaults);
+    setField("numKitchens",numKitchensField, defaults);
+    setField("numBathrooms",numBathroomsField, defaults);
+    setField("othWPlumbing",othWPlumbingField, defaults);
+    setField("expectedTotalHours",expectedTotalHoursField, defaults);
+    setField("expectedExpenses",expectedExpensesField, defaults);
+
+    if (defaults.get("isNewBuild").isPresent()){
+      if (defaults.get("isNewBuild").get().toString().equals("new build")){
+        newBuildGroup.selectToggle(buildRButton);
+      }else newBuildGroup.selectToggle(renovationRButton);
+    }
 
   }
   public Region getRoot(){
     return root;
   }
+
+  private static void setField(String fieldName, TextField field,Map<String, Optional<Object>> defaults){
+    if (defaults.get(fieldName).isPresent()){
+      field.setText(defaults.get(fieldName).get().toString());
+    }
+    else {
+      field.setText(null);
+    }
+  }
+
 }

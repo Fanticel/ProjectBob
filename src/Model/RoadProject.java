@@ -3,6 +3,9 @@ package Model;
 import Model.Project;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
 
 public class RoadProject extends Project
 {
@@ -71,5 +74,10 @@ public class RoadProject extends Project
   {
     return super.toString();
   }
+  public static Map<String, Optional<Object>> getDefaults(){
+    Map<String, Optional<Object>> fields = new HashMap<>();
 
+
+    return fields;
+  }
 }
