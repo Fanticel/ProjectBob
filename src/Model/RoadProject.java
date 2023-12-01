@@ -14,10 +14,11 @@ public class RoadProject extends Project
   private int width;
   private int numBridTun;
   private ArrayList<String> geoChallenge = new ArrayList<>();
+  private static final Object[] defaults = {350000, 9, 1, 1, 1, "new build"};
 
   public RoadProject(String name, String description, int expectedTotalHours,
-      int expectedExpenses, long budget, MyDate timeline, String status, long length,
-      int width, int numBridTun, ArrayList<String> geoChallenge)
+      int expectedExpenses, long budget, MyDate timeline, String status,
+      long length, int width, int numBridTun, ArrayList<String> geoChallenge)
   {
     super(name, description, expectedTotalHours, expectedExpenses, budget,
         timeline, status);
@@ -74,9 +75,20 @@ public class RoadProject extends Project
   {
     return super.toString();
   }
-  public static Map<String, Optional<Object>> getDefaults(){
-    Map<String, Optional<Object>> fields = new HashMap<>();
 
+  public static Map<String, Optional<Object>> getDefaults()
+  {
+    Map<String, Optional<Object>> fields = new HashMap<>();
+    fields.put("name", Optional.empty());
+    fields.put("description", Optional.empty());
+    fields.put("expectedTotalHours", Optional.empty());
+    fields.put("expectedExpenses", Optional.empty());
+    fields.put("budget", Optional.of(defaults[0]));
+    fields.put("timeline", Optional.of(defaults[1]));
+    fields.put("status", Optional.of(defaults[2]));
+    fields.put("length", Optional.of(defaults[3]));
+    fields.put("width", Optional.of(defaults[4]));
+    fields.put("numBridTun", Optional.of(defaults[5]));
 
     return fields;
   }

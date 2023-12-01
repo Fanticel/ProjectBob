@@ -14,7 +14,7 @@ public class ResidentialProject extends Project
   private int numBathrooms;
   private int othWPlumbing;
   private boolean isNewBuild;
-  private static final Object[] defaults = {350000, 9, 1, 1, 1 ,"new build"};
+  private static final Object[] defaults = {350000, 9, 1, 1, 1, "new build"};
 
   public ResidentialProject(String name, String description,
       int expectedTotalHours, int expectedExpenses, long budget,
