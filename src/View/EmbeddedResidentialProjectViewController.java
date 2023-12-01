@@ -1,13 +1,12 @@
 package View;
 
+import Model.MyDate;
 import Model.ProjectListModel;
 import javafx.fxml.FXML;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 
+import java.time.LocalDate;
 import java.util.Map;
 import java.util.Optional;
 
@@ -15,7 +14,7 @@ public class EmbeddedResidentialProjectViewController
 {
 
   @FXML
-  private RadioButton renovationRButton;
+  private TextField budgetField;
 
   @FXML
   private RadioButton buildRButton;
@@ -42,11 +41,17 @@ public class EmbeddedResidentialProjectViewController
   private TextField othWPlumbingField;
 
   @FXML
+  private RadioButton renovationRButton;
+
+  @FXML
   private TextField sizeField;
 
   @FXML
-  private TextField totalHoursField;
+  private DatePicker timelineDatePicker;
 
+  @FXML
+  private TextField totalHoursField;
+  
   private Region root;
   private ProjectListModel model;
   private ViewHandler viewHandler;
@@ -64,6 +69,12 @@ public class EmbeddedResidentialProjectViewController
 
   public void reset(){
     Map<String, Optional<Object>> defaults = model.getDefaults("Residential");
+    setField("budget",budgetField, defaults);
+
+    if (defaults.get("timeline").isPresent()){
+      LocalDate defaultDate = model.getDateMonthsAway((Integer) defaults.get("timeline").get());
+      timelineDatePicker.setValue(defaultDate);
+    }
     setField("size",sizeField, defaults);
     setField("numKitchens",numKitchensField, defaults);
     setField("numBathrooms",numBathroomsField, defaults);
