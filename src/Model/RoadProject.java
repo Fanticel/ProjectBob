@@ -14,7 +14,8 @@ public class RoadProject extends Project
   private int width;
   private int numBridTun;
   private ArrayList<String> geoChallenge = new ArrayList<>();
-  private static final Object[] defaults = {350000, 9, 1, 1, 1, "new build"};
+  private static final Object[] defaults = {1500000, 10, "On going", 8000, 3048,
+      2};
 
   public RoadProject(String name, String description, int expectedTotalHours,
       int expectedExpenses, long budget, MyDate timeline, String status,

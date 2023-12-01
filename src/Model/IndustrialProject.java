@@ -9,7 +9,8 @@ public class IndustrialProject extends Project
   private int size;
   private String type;
 
-  private static final Object[] defaults = {350000, 9, 1, 1, 1, "new build"};
+  private static final Object[] defaults = {7500000, 20, "On Hold", "New Build",
+      "Refinery", 20000};
 
   public IndustrialProject(String name, String description,
       int expectedTotalHours, int expectedExpenses, long budget,
