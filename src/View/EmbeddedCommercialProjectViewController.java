@@ -2,11 +2,18 @@ package View;
 
 import Model.ProjectListModel;
 import javafx.fxml.FXML;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 
 public class EmbeddedCommercialProjectViewController {
+
+  @FXML
+  private DatePicker timelineDatePicker;
+
+  @FXML
+  private TextField budgetField;
 
   @FXML
   private TextField expectedExpensesField;

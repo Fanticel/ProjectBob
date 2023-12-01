@@ -8,6 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.control.DatePicker?>
 
 <VBox prefHeight="471.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.EmbeddedRoadProjectViewController">
     <children>
@@ -17,6 +18,36 @@
                     <children>
                         <VBox prefHeight="581.0" prefWidth="608.0">
                             <children>
+                                <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="608.0" spacing="10.0">
+                                    <children>
+                                        <Label prefHeight="27.0" prefWidth="228.0" text="Budget">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <TextField fx:id="budgetField" prefHeight="40.0" prefWidth="275.0">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </TextField>
+                                    </children>
+                                    <padding>
+                                        <Insets left="10.0" />
+                                    </padding>
+                                </HBox>
+                                <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="608.0" spacing="10.0">
+                                    <children>
+                                        <Label prefHeight="27.0" prefWidth="228.0" text="Timeline">
+                                            <font>
+                                                <Font size="18.0" />
+                                            </font>
+                                        </Label>
+                                        <DatePicker fx:id="timelineDatePicker" prefHeight="40.0" prefWidth="275.0" />
+                                    </children>
+                                    <padding>
+                                        <Insets left="10.0" />
+                                    </padding>
+                                </HBox>
                                 <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="608.0" spacing="10.0">
                                     <children>
                                         <Label prefHeight="27.0" prefWidth="228.0" text="Length">
