@@ -37,23 +37,75 @@ public class ProjectList {
     return ans;
   }
 
-  public ProjectList getAllProjectsByData(ArrayList<Object> data) {
+  public ProjectList getAllProjectsByData(
+      ArrayList<Object> data) { //for search use, the data is 0:type, 1:name, 2:status, 3:price range min, 4:price range max, 5:man-hours min, 6:man-hours max
+    for (int i = data.size(); i <= 6; i++) {
+      data.add(null);
+    }
     ProjectList ans = new ProjectList();
-    int PType = Integer.parseInt(data.get(0).toString());
-    switch (PType) {
-      case 0: {
-        ArrayList<ResidentialProject> residentialProjectsAL = (ArrayList<ResidentialProject>) ((ArrayList<?>) getAllProjectByType(
-            ResidentialProject.class).returnAsArrayList());
-        break;
+    switch ((Integer) data.get(0)) {
+      case 0 -> ans.projects = getAllProjectByType(
+          ResidentialProject.class).returnAsArrayList();
+      case 1 -> ans.projects = getAllProjectByType(
+          CommercialProject.class).returnAsArrayList();
+      case 2 -> ans.projects = getAllProjectByType(
+          RoadProject.class).returnAsArrayList();
+      case 3 -> ans.projects = getAllProjectByType(
+          IndustrialProject.class).returnAsArrayList();
+      default -> ans.projects = projects;
+    }
+    if (data.get(1) != null) {
+      for (int i = 0; i < ans.returnAsArrayList().size(); i++) {
+        if (!ans.returnAsArrayList().get(i).getName()
+            .equals(data.get(1).toString())) {
+          ans.returnAsArrayList().remove(i);
+          i--;
+        }
       }
-      case 1: {
-        break;
+    }
+    if (data.get(2) != null) {
+      for (int i = 0; i < ans.returnAsArrayList().size(); i++) {
+        if (!ans.returnAsArrayList().get(i).getStatus()
+            .equals(data.get(2).toString())) {
+          ans.returnAsArrayList().remove(i);
+          i--;
+        }
       }
-      case 2: {
-        break;
+    }
+    if (data.get(3) != null) {
+      for (int i = 0; i < ans.returnAsArrayList().size(); i++) {
+        if (ans.returnAsArrayList().get(i).getExpectedExpenses()
+            < (Integer) data.get(3)) {
+          ans.returnAsArrayList().remove(i);
+          i--;
+        }
       }
-      case 3: {
-
+    }
+    if (data.get(4) != null) {
+      for (int i = 0; i < ans.returnAsArrayList().size(); i++) {
+        if (ans.returnAsArrayList().get(i).getExpectedExpenses()
+            > (Integer) data.get(4)) {
+          ans.returnAsArrayList().remove(i);
+          i--;
+        }
+      }
+    }
+    if (data.get(5) != null) {
+      for (int i = 0; i < ans.returnAsArrayList().size(); i++) {
+        if (ans.returnAsArrayList().get(i).getExpectedTotalHours()
+            < (Integer) data.get(5)) {
+          ans.returnAsArrayList().remove(i);
+          i--;
+        }
+      }
+    }
+    if (data.get(6) != null) {
+      for (int i = 0; i < ans.returnAsArrayList().size(); i++) {
+        if (ans.returnAsArrayList().get(i).getExpectedTotalHours()
+            > (Integer) data.get(6)) {
+          ans.returnAsArrayList().remove(i);
+          i--;
+        }
       }
     }
     return ans;

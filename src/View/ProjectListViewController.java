@@ -58,7 +58,7 @@ public class ProjectListViewController {
     projectListViewModel.update();
   }
   public void search(){
-    projectListViewModel.updateSearch(viewState.getName());
+    projectListViewModel.updateSearch(viewState.getData());
   }
 
   public Region getRoot() {

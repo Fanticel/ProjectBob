@@ -1,14 +1,18 @@
 package View;
 
+import java.util.ArrayList;
+
 public class ViewState {
-  private String name;
+  private ArrayList<Object> data;
   public ViewState(){
-    name = null;
+    data = null;
   }
-  public String getName(){
-    return name;
+
+  public ArrayList<Object> getData() {
+    return data;
   }
-  public void setName(String name){
-    this.name = name;
+
+  public void setData(ArrayList<Object> data) {
+    this.data = data;
   }
 }

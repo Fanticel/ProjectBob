@@ -48,9 +48,9 @@ public class CreateProjectViewController {
     typeChoiceBox.getItems().add("Industrial");
     typeChoiceBox.getItems().add("Residential");
     typeChoiceBox.getItems().add("Road");
-    typeChoiceBox.getSelectionModel()
-        .selectedItemProperty()
-        .addListener( (ObservableValue<? extends String> observable, String oldValue, String newValue) -> changeView(newValue) );
+    typeChoiceBox.getSelectionModel().selectedItemProperty().addListener(
+        (ObservableValue<? extends String> observable, String oldValue, String newValue) -> changeView(
+            newValue));
     reset();
   }
 
@@ -72,21 +72,22 @@ public class CreateProjectViewController {
   @FXML void back(ActionEvent event) {
     viewHandler.openView("ProjectList");
   }
-  private void changeView(String id){
-    switch (id){
+
+  private void changeView(String id) {
+    switch (id) {
       case "Commercial" -> id = "view1";
       case "Industrial" -> id = "view2";
       case "Residential" -> id = "view3";
       case "Road" -> id = "view4";
       default -> id = null;
     }
-    if (id==null){
+    if (id == null) {
       return;
     }
     ObservableList<Node> children = stackPane.getChildren();
-    for (Node i : children){
+    for (Node i : children) {
       i.setVisible(false);
-      if (id.equals(i.getId())){
+      if (id.equals(i.getId())) {
         i.setVisible(true);
       }
     }

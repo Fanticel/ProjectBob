@@ -7,6 +7,7 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Region;
 
+import java.util.ArrayList;
 
 public class SearchAProjectPopupViewController {
   private ViewHandler viewHandler;
@@ -29,6 +30,15 @@ public class SearchAProjectPopupViewController {
     this.model = model;
     this.root = root;
     this.viewState = viewState;
+    typeChoiceBox.getItems().add("");
+    typeChoiceBox.getItems().add("Commercial");
+    typeChoiceBox.getItems().add("Industrial");
+    typeChoiceBox.getItems().add("Residential");
+    typeChoiceBox.getItems().add("Road");
+    statusChoiceBox.getItems().add("Ongoing");
+    statusChoiceBox.getItems().add("Finished");
+    statusChoiceBox.getItems().add("PlaceHolder");
+    statusChoiceBox.getItems().add("PlaceHolder");
   }
   public void reset(){}
   public Region getRoot(){
@@ -38,8 +48,19 @@ public class SearchAProjectPopupViewController {
     viewHandler.closePopupView();
   }
   @FXML private void clickSearchButt(){
+    ArrayList<Object> data = new ArrayList<>(); //for search use, the data is 0:type, 1:name, 2:status, 3:price range min, 4:price range max, 5:man-hours min, 6:man-hours max
+    if (typeChoiceBox.getValue() == null) {data.add(-1);} else {
+      switch (typeChoiceBox.getValue()) {
+        case "Residential" -> data.add(0);
+        case "Commercial" -> data.add(1);
+        case "Road" -> data.add(2);
+        case "Industrial" -> data.add(3);
+        default -> data.add(-1);
+      }
+    }
+    if (!nameField.getText().isEmpty()){data.add(nameField.getText());}else{data.add(null);}
+    viewState.setData(data);
     System.out.println("Searching...");
-    viewState.setName(nameField.getText());
     viewHandler.searchHelper();
   }
 }

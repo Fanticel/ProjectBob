@@ -7,6 +7,8 @@ import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
+import java.util.ArrayList;
+
 public class ProjectListViewModel {
 
   private ObservableList<ProjectViewModel> list;
@@ -28,12 +30,10 @@ public class ProjectListViewModel {
       list.add(new ProjectViewModel(i));
     }
   }
-  public void updateSearch(String name){
+  public void updateSearch(ArrayList<Object> data){
     list.clear();
-    for (Project i : model.getAllProjects().returnAsArrayList()) {
-      if (i.getName().contains(name)){
+    for (Project i : model.getAllProjectsByData(data).returnAsArrayList()) {
         list.add(new ProjectViewModel(i));
-      }
     }
   }
 }
