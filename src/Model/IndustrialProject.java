@@ -1,5 +1,9 @@
 package Model;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+
 public class IndustrialProject extends Project {
   private int size;
   private String type;
@@ -34,4 +38,9 @@ public class IndustrialProject extends Project {
     return super.toString();
   }
 
+  public static Map<String, Optional<Object>> getDefaults(){
+    Map<String, Optional<Object>> fields = new HashMap<>();
+
+    return fields;
+  }
 }

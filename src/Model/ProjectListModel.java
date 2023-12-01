@@ -2,6 +2,7 @@ package Model;
 
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Optional;
 
 public interface ProjectListModel
 {
@@ -15,4 +16,5 @@ public interface ProjectListModel
   void removeProject(String name);
   ProjectList getAllProjectsByType(Object project);
   ProjectList getAllProjectsByData(ArrayList<Object> data);
+  Map<String, Optional<Object>> getDefaults(String type);
 }

@@ -47,7 +47,7 @@
                                 <TextArea fx:id="descriptionArea" prefHeight="109.0" prefWidth="263.0" />
                             </children>
                         </HBox>
-                        <Label alignment="TOP_LEFT" prefHeight="44.0" prefWidth="301.0" textFill="#f20303" wrapText="true">
+                        <Label fx:id="errorLabel" alignment="TOP_LEFT" prefHeight="44.0" prefWidth="437.0" textFill="#f20303" wrapText="true">
                             <font>
                                 <Font size="16.0" />
                             </font>

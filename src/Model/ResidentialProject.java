@@ -2,6 +2,10 @@ package Model;
 
 import Model.Project;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+
 public class ResidentialProject extends Project
 {
   private int size;
@@ -10,6 +14,7 @@ public class ResidentialProject extends Project
   private int numBathrooms;
   private int othWPlumbing;
   private boolean isNewBuild;
+  private static final Object[] defaults = {350000, 9, 1, 1, 1 ,"new build"};
 
   public ResidentialProject(String name, String description,
       int expectedTotalHours, int expectedExpenses, long budget,
@@ -80,6 +85,22 @@ public class ResidentialProject extends Project
   {
     return super.toString();
 
+  }
+  public static Map<String, Optional<Object>> getDefaults(){
+    Map<String, Optional<Object>> fields = new HashMap<>();
+    fields.put("name", Optional.empty());
+    fields.put("description", Optional.empty());
+    fields.put("expectedTotalHours", Optional.empty());
+    fields.put("expectedExpenses", Optional.empty());
+    fields.put("budget", Optional.of(defaults[0]));
+    fields.put("timeline", Optional.of(defaults[1]));
+    fields.put("size", Optional.empty());
+    fields.put("numKitchens", Optional.of(defaults[2]));
+    fields.put("numBathrooms", Optional.of(defaults[3]));
+    fields.put("othWPlumbing", Optional.of(defaults[4]));
+    fields.put("isNewBuild", Optional.of(defaults[5]));
+
+    return fields;
   }
 }
 

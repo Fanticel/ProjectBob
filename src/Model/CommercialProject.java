@@ -1,5 +1,9 @@
 package Model;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Optional;
+
 public class CommercialProject extends Project {
   private int size;
   private int numFloor;
@@ -44,5 +48,10 @@ public class CommercialProject extends Project {
 
   @Override public String toString() {
     return super.toString();
+  }
+  public static Map<String, Optional<Object>> getDefaults(){
+    Map<String, Optional<Object>> fields = new HashMap<>();
+
+    return fields;
   }
 }

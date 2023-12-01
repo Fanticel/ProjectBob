@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
+import java.util.Optional;
 
 public class ProjectListModelManager implements ProjectListModel {
   private ProjectList projectList;
@@ -148,5 +149,20 @@ public class ProjectListModelManager implements ProjectListModel {
       roadProject.setgeoChallenge((ArrayList<String>) data.get("geoChallenge"));
       roadProject.setnumBridTun((Integer) data.get("numBridTun"));
     }
+  }
+  @Override public Map<String, Optional<Object>> getDefaults(String type){
+    if (type.equals("Residential"))
+    {
+      return ResidentialProject.getDefaults();
+    }
+    else if (type.equals("Commercial"))
+    {
+      return CommercialProject.getDefaults();
+    }
+    else if (type.equals("Industrial"))
+    {
+      return IndustrialProject.getDefaults();
+    }else
+    return RoadProject.getDefaults();
   }
 }
