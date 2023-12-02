@@ -6,6 +6,8 @@ import javafx.scene.layout.Region;
 
 public class ProjectDetailsViewController
 {
+
+
   private ViewHandler viewHandler;
   private ProjectListModel projectListModel;
 
@@ -17,7 +19,10 @@ public class ProjectDetailsViewController
     this.projectListModel = null;
     this.root = null;
 
+
   }
+
+
 
   public void reset()
   {
@@ -32,6 +37,8 @@ public class ProjectDetailsViewController
 
   @FXML private void initialize()
   {
+
+
 
 
   }
