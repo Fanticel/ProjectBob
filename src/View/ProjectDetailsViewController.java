@@ -57,11 +57,6 @@ public class ProjectDetailsViewController
   @FXML public void initialize()
   {
 
-
-
-
-
-
   }
 
 }

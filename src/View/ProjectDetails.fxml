@@ -32,7 +32,7 @@
                     </font>
                 </Label>
                 <Label fx:id="projectName" layoutX="14.0" layoutY="85.0"
-                       text="The Name of Project">
+                       text="Likasombody">
                     <font>
                         <Font size="14.0"/>
                     </font>
@@ -78,7 +78,7 @@
                     </font>
                 </Label>
                 <Label fx:id="expHours" layoutX="16.0" layoutY="75.0"
-                       text="450">
+                       text="420">
                     <font>
                         <Font size="14.0"/>
                     </font>
@@ -90,7 +90,7 @@
                     </font>
                 </Label>
                 <Label fx:id="expExpenses" layoutX="16.0" layoutY="119.0"
-                       text="450">
+                       text="420">
                     <font>
                         <Font size="14.0"/>
                     </font>
@@ -114,7 +114,7 @@
                         <Font name="System Bold" size="14.0"/>
                     </font>
                 </Label>
-                <Label fx:id="budget" layoutX="16.0" layoutY="75.0" text="450">
+                <Label fx:id="budget" layoutX="16.0" layoutY="75.0" text="420">
                     <font>
                         <Font size="14.0"/>
                     </font>
@@ -126,7 +126,7 @@
                     </font>
                 </Label>
                 <Label fx:id="timeline" layoutX="16.0" layoutY="119.0"
-                       text="450">
+                       text="420">
                     <font>
                         <Font size="14.0"/>
                     </font>
@@ -145,28 +145,33 @@
                 </Label>
                 <Button fx:id="commercial" layoutX="14.0" layoutY="48.0"
                         mnemonicParsing="false" prefHeight="50.0"
-                        prefWidth="140.0" text="Commercial">
+                        prefWidth="140.0" style="-fx-background-color: #f5ba41;"
+
+                        text="Commercial" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="13.0"/>
                     </font>
                 </Button>
                 <Button fx:id="industrial" layoutX="158.0" layoutY="48.0"
                         mnemonicParsing="false" prefHeight="50.0"
-                        prefWidth="140.0" text="Industrial">
+                        prefWidth="140.0" style="-fx-background-color: #f5ba41;"
+                        text="Industrial" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="13.0"/>
                     </font>
                 </Button>
                 <Button fx:id="residential" layoutX="158.0" layoutY="101.0"
                         mnemonicParsing="false" prefHeight="50.0"
-                        prefWidth="140.0" text="Residential">
+                        prefWidth="140.0" style="-fx-background-color: #f5ba41;"
+                        text="Residential" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="13.0"/>
                     </font>
                 </Button>
                 <Button fx:id="road" layoutX="14.0" layoutY="102.0"
                         mnemonicParsing="false" prefHeight="50.0"
-                        prefWidth="140.0" text="Road">
+                        prefWidth="140.0" style="-fx-background-color: #f5ba41;"
+                        text="Road" textFill="WHITE">
                     <font>
                         <Font name="System Bold" size="13.0"/>
                     </font>
