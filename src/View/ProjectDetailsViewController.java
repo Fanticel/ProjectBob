@@ -54,8 +54,13 @@ public class ProjectDetailsViewController
     return root;
   }
 
-  @FXML private void initialize()
+  @FXML public void initialize()
   {
+
+
+
+
+
 
   }
 
