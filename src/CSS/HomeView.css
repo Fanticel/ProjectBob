@@ -4,7 +4,7 @@
         -fx-background-size: cover;
 }
 
-#circularButton {
+#clickNotificationButton {
     -fx-background-radius: 50em; /* Use a high value to create a circle */
     -fx-min-width: 50px; /* Set the width of the button */
     -fx-min-height: 50px; /* Set the height of the button */
