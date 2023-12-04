@@ -60,7 +60,7 @@ public class CreateProjectViewController {
   }
 
   public void reset() {
-
+    typeChoiceBox.setValue("");
     nameField.setText("");
     descriptionArea.setText("");
     errorLabel.setText("");
@@ -68,6 +68,11 @@ public class CreateProjectViewController {
     view2Controller.reset();
     view3Controller.reset();
     view4Controller.reset();
+
+    ObservableList<Node> children = stackPane.getChildren();
+    for (Node i : children) {
+      i.setVisible(false);
+    }
   }
 
   public Region getRoot() {
@@ -78,8 +83,8 @@ public class CreateProjectViewController {
    /* try
     {*/
       ArrayList<Object> data = new ArrayList<Object>();
-      data.add((Object) nameField.getText());
-      data.add((Object) descriptionArea.getText());
+      data.add(nameField.getText());
+      data.add(descriptionArea.getText());
       viewState.setData(data);
       switch (typeChoiceBox.getValue()){
         case "Residential" -> view3Controller.create();

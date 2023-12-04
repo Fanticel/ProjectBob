@@ -26,7 +26,7 @@ public class CommercialProject extends Project
 
   public void setIntendedUse(String intendedUse)
   {
-    this.intendedUse = " ";
+    this.intendedUse = intendedUse;
 
   }
 
@@ -37,7 +37,7 @@ public class CommercialProject extends Project
 
   public void setNumFloor(int numFloor)
   {
-    this.numFloor = 0;
+    this.numFloor = numFloor;
   }
 
   public int getNumFloor()
@@ -47,7 +47,7 @@ public class CommercialProject extends Project
 
   public void setSize(int size)
   {
-    this.size = 0;
+    this.size = size;
   }
 
   public int getSize()

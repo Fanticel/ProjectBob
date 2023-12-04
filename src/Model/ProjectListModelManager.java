@@ -35,10 +35,55 @@ public class ProjectListModelManager implements ProjectListModel {
     return projectList.getProject(name);
   }
 
-  @Override public void editProject(int index, Map<String, Object> data) {
-    Project project = projectList.getProject(index);
-//    edit(project, data);
+  @Override public void editProject(Project project, Map<String, Object> data)
+  {
+    try
+    {
+      project.setName((String) data.get("name"));
+      project.setDescription((String) data.get("description"));
+      project.setExpectedTotalHours(Integer.parseInt(data.get("expectedTotalHours").toString()));
+      project.setExpectedExpenses(Integer.parseInt(data.get("expectedExpenses").toString()));
+      project.setTotalHours(Integer.parseInt(data.get("totalHours").toString()));
+      project.setExpenses(Integer.parseInt(data.get("expenses").toString()));
+      project.setBudget(Long.parseLong(data.get("budget").toString()));
+      project.setTimeline((MyDate) data.get("timeline"));
+      project.setStatus((String) data.get("status"));
+
+      if (project instanceof ResidentialProject residentialProject)
+      {
+        residentialProject.setSize(Integer.parseInt(data.get("size").toString()));
+        residentialProject.setNumKitchens(Integer.parseInt(data.get("numKitchens").toString()));
+        residentialProject.setNumBathrooms(Integer.parseInt(data.get("numBathrooms").toString()));
+        residentialProject.setNewBuild((Boolean) data.get("isNewBuild"));
+        residentialProject.setOthWPlumbing((Integer) data.get("othWPlumbing"));
+      }
+      else if (project instanceof CommercialProject commercialProject)
+      {
+        commercialProject.setSize(Integer.parseInt(data.get("size").toString()));
+        commercialProject.setNumFloor(Integer.parseInt(data.get("numFloor").toString()));
+        commercialProject.setIntendedUse((String) data.get("intendedUse"));
+      }
+      else if (project instanceof IndustrialProject industrialProject)
+      {
+        industrialProject.setSize(Integer.parseInt(data.get("size").toString()));
+        industrialProject.setType((String) data.get("type"));
+      }
+      else
+      {
+        RoadProject roadProject = (RoadProject) project;
+        roadProject.setLength(Integer.parseInt(data.get("length").toString()));
+        roadProject.setWidth(Integer.parseInt(data.get("width").toString()));
+        roadProject.setgeoChallenge((ArrayList<String>) data.get("geoChallenge"));
+        roadProject.setnumBridTun(Integer.parseInt(data.get("numBridTun").toString()));
+      }
+      fileManagerXML.writeToFile("Save.xml", projectList);
+    }
+    catch (IOException e)
+    {
+      System.out.println(e.getMessage());
+    }
   }
+
 
   @Override public void addProject(ArrayList<Object> data) {
     try
@@ -125,38 +170,6 @@ public class ProjectListModelManager implements ProjectListModel {
     addProject(data3);
   }
 
-  private void edit(Project project, Map<String, Object> data) {
-    project.setName((String) data.get("name"));
-    project.setDescription((String) data.get("description"));
-    project.setExpectedTotalHours((Integer) data.get("expectedTotalHours"));
-    project.setExpectedExpenses((Integer) data.get("expectedExpenses"));
-    project.setBudget((long) data.get("budget"));
-    project.setTimeline((MyDate) data.get("timeline"));
-
-    if (project instanceof ResidentialProject residentialProject) {
-      residentialProject.setSize((Integer) data.get("size"));
-      residentialProject.setNumKitchens((Integer) data.get("numKitchens"));
-      residentialProject.setNumBathrooms((Integer) data.get("numBathrooms"));
-      residentialProject.setNewBuild((Boolean) data.get("isNewBuild"));
-      residentialProject.setOthWPlumbing((Integer) data.get("othWPlumbing"));
-    }
-    else if (project instanceof CommercialProject commercialProject) {
-      commercialProject.setSize((Integer) data.get("size"));
-      commercialProject.setNumFloor((Integer) data.get("numFloor"));
-      commercialProject.setIntendedUse((String) data.get("intendedUse"));
-    }
-    else if (project instanceof IndustrialProject industrialProject) {
-      industrialProject.setSize((Integer) data.get("size"));
-      industrialProject.setType((String) data.get("type"));
-    }
-    else {
-      RoadProject roadProject = (RoadProject) project;
-      roadProject.setLength((Integer) data.get("length"));
-      roadProject.setWidth((Integer) data.get("width"));
-      roadProject.setgeoChallenge((ArrayList<String>) data.get("geoChallenge"));
-      roadProject.setnumBridTun((Integer) data.get("numBridTun"));
-    }
-  }
   @Override public Map<String, Optional<Object>> getDefaults(String type){
     if (type.equals("Residential"))
     {
