@@ -55,7 +55,7 @@ public class ProjectListModelManager implements ProjectListModel {
         residentialProject.setNumKitchens(Integer.parseInt(data.get("numKitchens").toString()));
         residentialProject.setNumBathrooms(Integer.parseInt(data.get("numBathrooms").toString()));
         residentialProject.setNewBuild((Boolean) data.get("isNewBuild"));
-        residentialProject.setOthWPlumbing((Integer) data.get("othWPlumbing"));
+        residentialProject.setOthWPlumbing(Integer.parseInt(data.get("othWPlumbing").toString()));
       }
       else if (project instanceof CommercialProject commercialProject)
       {
