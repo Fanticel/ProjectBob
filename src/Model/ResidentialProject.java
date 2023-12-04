@@ -33,27 +33,27 @@ public class ResidentialProject extends Project
 
   public void setSize(int size)
   {
-    this.size = 0;
+    this.size = size;
   }
 
   public int getSize()
   {
-    return 0;
+    return size;
   }
 
   public void setNumKitchens(int numKitchens)
   {
-    this.numKitchens = 0;
+    this.numKitchens = numKitchens;
   }
 
   public int getNumKitchens()
   {
-    return 0;
+    return numKitchens;
   }
 
   public void setNumBathrooms(int numBathrooms)
   {
-    this.numBathrooms = 0;
+    this.numBathrooms = numBathrooms;
   }
 
   public int getNumBathrooms()
@@ -63,7 +63,7 @@ public class ResidentialProject extends Project
 
   public void setOthWPlumbing(int othWPlumbing)
   {
-    this.othWPlumbing = 0;
+    this.othWPlumbing = othWPlumbing;
   }
 
   public int getOthWPlumbing()

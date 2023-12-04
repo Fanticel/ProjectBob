@@ -1,6 +1,7 @@
 package View;
 
 import Model.MyDate;
+import Model.Project;
 import Model.ProjectListModel;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -90,6 +91,10 @@ public class EmbeddedRoadProjectViewController {
     setField("expectedTotalHours",expectedTotalHoursField, defaults);
     setField("expectedExpenses",expectedExpensesField, defaults);
   }
+
+  public void editReset(){
+
+  }
   public Region getRoot(){
     return root;
   }
@@ -99,7 +104,7 @@ public class EmbeddedRoadProjectViewController {
   }
   public void create(){
     ArrayList<Object> data = viewState.getData();
-    ArrayList<String> geoChalenges = new ArrayList<String>();
+    ArrayList<String> geoChallenges = new ArrayList<String>();
     data.add(Integer.valueOf(expectedTotalHoursField.getText()));
     data.add(Integer.valueOf(expectedExpensesField.getText()));
     data.add(budgetField.getText());
@@ -112,11 +117,15 @@ public class EmbeddedRoadProjectViewController {
     data.add(Integer.valueOf(numBridTunField.getText()));
 
     for (Node node : geoChallengeVBox.getChildren()){
-      geoChalenges.add(((TextField)node).getText());
+      geoChallenges.add(((TextField)node).getText());
     }
-    data.add(geoChalenges);
+    data.add(geoChallenges);
 
     model.addProject(data);
+  }
+
+  public void edit(Project project){
+
   }
 
 }

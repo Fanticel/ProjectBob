@@ -1,6 +1,7 @@
 package View;
 
 import Model.MyDate;
+import Model.Project;
 import Model.ProjectListModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
@@ -93,6 +94,9 @@ public class EmbeddedResidentialProjectViewController
     }
 
   }
+  public void editReset(){
+
+  }
   public Region getRoot(){
     return root;
   }
@@ -124,6 +128,9 @@ public class EmbeddedResidentialProjectViewController
     else data.add( false);
 
     model.addProject(data);
+  }
+  public void edit(Project project){
+
   }
 
 }

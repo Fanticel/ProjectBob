@@ -1,6 +1,7 @@
 package View;
 
 import Model.MyDate;
+import Model.Project;
 import Model.ProjectListModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
@@ -69,6 +70,10 @@ public class EmbeddedIndustrialProjectViewController {
     setField("expectedExpenses",expectedExpensesField, defaults);
 
   }
+
+  public void editReset(){
+
+  }
   private static void setField(String fieldName, TextField field,
       Map<String, Optional<Object>> defaults){
     if (defaults.get(fieldName).isPresent()){
@@ -94,6 +99,10 @@ public class EmbeddedIndustrialProjectViewController {
     data.add(Integer.valueOf(sizeField.getText()));
 
     model.addProject(data);
+  }
+
+  public void edit(Project project){
+
   }
 
 }
