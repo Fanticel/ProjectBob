@@ -19,4 +19,5 @@ public interface ProjectListModel
   ProjectList getAllProjectsByData(ArrayList<Object> data);
   Map<String, Optional<Object>> getDefaults(String type);
   public LocalDate getDateMonthsAway(int months);
+  void delete(String projectName);
 }

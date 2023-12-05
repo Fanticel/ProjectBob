@@ -19,6 +19,7 @@ public class ViewHandler {
   private CreateProjectViewController createProjectViewController;
   private SearchAProjectPopupViewController searchAProjectPopupViewController;
   private EditProjectViewController editProjectViewController;
+  private DeletePopupViewController deletePopupViewController;
 
   public ViewHandler(ProjectListModel model) {
     this.currentScene = new Scene(new Region());
@@ -61,9 +62,13 @@ public class ViewHandler {
   public void closePopupView(){
     popupStage.close();
   }
-  public void openPopupView() {
+  public void openPopupView(String id) {
     startPopup(new Stage());
-    Region root = loadSearchAProjectPopupView("SearchAProjectPopupView.fxml");
+    Region root = null;
+    switch (id) {
+      case "Search" -> root = loadSearchAProjectPopupView("SearchAProjectPopupView.fxml");
+      case "Delete" -> root = loadDeletePopupViewController("DeletePopupView.fxml");
+    }
     popupScene.setRoot(root);
     String title = "";
     if (root.getUserData() != null) {
@@ -201,6 +206,26 @@ public class ViewHandler {
     }
     System.out.println("root works");
     return searchAProjectPopupViewController.getRoot();
+  }
+  private Region loadDeletePopupViewController(String fxmlFile){
+    Region root = null;
+    if (deletePopupViewController==null){
+      try{
+        FXMLLoader loader =new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        root = loader.load();
+        deletePopupViewController = loader.getController();
+        deletePopupViewController.init(this, model, root, viewState);
+      }
+      catch (Exception e){
+        e.printStackTrace();
+      }
+    }
+    else {
+      deletePopupViewController.reset();
+    }
+    System.out.println("Delete root works");
+    return deletePopupViewController.getRoot();
   }
 }
 

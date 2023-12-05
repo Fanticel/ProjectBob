@@ -85,7 +85,7 @@ public class ProjectListViewController {
     unselected();
   }
   @FXML private void clickSearchButt(){
-    viewHandler.openPopupView();
+    viewHandler.openPopupView("Search");
     unselected();
   }
   @FXML private void escapeClicked(KeyEvent event){

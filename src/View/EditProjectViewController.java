@@ -124,7 +124,7 @@ public class EditProjectViewController
 
   @FXML
   void delete(ActionEvent event) {
-
+    viewHandler.openPopupView("Delete");
   }
 
   public Region getRoot() {
