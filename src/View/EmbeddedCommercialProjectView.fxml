@@ -11,22 +11,22 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="471.0" prefWidth="608.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.EmbeddedCommercialProjectViewController">
+<VBox prefHeight="471.0" prefWidth="608.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.EmbeddedCommercialProjectViewController">
 <children>
     <ScrollPane pannable="true" prefHeight="471.0" prefWidth="608.0">
         <content>
             <AnchorPane fx:id="scrollAnchorPane" minHeight="0.0" minWidth="0.0" prefHeight="472.0" prefWidth="610.0">
                 <children>
-                    <VBox prefHeight="581.0" prefWidth="608.0">
+                    <VBox prefHeight="581.0" prefWidth="608.0" style="-fx-background-color: white;">
                         <children>
                             <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="608.0" spacing="10.0">
                                 <children>
-                                    <Label prefHeight="27.0" prefWidth="228.0" text="Budget">
+                                    <Label prefHeight="27.0" prefWidth="228.0" text="Budget" textFill="#f5ba41">
                                         <font>
-                                            <Font size="18.0" />
+                                            <Font name="System Bold" size="18.0" />
                                         </font>
                                     </Label>
-                                    <TextField fx:id="budgetField" prefHeight="40.0" prefWidth="275.0">
+                                    <TextField fx:id="budgetField" prefHeight="40.0" prefWidth="275.0" style="-fx-border-color: #f5ba41; -fx-border-radius: 10; -fx-border-width: 2; -fx-background-color: white;">
                                         <font>
                                             <Font size="18.0" />
                                         </font>
@@ -38,12 +38,12 @@
                             </HBox>
                             <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="608.0" spacing="10.0">
                                 <children>
-                                    <Label prefHeight="27.0" prefWidth="228.0" text="Timeline">
+                                    <Label prefHeight="27.0" prefWidth="228.0" text="Timeline" textFill="#f5ba41">
                                         <font>
-                                            <Font size="18.0" />
+                                            <Font name="System Bold" size="18.0" />
                                         </font>
                                     </Label>
-                                    <DatePicker fx:id="timelineDatePicker" prefHeight="40.0" prefWidth="275.0" />
+                                    <DatePicker fx:id="timelineDatePicker" prefHeight="40.0" prefWidth="275.0" style="-fx-border-color: #f5ba41; -fx-border-radius: 8; -fx-border-width: 2; -fx-background-color: white;" />
                                 </children>
                                 <padding>
                                     <Insets left="10.0" />
@@ -51,12 +51,12 @@
                             </HBox>
                             <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="608.0" spacing="10.0">
                                 <children>
-                                    <Label prefHeight="27.0" prefWidth="228.0" text="Size">
+                                    <Label prefHeight="27.0" prefWidth="228.0" text="Size" textFill="#f5ba41">
                                         <font>
-                                            <Font size="18.0" />
+                                            <Font name="System Bold" size="18.0" />
                                         </font>
                                     </Label>
-                                    <TextField fx:id="sizeField" prefHeight="40.0" prefWidth="275.0">
+                                    <TextField fx:id="sizeField" prefHeight="40.0" prefWidth="275.0" style="-fx-border-color: #f5ba41; -fx-border-radius: 10; -fx-border-width: 2; -fx-background-color: white;">
                                         <font>
                                             <Font size="18.0" />
                                         </font>
@@ -71,12 +71,12 @@
                             </HBox>
                             <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="608.0" spacing="10.0">
                                 <children>
-                                    <Label prefHeight="27.0" prefWidth="228.0" text="Number of floors">
+                                    <Label prefHeight="27.0" prefWidth="228.0" text="Number of floors" textFill="#f5ba41">
                                         <font>
-                                            <Font size="18.0" />
+                                            <Font name="System Bold" size="18.0" />
                                         </font>
                                     </Label>
-                                    <TextField fx:id="numFloorsField" prefHeight="40.0" prefWidth="275.0">
+                                    <TextField fx:id="numFloorsField" prefHeight="40.0" prefWidth="275.0" style="-fx-border-color: #f5ba41; -fx-border-radius: 10; -fx-border-width: 2; -fx-background-color: white;">
                                         <font>
                                             <Font size="18.0" />
                                         </font>
@@ -88,12 +88,15 @@
                             </HBox>
                             <HBox alignment="CENTER_LEFT" prefHeight="135.0" prefWidth="598.0" spacing="10.0">
                                 <children>
-                                    <Label prefHeight="27.0" prefWidth="228.0" text="Intended use">
+                                    <Label prefHeight="27.0" prefWidth="228.0" text="Intended use" textFill="#f5ba41">
                                         <font>
-                                            <Font size="18.0" />
+                                            <Font name="System Bold" size="18.0" />
                                         </font>
                                     </Label>
-                              <TextArea fx:id="intendedUseArea" prefHeight="70.0" prefWidth="326.0" />
+                              <TextArea fx:id="intendedUseArea" prefHeight="70.0" prefWidth="326.0" style="-fx-border-color: #f5ba41; -fx-border-radius: 7; -fx-border-width: 2; -fx-background-color: white;">
+                                 <HBox.margin>
+                                    <Insets />
+                                 </HBox.margin></TextArea>
                                 </children>
                                 <padding>
                                     <Insets left="10.0" />
@@ -101,12 +104,12 @@
                             </HBox>
                             <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="608.0" spacing="10.0">
                                 <children>
-                                    <Label prefHeight="27.0" prefWidth="228.0" text="Expected total hours">
+                                    <Label prefHeight="27.0" prefWidth="228.0" text="Expected total hours" textFill="#f5ba41">
                                         <font>
-                                            <Font size="18.0" />
+                                            <Font name="System Bold" size="18.0" />
                                         </font>
                                     </Label>
-                                    <TextField fx:id="expectedTotalHoursField" prefHeight="40.0" prefWidth="275.0">
+                                    <TextField fx:id="expectedTotalHoursField" prefHeight="40.0" prefWidth="275.0" style="-fx-border-color: #f5ba41; -fx-border-radius: 10; -fx-border-width: 2; -fx-background-color: white;">
                                         <font>
                                             <Font size="18.0" />
                                         </font>
@@ -118,12 +121,12 @@
                             </HBox>
                             <HBox alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="598.0" spacing="10.0">
                                 <children>
-                                    <Label prefHeight="27.0" prefWidth="228.0" text="Expected expenses">
+                                    <Label prefHeight="27.0" prefWidth="228.0" text="Expected expenses" textFill="#f5ba41">
                                         <font>
-                                            <Font size="18.0" />
+                                            <Font name="System Bold" size="18.0" />
                                         </font>
                                     </Label>
-                                    <TextField fx:id="expectedExpensesField" prefHeight="40.0" prefWidth="275.0">
+                                    <TextField fx:id="expectedExpensesField" prefHeight="40.0" prefWidth="275.0" style="-fx-border-color: #f5ba41; -fx-border-radius: 10; -fx-border-width: 2; -fx-background-color: white;">
                                         <font>
                                             <Font size="18.0" />
                                         </font>

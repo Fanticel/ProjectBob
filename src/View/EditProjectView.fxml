@@ -11,68 +11,140 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="533.0" prefWidth="1042.0" spacing="10.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.EditProjectViewController">
+<VBox alignment="CENTER" prefHeight="533.0" prefWidth="1042.0" spacing="10.0"
+      style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="View.EditProjectViewController">
     <children>
         <HBox prefHeight="534.0" prefWidth="1050.0">
             <children>
-                <VBox alignment="TOP_CENTER" prefHeight="516.0" prefWidth="387.0">
+                <VBox alignment="TOP_CENTER" prefHeight="516.0"
+                      prefWidth="387.0" style="-fx-background-color: white;">
                     <children>
-                        <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="518.0" spacing="10.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="78.0"
+                              prefWidth="518.0" spacing="10.0">
                             <children>
-                                <Label prefHeight="27.0" prefWidth="70.0" text="Status">
+                                <Label prefHeight="27.0" prefWidth="70.0"
+                                       text="Status" textFill="#f5ba41">
                                     <font>
-                                        <Font size="18.0" />
+                                        <Font name="System Bold" size="18.0"/>
                                     </font>
                                 </Label>
-                                <ChoiceBox fx:id="statusChoiceBox" prefWidth="150.0" />
+                                <ChoiceBox fx:id="statusChoiceBox"
+                                           prefWidth="150.0"
+                                           style="-fx-background-color: #f5ba41;">
+                                    <HBox.margin>
+                                        <Insets left="70.0"/>
+                                    </HBox.margin>
+                                </ChoiceBox>
                             </children>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="518.0" spacing="10.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="78.0"
+                              prefWidth="518.0" spacing="10.0">
                             <children>
-                                <Label prefHeight="27.0" prefWidth="70.0" text="Name">
+                                <Label prefHeight="27.0" prefWidth="70.0"
+                                       text="Name" textFill="#f5ba41">
                                     <font>
-                                        <Font size="18.0" />
+                                        <Font name="System Bold" size="18.0"/>
                                     </font>
                                 </Label>
-                                <TextField fx:id="nameField" prefHeight="26.0" prefWidth="248.0" />
+                                <TextField fx:id="nameField" prefHeight="26.0"
+                                           prefWidth="248.0"
+                                           style="-fx-background-color: white; -fx-border-color: #f5ba41; -fx-border-radius: 10; -fx-border-width: 2;">
+                                    <HBox.margin>
+                                        <Insets left="40.0"/>
+                                    </HBox.margin>
+                                </TextField>
                             </children>
                         </HBox>
-                        <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="518.0" spacing="10.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="78.0"
+                              prefWidth="518.0" spacing="10.0">
                             <children>
-                                <Label prefHeight="27.0" prefWidth="108.0" text="Description">
+                                <Label prefHeight="27.0" prefWidth="108.0"
+                                       text="Description" textFill="#f5ba41">
                                     <font>
-                                        <Font size="18.0" />
+                                        <Font name="System Bold" size="18.0"/>
                                     </font>
                                 </Label>
-                                <TextArea fx:id="descriptionArea" prefHeight="109.0" prefWidth="263.0" />
+                                <TextArea fx:id="descriptionArea"
+                                          prefHeight="109.0" prefWidth="263.0"
+                                          style="-fx-background-color: white; -fx-border-color: #f5ba41; -fx-border-radius: 5; -fx-border-width: 2;">
+                                    <HBox.margin>
+                                        <Insets left="16.0" right="16.0"/>
+                                    </HBox.margin>
+                                </TextArea>
                             </children>
                         </HBox>
-                        <Label fx:id="errorLabel" alignment="TOP_LEFT" prefHeight="44.0" prefWidth="437.0" textFill="#f20303" wrapText="true">
+                        <Label fx:id="errorLabel" alignment="TOP_LEFT"
+                               prefHeight="44.0" prefWidth="437.0"
+                               textFill="#f20303" wrapText="true">
                             <font>
-                                <Font size="16.0" />
+                                <Font size="16.0"/>
                             </font>
                             <VBox.margin>
-                                <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                <Insets bottom="5.0" left="5.0" right="5.0"
+                                        top="5.0"/>
                             </VBox.margin>
                         </Label>
-                        <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="518.0" spacing="10.0">
+                        <HBox alignment="CENTER_LEFT" prefHeight="78.0"
+                              prefWidth="518.0" spacing="10.0">
                             <children>
-                                <Button mnemonicParsing="false" onAction="#confirm" prefHeight="34.0" prefWidth="91.0" text="CONFIRM" />
-                                <Button mnemonicParsing="false" onAction="#cancel" prefHeight="35.0" prefWidth="86.0" text="CANCEL" />
-                        <Button mnemonicParsing="false" onAction="#delete" prefHeight="35.0" prefWidth="86.0" text="DELETE" />
+                                <Button mnemonicParsing="false"
+                                        onAction="#confirm" prefHeight="34.0"
+                                        prefWidth="91.0"
+                                        style="-fx-background-color: #f5ba41;"
+                                        text="CONFIRM" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="12.0"/>
+                                    </font>
+                                    <HBox.margin>
+                                        <Insets/>
+                                    </HBox.margin>
+                                </Button>
+                                <Button mnemonicParsing="false"
+                                        onAction="#cancel" prefHeight="35.0"
+                                        prefWidth="86.0"
+                                        style="-fx-background-color: #f5ba41;"
+                                        text="CANCEL" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="12.0"/>
+                                    </font>
+                                </Button>
+                                <Button mnemonicParsing="false"
+                                        onAction="#delete" prefHeight="35.0"
+                                        prefWidth="86.0"
+                                        style="-fx-background-color: #f5ba41;"
+                                        text="DELETE" textFill="WHITE">
+                                    <font>
+                                        <Font name="System Bold" size="12.0"/>
+                                    </font>
+                                </Button>
                             </children>
+                            <padding>
+                                <Insets left="75.0"/>
+                            </padding>
                         </HBox>
                     </children>
                 </VBox>
-                <StackPane fx:id="stackPane" prefHeight="484.0" prefWidth="632.0">
+                <StackPane fx:id="stackPane" prefHeight="484.0"
+                           prefWidth="632.0"
+                           style="-fx-background-color: light grey; -fx-border-color: #f5ba41; -fx-border-radius: 10; -fx-border-width: 2;">
                     <children>
-                        <fx:include fx:id="view1" source="EmbeddedCommercialProjectView.fxml" visible="false" />
-                        <fx:include fx:id="view2" source="EmbeddedIndustrialProjectView.fxml" visible="false" />
-                        <fx:include fx:id="view3" source="EmbeddedResidentialProjectView.fxml" visible="false" />
-                        <fx:include fx:id="view4" source="EmbeddedRoadProjectView.fxml" visible="false" />
+                        <fx:include fx:id="view1"
+                                    source="EmbeddedCommercialProjectView.fxml"
+                                    visible="false"/>
+                        <fx:include fx:id="view2"
+                                    source="EmbeddedIndustrialProjectView.fxml"
+                                    visible="false"/>
+                        <fx:include fx:id="view3"
+                                    source="EmbeddedResidentialProjectView.fxml"
+                                    visible="false"/>
+                        <fx:include fx:id="view4"
+                                    source="EmbeddedRoadProjectView.fxml"
+                                    visible="false"/>
                     </children>
                     <HBox.margin>
-                        <Insets left="10.0" />
+                        <Insets left="10.0"/>
                     </HBox.margin>
 
                 </StackPane>
@@ -80,6 +152,6 @@
         </HBox>
     </children>
     <padding>
-        <Insets left="10.0" right="10.0" />
+        <Insets left="10.0" right="10.0"/>
     </padding>
 </VBox>
