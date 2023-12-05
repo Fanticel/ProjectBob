@@ -153,6 +153,7 @@ public class EmbeddedCommercialProjectViewController {
     data.put("timeline", date);
     data.put("size", sizeField.getText());
     data.put("numFloor", numFloorsField.getText());
+    data.put("intendedUse", intendedUseArea.getText());
 
     model.editProject(project, data);
   }
