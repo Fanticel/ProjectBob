@@ -14,7 +14,7 @@ public class NotificationDetector
     return new MyDate(today.getDayOfMonth(), today.getMonthValue(), today.getYear());
   }
 
-  public void checkDeadline()
+  public String checkDeadline()
   {
     MyDate currentDate = new MyDate();
     MyDate projectDeadline = project.getTimeline();
@@ -24,18 +24,27 @@ public class NotificationDetector
     System.out.println("Difference in days: " + difference);
 
     if (difference <= 30) {
-      System.out.println("Warning: The project " + project.getName() +
-          " has a deadline within 30 days." + "the difference: " + difference);
+      return ("Warning: The project " + project.getName() +
+          " has a deadline within next " + difference + " days.");
     }
+    else return null;
   }
 
-  public void checkFunds() {
+  public String checkFunds() {
     int expectedExpenses = project.getExpectedExpenses();
     long budget = project.getBudget();
+    double precentage = (double) budget /expectedExpenses*100;
+    double roundOff = Math.round(precentage *100.0)/100.0;
 
-    if (budget >= expectedExpenses * 0.9) {
-      System.out.println("Warning: The project " + project.getName() +
-          " has reached 90% of its budget.");
+    if (budget >= expectedExpenses * 0.9 && budget > expectedExpenses) {
+      return("Warning: The project " + project.getName() +
+          "has went over the expected price by: " + (budget-expectedExpenses) +" DK");
     }
+    else if (budget >= expectedExpenses * 0.9 && budget <= expectedExpenses)
+    {
+      return("Warning: The project " + project.getName() +
+          " has reached " + roundOff + "% oif the expected price.");
+    }
+    else return null;
   }
 }

@@ -8,6 +8,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.Region;
 import Model.ProjectListModel;
 
+import java.util.ArrayList;
+
 public class ProjectListViewController {
   private ProjectListModel model;
   private ViewHandler viewHandler;
@@ -69,7 +71,11 @@ public class ProjectListViewController {
     viewHandler.openView("");
   }
   @FXML private void clickEditButt(){
-    System.out.println("Editing: " + projectName);
+    ArrayList<Object> data = new ArrayList<Object>();
+    data.add(projectName);
+    viewState.setData(data);
+    viewHandler.openView("EditProject");
+    unselected();
   }
   @FXML private void clickDetailButt(){
     System.out.println("Details: " + projectName);

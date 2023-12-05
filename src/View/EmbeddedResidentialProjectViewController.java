@@ -1,12 +1,14 @@
 package View;
 
-import Model.MyDate;
-import Model.ProjectListModel;
+import Model.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Optional;
@@ -52,6 +54,12 @@ public class EmbeddedResidentialProjectViewController
 
   @FXML
   private TextField totalHoursField;
+  @FXML
+  private HBox expensesHbox;
+  @FXML
+  private HBox hoursHbox;
+  @FXML
+  private AnchorPane scrollAnchorPane;
 
   private Region root;
   private ProjectListModel model;
@@ -93,6 +101,30 @@ public class EmbeddedResidentialProjectViewController
     }
 
   }
+  public void editReset(){
+    ResidentialProject project;
+    project = (ResidentialProject) model.getProject((String) viewState.getData().get(0));
+    expectedTotalHoursField.setText(String.valueOf(project.getExpectedTotalHours()));
+    expectedExpensesField.setText(String.valueOf(project.getExpectedExpenses()));
+    budgetField.setText(String.valueOf(project.getBudget()));
+    LocalDate date = LocalDate.parse(project.getTimeline().toString(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+    timelineDatePicker.setValue(date);
+    sizeField.setText(String.valueOf(project.getSize()));
+    hoursHbox.setVisible(true);
+    expensesHbox.setVisible(true);
+    scrollAnchorPane.setPrefHeight(582);
+    totalHoursField.setText(String.valueOf(project.getTotalHours()));
+    expensesField.setText(String.valueOf(project.getExpenses()));
+
+    numKitchensField.setText(String.valueOf(project.getNumKitchens()));
+    numBathroomsField.setText(String.valueOf(project.getNumBathrooms()));
+    othWPlumbingField.setText(String.valueOf(project.getOthWPlumbing()));
+
+    if (project.isNewBuild()){
+      newBuildGroup.selectToggle(buildRButton);
+    }else newBuildGroup.selectToggle(renovationRButton);
+
+  }
   public Region getRoot(){
     return root;
   }
@@ -124,6 +156,26 @@ public class EmbeddedResidentialProjectViewController
     else data.add( false);
 
     model.addProject(data);
+  }
+  public void edit(Project project){
+    Map<String,Object> data = (Map<String,Object>) viewState.getData().get(1);
+    data.put("expectedTotalHours", expectedTotalHoursField.getText());
+    data.put("expectedExpenses", expectedExpensesField.getText());
+    data.put("totalHours", totalHoursField.getText());
+    data.put("expenses", expensesField.getText());
+    data.put("budget", budgetField.getText());
+    LocalDate chosenDate = timelineDatePicker.getValue();
+    MyDate date = new MyDate(chosenDate.getDayOfMonth(), chosenDate.getMonthValue(), chosenDate.getYear());
+    data.put("timeline", date);
+    data.put("size", sizeField.getText());
+    data.put("numKitchens", numKitchensField.getText());
+    data.put("numBathrooms", numBathroomsField.getText());
+    data.put("othWPlumbing", othWPlumbingField.getText());
+    data.put("isNewBuild", othWPlumbingField.getText());
+    if (newBuildGroup.getSelectedToggle() == buildRButton)
+      data.put("isNewBuild", true);
+    else data.put("isNewBuild", false);
+    model.editProject(project, data);
   }
 
 }

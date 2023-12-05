@@ -4,45 +4,44 @@
 		<ResidentialProjects>
 		</ResidentialProjects>
 		<CommercialProjects>
-			<Project>
-				<Name>Dupa2</Name>
-				<Description>Zupa2</Description>
-				<ExpectedTotalHours>5</ExpectedTotalHours>
-				<ExpectedExpenses>6</ExpectedExpenses>
-				<Budget>7</Budget>
-				<Timeline>29/11/2023</Timeline>
-				<Status>Ongoing</Status>
-				<Size>11</Size>
-				<NumFloors>12</NumFloors>
-				<IntendedUse>Kupa2</IntendedUse>
-			</Project>
+
 		</CommercialProjects>
 		<RoadProjects>
-			<Project>
-				<Name>Dupa3</Name>
-				<Description>Zupa3</Description>
-				<ExpectedTotalHours>8</ExpectedTotalHours>
-				<ExpectedExpenses>9</ExpectedExpenses>
-				<Budget>10</Budget>
-				<Timeline>29/11/2023</Timeline>
-				<Status>Ongoing</Status>
-				<Length>13</Length>
-				<Width>14</Width>
-				<NumBridTun>15</NumBridTun>
-				<GeoChallenge>[Lupa1, lupa2, lupa3]</GeoChallenge>
-			</Project>
+
 		</RoadProjects>
 		<IndustrialProjects>
 			<Project>
 				<Name>Dupa</Name>
 				<Description>Zupa</Description>
 				<ExpectedTotalHours>2</ExpectedTotalHours>
-				<ExpectedExpenses>3</ExpectedExpenses>
-				<Budget>4</Budget>
-				<Timeline>29/11/2023</Timeline>
+				<ExpectedExpenses>5000</ExpectedExpenses>
+				<Budget>4800</Budget>
+				<Timeline>29/11/2024</Timeline>
 				<Status>Ongoing</Status>
 				<Type>Kupa</Type>
 				<Size>10</Size>
+			</Project>
+			<Project>
+				<Name>Dupa</Name>
+				<Description>Zupa</Description>
+				<ExpectedTotalHours>2</ExpectedTotalHours>
+				<ExpectedExpenses>5000</ExpectedExpenses>
+				<Budget>4800</Budget>
+				<Timeline>29/11/2024</Timeline>
+				<Status>Ongoing</Status>
+				<Type>Kupa</Type>
+				<Size>10</Size>
+			</Project>
+			<Project>
+				<Name>Guza</Name>
+				<Description>hiyaaaa</Description>
+				<ExpectedTotalHours>3000</ExpectedTotalHours>
+				<ExpectedExpenses>5000</ExpectedExpenses>
+				<Budget>7500000</Budget>
+				<Timeline>04/06/2026</Timeline>
+				<Status>Completed</Status>
+				<Type>guza</Type>
+				<Size>2132</Size>
 			</Project>
 		</IndustrialProjects>
 	</ProjectList>

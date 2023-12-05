@@ -5,6 +5,8 @@ public abstract class Project {
   private String description;
   private int expectedTotalHours;
   private int expectedExpenses;
+  private int totalHours;
+  private int expenses;
   private long budget;
   private MyDate timeline;
   private String status;
@@ -15,6 +17,8 @@ public abstract class Project {
     this.description = description;
     this.expectedTotalHours = expectedTotalHours;
     this.expectedExpenses = expectedExpenses;
+    this.totalHours = 0;
+    this.expenses = 0;
     this.budget = budget;
     this.timeline = timeline;
     this.status = status;
@@ -36,8 +40,28 @@ public abstract class Project {
     return expectedExpenses;
   }
 
+  public int getTotalHours()
+  {
+    return totalHours;
+  }
+
+  public void setTotalHours(int totalHours)
+  {
+    this.totalHours = totalHours;
+  }
+
+  public int getExpenses()
+  {
+    return expenses;
+  }
+
+  public void setExpenses(int expenses)
+  {
+    this.expenses = expenses;
+  }
+
   public void setBudget(long budget) {
-    this.budget = 0;
+    this.budget = budget;
   }
 
   public long getBudget() {

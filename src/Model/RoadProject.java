@@ -43,7 +43,7 @@ public class RoadProject extends Project
 
   public void setnumBridTun(int numBridTun)
   {
-    this.numBridTun = 0;
+    this.numBridTun = numBridTun;
   }
 
   public int getnumBridTun()
@@ -53,7 +53,7 @@ public class RoadProject extends Project
 
   public void setWidth(int width)
   {
-    this.width = 0;
+    this.width = width;
   }
 
   public int getWidth()
@@ -63,7 +63,7 @@ public class RoadProject extends Project
 
   public void setLength(long length)
   {
-    this.length = 0;
+    this.length = length;
   }
 
   public long getLength()
