@@ -80,8 +80,8 @@ public class CreateProjectViewController {
   }
 
   @FXML void create(ActionEvent event) {
-   /* try
-    {*/
+    try
+    {
       ArrayList<Object> data = new ArrayList<Object>();
       data.add(nameField.getText());
       data.add(descriptionArea.getText());
@@ -94,7 +94,7 @@ public class CreateProjectViewController {
       }
       viewHandler.openPopupView("Creation");
       viewHandler.openView("ProjectList");
-    /*}
+    }
     catch (NumberFormatException e)
     {
       errorLabel.setText("Input error: " + e.getMessage());
@@ -102,7 +102,7 @@ public class CreateProjectViewController {
     catch (Exception e)
     {
       errorLabel.setText(e.getMessage());
-    }*/
+    }
   }
 
   @FXML void back(ActionEvent event) {

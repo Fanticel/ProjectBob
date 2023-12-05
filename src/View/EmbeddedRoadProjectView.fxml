@@ -111,13 +111,6 @@
                                  </font>
                               </Label>
                               <VBox fx:id="geoChallengeVBox" spacing="10.0">
-                                 <children>
-                                    <TextField fx:id="geoChallengeField" prefHeight="40.0" prefWidth="189.0">
-                                       <font>
-                                          <Font size="18.0" />
-                                       </font>
-                                    </TextField>
-                                 </children>
                                  <HBox.margin>
                                     <Insets top="10.0" />
                                  </HBox.margin>
