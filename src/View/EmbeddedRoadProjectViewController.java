@@ -91,6 +91,8 @@ public class EmbeddedRoadProjectViewController {
     setField("length",lengthField, defaults);
     setField("width",widthField, defaults);
     setField("numBridTun",numBridTunField, defaults);
+    
+    geoChallengeVBox.getChildren().removeAll(geoChallengeVBox.getChildren());
     if (defaults.get("geoChallenge").isPresent())
     {
       geoChallengeVBox.getChildren().add(new TextField(defaults.get("geoChallenge").get().toString()));
@@ -176,7 +178,6 @@ public class EmbeddedRoadProjectViewController {
         geoChallenges.add(((TextField) node).getText());
       }
     }
-    geoChallengeVBox.getChildren().removeAll(geoChallengeVBox.getChildren());
 
   //  geoChallengeVBox.getChildren().add(new TextField());
     data.put("geoChallenge", geoChallenges);
