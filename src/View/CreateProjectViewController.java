@@ -92,6 +92,7 @@ public class CreateProjectViewController {
         case "Industrial" -> view2Controller.create();
         case "Road" -> view4Controller.create();
       }
+      viewHandler.openPopupView("Creation");
       viewHandler.openView("ProjectList");
     /*}
     catch (NumberFormatException e)

@@ -36,7 +36,8 @@ public class ProjectDetailsViewController
 
   private Region root;
 
-  public ProjectDetailsViewController()
+  public ProjectDetailsViewController(ViewHandler viewhandler,
+      ProjectListModel projectListModel, Region root)
   {
     this.viewHandler = null;
     this.projectListModel = null;
@@ -47,6 +48,8 @@ public class ProjectDetailsViewController
   public void reset()
   {
 
+
+
   }
 
   public Region getRoot()
@@ -56,6 +59,7 @@ public class ProjectDetailsViewController
 
   @FXML public void initialize()
   {
+
 
   }
 
