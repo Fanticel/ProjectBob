@@ -20,6 +20,7 @@ public class ViewHandler {
   private SearchAProjectPopupViewController searchAProjectPopupViewController;
   private EditProjectViewController editProjectViewController;
   private DeletePopupViewController deletePopupViewController;
+  private CreationNotificationPopupViewController creationNotificationPopupViewController;
 
   public ViewHandler(ProjectListModel model) {
     this.currentScene = new Scene(new Region());
@@ -68,6 +69,7 @@ public class ViewHandler {
     switch (id) {
       case "Search" -> root = loadSearchAProjectPopupView("SearchAProjectPopupView.fxml");
       case "Delete" -> root = loadDeletePopupViewController("DeletePopupView.fxml");
+      case "Creation" -> root = loadCreationNotificationPopupViewController("CreationNotificationPopupView.fxml");
     }
     popupScene.setRoot(root);
     String title = "";
@@ -226,6 +228,26 @@ public class ViewHandler {
     }
     System.out.println("Delete root works");
     return deletePopupViewController.getRoot();
+  }
+  private Region loadCreationNotificationPopupViewController(String fxmlFile){
+    Region root = null;
+    if (creationNotificationPopupViewController==null){
+      try{
+        FXMLLoader loader =new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        root = loader.load();
+        creationNotificationPopupViewController = loader.getController();
+        creationNotificationPopupViewController.init(this, model, root, viewState);
+      }
+      catch (Exception e){
+        e.printStackTrace();
+      }
+    }
+    else {
+      creationNotificationPopupViewController.reset();
+    }
+    System.out.println("Creation root works");
+    return creationNotificationPopupViewController.getRoot();
   }
 }
 
