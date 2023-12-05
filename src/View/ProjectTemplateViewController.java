@@ -26,8 +26,8 @@ public class ProjectTemplateViewController
   @FXML private TextArea description;
   @FXML private Label deadlineNotification;
   @FXML private Label fundsNotification;
+  @FXML private Label hoursNotification;
   @FXML private Label name;
-  @FXML private Label manHours;
   @FXML private Label expectedPrice;
   @FXML private Label estimatedHours;
 
@@ -38,6 +38,7 @@ public class ProjectTemplateViewController
     this.model = model;
     this.root = root;
   }
+
 
   public void setProjectInfo(Project project) {
     NotificationDetector notificationDetector = new NotificationDetector(project);
@@ -54,6 +55,13 @@ public class ProjectTemplateViewController
       parent.getChildren().remove(fundsNotification);
     } else {
       fundsNotification.setText(notificationDetector.checkFunds());
+    }
+
+    if (notificationDetector.checkManHours() == null) {
+      Pane parent = (Pane) hoursNotification.getParent();
+      parent.getChildren().remove(hoursNotification);
+    } else {
+      hoursNotification.setText(notificationDetector.checkManHours());
     }
 
     name.setText(project.getName());

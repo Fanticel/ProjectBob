@@ -38,12 +38,31 @@ public class NotificationDetector
 
     if (budget >= expectedExpenses * 0.9 && budget > expectedExpenses) {
       return("Warning: The project " + project.getName() +
-          "has went over the expected price by: " + (budget-expectedExpenses) +" DK");
+          " has went over the expected price by: " + (budget-expectedExpenses) +" DK");
     }
     else if (budget >= expectedExpenses * 0.9 && budget <= expectedExpenses)
     {
       return("Warning: The project " + project.getName() +
-          " has reached " + roundOff + "% oif the expected price.");
+          " has reached " + roundOff + "% of the expected price.");
+    }
+    else return null;
+  }
+
+  public String checkManHours(){
+    int expectedManHours = project.getExpectedTotalHours();
+    int totalHours = project.getTotalHours();
+
+    double precentage = (double) totalHours /expectedManHours*100;
+    double roundOff = Math.round(precentage *100.0)/100.0;
+
+    if (totalHours >= expectedManHours * 0.9 && totalHours > expectedManHours) {
+      return("Warning: The project " + project.getName() +
+          " has went over the expected hours by: " + (totalHours-expectedManHours) +" hours");
+    }
+    else if (totalHours >= expectedManHours * 0.9 && totalHours <= expectedManHours)
+    {
+      return("Warning: The project " + project.getName() +
+          " has reached " + roundOff + "% of the expected hours.");
     }
     else return null;
   }

@@ -40,8 +40,9 @@
             </VBox>
             <VBox prefHeight="271.0" prefWidth="480.0" spacing="10.0">
                <children>
-                  <Label fx:id="deadlineNotification" prefHeight="17.0" prefWidth="441.0" text="&quot;Warning: The project &quot; + project.getName() +          &quot; has a deadline within 30 days.&quot; + &quot;the difference: &quot; + difference" textFill="RED" />
-                  <Label fx:id="fundsNotification" prefHeight="17.0" prefWidth="434.0" text="Notification2:" textFill="RED" />
+                  <Label fx:id="deadlineNotification" prefHeight="17.0" prefWidth="441.0" text="Notification 1:" textFill="RED" />
+                  <Label fx:id="fundsNotification" prefHeight="17.0" prefWidth="434.0" text="Notification 2:" textFill="RED" />
+                  <Label fx:id="hoursNotification" text="Notification 3:" textFill="RED" />
                   <ProgressBar prefWidth="200.0" progress="0.0" />
                   <Label fx:id="type" text="Type:">
                      <font>
