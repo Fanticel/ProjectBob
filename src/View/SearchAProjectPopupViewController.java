@@ -50,8 +50,8 @@ public class SearchAProjectPopupViewController {
     statusChoiceBox.getItems().add("All");
     statusChoiceBox.getItems().add("Ongoing");
     statusChoiceBox.getItems().add("Finished");
-    statusChoiceBox.getItems().add("PlaceHolder");
-    statusChoiceBox.getItems().add("PlaceHolder");
+    statusChoiceBox.getItems().add("Canceled");
+    statusChoiceBox.getItems().add("On hold");
     priceRangeMin.setTextFormatter(new TextFormatter<>(new NumberStringConverter(),0, filter));
     priceRangeMin.setText("");
     priceRangeMax.setTextFormatter(new TextFormatter<>(new NumberStringConverter(),0, filter));
@@ -81,7 +81,7 @@ public class SearchAProjectPopupViewController {
       }
     }
     if (!nameField.getText().isEmpty()){data.add(nameField.getText());}else{data.add(null);}
-    if (statusChoiceBox.getValue() == null) {data.add(null);} else {
+    if (statusChoiceBox.getValue() == null || statusChoiceBox.getValue().equals("All")) {data.add(null);} else {
       data.add(statusChoiceBox.getValue());
     }
     if(!priceRangeMin.getText().isEmpty()){data.add(priceRangeMin.getText());}else{data.add(null);}

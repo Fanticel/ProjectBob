@@ -1,0 +1,45 @@
+.navbar {
+  background-color: #f5ba41;
+}
+
+.nav-link {
+  color: white;
+}
+
+.dropdown-menu {
+  background-color: #f5ba41;
+}
+h3 {
+  color: white;
+}
+
+footer {
+  margin-top: 50px;
+  background-color: #f5ba41;
+}
+
+.copyRight {
+  color: white;
+  font-size: 16px;
+}
+
+h2,
+h1 {
+  color: #f5ba41;
+}
+
+p {
+  font-size: 22px;
+}
+
+.section {
+  margin-top: 50px;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.puce{
+  box-shadow: 0 0 10px rgba(0,0,0, 0.2);
+  border-radius: 15px;
+}
