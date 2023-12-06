@@ -1,182 +1,149 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0"
-            style="-fx-background-color: white;"
-            xmlns="http://javafx.com/javafx/21"
-            xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="View.ProjectDetailsViewController">
-    <children>
-        <Label layoutX="57.0" layoutY="17.0" text="Project Details"
-               textFill="#ffae00">
-            <font>
-                <Font name="System Bold" size="24.0"/>
-            </font>
-        </Label>
-        <ImageView fx:id="backImage" fitHeight="35.0" fitWidth="37.0"
-                   layoutX="14.0" layoutY="17.0" pickOnBounds="true"/>
-        <Pane layoutX="15.0" layoutY="62.0" prefHeight="492.0" prefWidth="441.0"
-              style="-fx-background-color: white; -fx-border-color: #ffae00; -fx-border-radius: 10; -fx-border-width: 2;">
-            <children>
-                <Label layoutX="13.0" layoutY="62.0" text="Project Name"
-                       textFill="#ffae00">
-                    <font>
-                        <Font name="System Bold" size="14.0"/>
-                    </font>
-                </Label>
-                <Label fx:id="projectName" layoutX="14.0" layoutY="85.0"
-                       text="Likasombody">
-                    <font>
-                        <Font size="14.0"/>
-                    </font>
-                </Label>
-                <Label layoutX="13.0" layoutY="11.0"
-                       text="Project Basic Information" textFill="#ffae00">
-                    <font>
-                        <Font name="System Bold" size="18.0"/>
-                    </font>
-                </Label>
-                <Label layoutX="13.0" layoutY="123.0" text="Project Description"
-                       textFill="#ffae00">
-                    <font>
-                        <Font name="System Bold" size="14.0"/>
-                    </font>
-                </Label>
-                <Label fx:id="projectDescription" alignment="TOP_LEFT"
-                       layoutX="14.0" layoutY="143.0" maxHeight="333.0"
-                       minWidth="406.0" prefHeight="333.0" prefWidth="413.0"
-                       text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam auctor varius mauris, vel imperdiet justo cursus at. Vestibulum congue ligula ac varius facilisis. Curabitur urna mauris, ultrices et gravida sed, vestibulum et purus. Morbi ac sem pulvinar, laoreet metus vel, viverra nunc. Morbi aliquam nunc sit amet consequat ullamcorper. Phasellus porttitor magna eu risus iaculis consectetur. Donec dui ipsum, malesuada sit amet porta non, fermentum pellentesque magna. Donec bibendum felis id ligula ornare tristique. Morbi ut orci sed felis scelerisque posuere non a orci. Fusce enim nisi, finibus dictum lobortis finibus, interdum in magna. Sed eget ipsum condimentum, efficitur risus a, sagittis massa. Etiam pretium at risus id malesuada. Phasellus ut sem ac lorem lacinia sagittis. Duis consequat in mi ut volutpat. Morbi feugiat, massa placerat rhoncus pharetra, ligula diam venenatis dui, ac rutrum augue lacus id ante. In egestas porta orci, sed iaculis dui varius eu.Nulla ac feugiat mauris. Nulla tempor viverra pretium. Cras maximus commodo euismod. Etiam elit est, fermentum eget auctor in, bibendum ac velit. Morbi suscipit libero sit amet felis malesuada, a tristique arcu pharetra. Morbi non elit "
-                       wrapText="true">
-                    <font>
-                        <Font size="13.0"/>
-                    </font>
-                </Label>
-            </children>
-        </Pane>
-        <Pane layoutX="469.0" layoutY="62.0" prefHeight="151.0"
-              prefWidth="315.0"
-              style="-fx-background-color: white; -fx-border-color: #ffae00; -fx-border-radius: 10; -fx-border-width: 2;">
-            <children>
-                <Label layoutX="13.0" layoutY="11.0" prefHeight="27.0"
-                       prefWidth="286.0" text="Expected Resources Consumption"
-                       textFill="#ffae00">
-                    <font>
-                        <Font name="System Bold" size="18.0"/>
-                    </font>
-                </Label>
-                <Label layoutX="14.0" layoutY="51.0" text="Exp. Total Hours"
-                       textFill="#ffae00">
-                    <font>
-                        <Font name="System Bold" size="14.0"/>
-                    </font>
-                </Label>
-                <Label fx:id="expHours" layoutX="16.0" layoutY="75.0"
-                       text="420">
-                    <font>
-                        <Font size="14.0"/>
-                    </font>
-                </Label>
-                <Label layoutX="14.0" layoutY="97.0" text="Exp. Expenses"
-                       textFill="#ffae00">
-                    <font>
-                        <Font name="System Bold" size="14.0"/>
-                    </font>
-                </Label>
-                <Label fx:id="expExpenses" layoutX="16.0" layoutY="119.0"
-                       text="420">
-                    <font>
-                        <Font size="14.0"/>
-                    </font>
-                </Label>
-            </children>
-        </Pane>
-        <Pane layoutX="469.0" layoutY="227.0" prefHeight="151.0"
-              prefWidth="315.0"
-              style="-fx-background-color: white; -fx-border-color: #ffae00; -fx-border-radius: 10; -fx-border-width: 2;">
-            <children>
-                <Label layoutX="13.0" layoutY="11.0" prefHeight="27.0"
-                       prefWidth="286.0" text="Available Resources"
-                       textFill="#ffae00">
-                    <font>
-                        <Font name="System Bold" size="18.0"/>
-                    </font>
-                </Label>
-                <Label layoutX="14.0" layoutY="51.0" text="Budget"
-                       textFill="#ffae00">
-                    <font>
-                        <Font name="System Bold" size="14.0"/>
-                    </font>
-                </Label>
-                <Label fx:id="budget" layoutX="16.0" layoutY="75.0" text="420">
-                    <font>
-                        <Font size="14.0"/>
-                    </font>
-                </Label>
-                <Label layoutX="14.0" layoutY="97.0" text="TimeLine"
-                       textFill="#ffae00">
-                    <font>
-                        <Font name="System Bold" size="14.0"/>
-                    </font>
-                </Label>
-                <Label fx:id="timeline" layoutX="16.0" layoutY="119.0"
-                       text="420">
-                    <font>
-                        <Font size="14.0"/>
-                    </font>
-                </Label>
-            </children>
-        </Pane>
-        <Pane layoutX="469.0" layoutY="391.0" prefHeight="162.0"
-              prefWidth="315.0"
-              style="-fx-background-color: white; -fx-border-color: #ffae00; -fx-border-radius: 10; -fx-border-width: 2;">
-            <children>
-                <Label layoutX="13.0" layoutY="11.0" prefHeight="27.0"
-                       prefWidth="286.0" text="Explore More" textFill="#ffae00">
-                    <font>
-                        <Font name="System Bold" size="18.0"/>
-                    </font>
-                </Label>
-                <Button fx:id="commercial" layoutX="14.0" layoutY="48.0"
-                        mnemonicParsing="false" prefHeight="50.0"
-                        prefWidth="140.0" style="-fx-background-color: #f5ba41;"
 
-                        text="Commercial" textFill="WHITE">
-                    <font>
-                        <Font name="System Bold" size="13.0"/>
-                    </font>
-                </Button>
-                <Button fx:id="industrial" layoutX="158.0" layoutY="48.0"
-                        mnemonicParsing="false" prefHeight="50.0"
-                        prefWidth="140.0" style="-fx-background-color: #f5ba41;"
-                        text="Industrial" textFill="WHITE">
-                    <font>
-                        <Font name="System Bold" size="13.0"/>
-                    </font>
-                </Button>
-                <Button fx:id="residential" layoutX="158.0" layoutY="101.0"
-                        mnemonicParsing="false" prefHeight="50.0"
-                        prefWidth="140.0" style="-fx-background-color: #f5ba41;"
-                        text="Residential" textFill="WHITE">
-                    <font>
-                        <Font name="System Bold" size="13.0"/>
-                    </font>
-                </Button>
-                <Button fx:id="road" layoutX="14.0" layoutY="102.0"
-                        mnemonicParsing="false" prefHeight="50.0"
-                        prefWidth="140.0" style="-fx-background-color: #f5ba41;"
-                        text="Road" textFill="WHITE">
-                    <font>
-                        <Font name="System Bold" size="13.0"/>
-                    </font>
-                </Button>
-            </children>
-        </Pane>
-    </children>
-</AnchorPane>
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="621.0" prefWidth="900.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="58.0" prefWidth="900.0">
+         <children>
+            <Label alignment="CENTER" text="Project Details" textFill="#f5ba41">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets left="350.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <AnchorPane prefHeight="559.0" prefWidth="900.0">
+         <children>
+            <VBox layoutX="2.0" layoutY="8.0" prefHeight="553.0" prefWidth="421.0">
+               <children>
+                  <HBox prefHeight="155.0" prefWidth="421.0">
+                     <children>
+                        <Pane prefHeight="148.0" prefWidth="421.0" style="-fx-background-color: white; -fx-border-color: #f5ba41; -fx-border-radius: 10; -fx-border-width: 2;">
+                           <children>
+                              <Label layoutX="131.0" layoutY="14.0" text="Project Infomation" textFill="#f5ba41">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="37.0" layoutY="59.0" text="Project Name " textFill="#f5ba41">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="268.0" layoutY="59.0" text="Project Description" textFill="#f5ba41">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="56.0" layoutY="90.0" text="Dupa">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="303.0" layoutY="90.0" text="Zupa">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="10.0" prefHeight="169.0" prefWidth="421.0">
+                     <children>
+                        <Pane prefHeight="141.0" prefWidth="421.0" style="-fx-background-color: white; -fx-border-color: #f5ba41; -fx-border-radius: 10; -fx-border-width: 2;">
+                           <children>
+                              <Label layoutX="114.0" layoutY="27.0" text="Expected consumption" textFill="#f5ba41">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="292.0" layoutY="76.0" text="Exp. Expenses" textFill="#f5ba41">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="38.0" layoutY="76.0" text="Exp. Total Hours" textFill="#f5ba41">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="66.0" layoutY="108.0" text="9000">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="307.0" layoutY="108.0" text="9000">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <opaqueInsets>
+                              <Insets />
+                           </opaqueInsets>
+                           <HBox.margin>
+                              <Insets top="10.0" />
+                           </HBox.margin>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="179.0" prefHeight="198.0" prefWidth="421.0">
+                     <children>
+                        <Pane prefHeight="198.0" prefWidth="427.0" style="-fx-background-color: white; -fx-border-color: #f5ba41; -fx-border-radius: 10; -fx-border-width: 2;">
+                           <children>
+                              <Label layoutX="51.0" layoutY="74.0" text="Budget" textFill="#f5ba41">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="127.0" layoutY="30.0" text="Available Resources" textFill="#f5ba41">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="295.0" layoutY="74.0" text="Timeline" textFill="#f5ba41">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="58.0" layoutY="106.0" text="Dupa">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="307.0" layoutY="106.0" text="Zupa">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                           <HBox.margin>
+                              <Insets top="15.0" />
+                           </HBox.margin>
+                        </Pane>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <VBox layoutX="432.0" layoutY="8.0" prefHeight="553.0" prefWidth="453.0">
+               <children>
+                  <StackPane prefHeight="523.0" prefWidth="453.0" style="-fx-background-color: white; -fx-border-color: #f5ba41; -fx-border-radius: 10; -fx-border-width: 2;" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
