@@ -188,4 +188,15 @@ public class ProjectListModelManager implements ProjectListModel {
   @Override public LocalDate getDateMonthsAway(int months){
     return MyDate.getDateMonthsAway(months);
   }
+
+  @Override public void delete(String name)
+  {
+    try{
+      projectList.removeProject(name);
+      fileManagerXML.writeToFile("Save.xml", projectList);
+    }
+    catch (IOException e){
+      System.out.println(e.getMessage());
+    }
+  }
 }

@@ -1,0 +1,21 @@
+.puce{
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0, 0.2);
+}
+.proPho{
+    aspect-ratio: 2/1;
+    width: 100%;
+    margin-top: 5px;
+}
+.tab {
+    display: inline-block;
+    margin-left: 2em;
+}
+.progress{
+    height: 30px;
+}
+h3{
+    font-size: 25px;
+    padding-bottom: 10px;
+    color: black;
+}

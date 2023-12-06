@@ -39,13 +39,9 @@ public class DashboardViewController
     this.model = model;
     this.root = root;
 
-    ProjectListModelManager projectListModelManager = new ProjectListModelManager();
-    projectListModelManager.getFromFile();
-
     ArrayList<Project> ongoingProjects = new ArrayList<>();
 
-    for (Project i : projectListModelManager.getAllProjects()
-        .returnAsArrayList())
+    for (Project i : model.getAllProjects().returnAsArrayList())
     {
       if (i.getStatus().equals("Ongoing"))
       {

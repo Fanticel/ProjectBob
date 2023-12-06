@@ -45,7 +45,7 @@ public class FileManagerXML implements FileManagerInterface {
       out.println("\t\t\t\t<Size>" + i.getSize() + "</Size>");
       out.println("\t\t\t\t<NumFloors>" + i.getNumFloor() + "</NumFloors>");
       out.println(
-          "\t\t\t\t<IntendedUse>" + i.getIntendedUse() + "</IntendedUse>");
+          "\t\t\t\t<IntendedUse>" + i.getIntendedUse().replace("\n", "_PrivateN") + "</IntendedUse>");
       out.println("\t\t\t</Project>");
     }
     out.println(
@@ -77,7 +77,7 @@ public class FileManagerXML implements FileManagerInterface {
   private String writeGeneral(Project i) {
     StringBuilder ans = new StringBuilder();
     ans.append("\t\t\t\t<Name>").append(i.getName()).append("</Name>\n");
-    ans.append("\t\t\t\t<Description>").append(i.getDescription())
+    ans.append("\t\t\t\t<Description>").append(i.getDescription().replace("\n", "_PrivateN"))
         .append("</Description>\n");
     ans.append("\t\t\t\t<ExpectedTotalHours>").append(i.getExpectedTotalHours())
         .append("</ExpectedTotalHours>\n");
@@ -86,7 +86,9 @@ public class FileManagerXML implements FileManagerInterface {
     ans.append("\t\t\t\t<Budget>").append(i.getBudget()).append("</Budget>\n");
     ans.append("\t\t\t\t<Timeline>").append(i.getTimeline())
         .append("</Timeline>\n");
-    ans.append("\t\t\t\t<Status>").append(i.getStatus()).append("</Status>");
+    ans.append("\t\t\t\t<Status>").append(i.getStatus()).append("</Status>\n");
+    ans.append("\t\t\t\t<Expenses>").append(i.getExpenses()).append("</Expenses>\n");
+    ans.append("\t\t\t\t<TotalHours>").append(i.getTotalHours()).append("</TotalHours>");
     return ans.toString();
   }
 
@@ -113,7 +115,12 @@ public class FileManagerXML implements FileManagerInterface {
         ArrayList<Object> values = new ArrayList<>(
             Arrays.asList(j.split("\n")));
         values.remove("");
-        answer.addProject(convertValuesToProject(x, values));
+        int expenses = Integer.parseInt(values.get(8).toString());
+        int totalHours = Integer.parseInt(values.get(7).toString());
+        Project hold = convertValuesToProject(x, values);
+        hold.setExpenses(expenses);
+        hold.setTotalHours(totalHours);
+        answer.addProject(hold);
       }
     }
     return answer;
@@ -123,9 +130,11 @@ public class FileManagerXML implements FileManagerInterface {
     String[] dateHelp = values.get(5).toString().split("/");
     MyDate date = new MyDate(Integer.parseInt(dateHelp[0]),
         Integer.parseInt(dateHelp[1]), Integer.parseInt(dateHelp[2]));
+    values.remove(7);
+    values.remove(7);
     if (caseID == 0) { //      __Residential__
       return new ResidentialProject(values.get(0).toString(),
-          values.get(1).toString(), Integer.parseInt(values.get(2).toString()),
+          values.get(1).toString().replace("_PrivateN", "\n"), Integer.parseInt(values.get(2).toString()),
           Integer.parseInt(values.get(3).toString()),
           Long.parseLong(values.get(4).toString()), date,
           values.get(6).toString(), Integer.parseInt(values.get(7).toString()),
@@ -140,11 +149,11 @@ public class FileManagerXML implements FileManagerInterface {
           Integer.parseInt(values.get(3).toString()),
           Long.parseLong(values.get(4).toString()), date,
           values.get(6).toString(), Integer.parseInt(values.get(7).toString()),
-          Integer.parseInt(values.get(8).toString()), values.get(9).toString());
+          Integer.parseInt(values.get(8).toString()), values.get(9).toString().replace("_PrivateN", "\n"));
     }
     if (caseID == 2) { //      __Road__
       ArrayList<String> ans = new ArrayList<>(Arrays.asList(
-          values.get(9).toString().replace("[", "").replace("]", "")
+          values.get(10).toString().replace("[", "").replace("]", "")
               .split(", ")));
       return new RoadProject(values.get(0).toString(), values.get(1).toString(),
           Integer.parseInt(values.get(2).toString()),

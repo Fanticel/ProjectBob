@@ -1,0 +1,59 @@
+.landingPage {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome {
+  background-image: url("../Images/landingPageImg.png");
+  background-size: cover;
+  background-position: center;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  background-repeat: no-repeat;
+}
+
+@media (max-width: 768px) {
+  .welcome img {
+    width: 70%;
+  }
+}
+
+h1 {
+  color: #f5ba41;
+  width: 80%;
+  text-align: center;
+}
+
+.customButton {
+  background-color: #f5ba41;
+  color: white;
+}
+
+.customButton:hover {
+  background-color: #f3ad22;
+  color: white;
+}
+
+.carousel-caption p,
+.carousel-caption h3 {
+  color: #f5ba41;
+}
+
+.testimonial-image img {
+  width: 100px;
+}
+
+.testimonialContainer {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  padding: 0 20px; /* Adjust the padding as per your preference */
+  box-sizing: border-box;
+}
+
+.testimonial {
+  margin-top: 10px;
+}

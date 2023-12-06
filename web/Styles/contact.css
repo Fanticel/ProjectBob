@@ -1,0 +1,32 @@
+h2{
+    font-size: 42px;
+}
+.text {
+    margin-right: 20px;
+  }
+  .employee-section {
+    margin-bottom: 40px;
+    width: 90%;
+  }
+  .employee-container{
+    padding: 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    
+  }
+  p {
+    word-wrap: break-word;
+}
+
+  @media (max-width: 575px) {
+    .employee-section {
+        margin-bottom: 40px;
+        width: 50%;
+      }
+  }
+
+  @media (max-width: 768px) {
+    .employee-container{
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        margin: 20px;
+        }
+  }
