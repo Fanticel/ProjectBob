@@ -18,12 +18,13 @@
                <children>
                   <ScrollPane fx:id="popupStyle" prefHeight="200.0" prefWidth="200.0">
                      <content>
-                        <VBox fx:id="warnings" prefHeight="115.0" prefWidth="554.0">
+                        <VBox prefHeight="115.0" prefWidth="554.0">
                            <children>
                               <Label text="Notifications:" textFill="#f5ba41">
                                  <font>
                                     <Font name="System Bold" size="18.0" />
                                  </font></Label>
+                              <VBox fx:id="warnings" prefHeight="65.0" prefWidth="544.0" />
                            </children>
                            <padding>
                               <Insets left="10.0" top="5.0" />

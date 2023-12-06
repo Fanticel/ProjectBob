@@ -115,8 +115,8 @@ public class FileManagerXML implements FileManagerInterface {
         ArrayList<Object> values = new ArrayList<>(
             Arrays.asList(j.split("\n")));
         values.remove("");
-        int expenses = Integer.parseInt(values.get(8).toString());
-        int totalHours = Integer.parseInt(values.get(7).toString());
+        int expenses = Integer.parseInt(values.get(7).toString());
+        int totalHours = Integer.parseInt(values.get(8).toString());
         Project hold = convertValuesToProject(x, values);
         hold.setExpenses(expenses);
         hold.setTotalHours(totalHours);

@@ -70,8 +70,8 @@ public class ProjectList {
     }
     if (data.get(1) != null) {
       for (int i = 0; i < ans.returnAsArrayList().size(); i++) {
-        if (!ans.returnAsArrayList().get(i).getName()
-            .equals(data.get(1).toString())) {
+        if (!ans.returnAsArrayList().get(i).getName().toLowerCase()
+            .contains(data.get(1).toString().toLowerCase())) {
           ans.returnAsArrayList().remove(i);
           i--;
         }

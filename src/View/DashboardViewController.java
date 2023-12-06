@@ -80,7 +80,43 @@ public class DashboardViewController
 
   public void reset()
   {
+    ArrayList<Project> ongoingProjects = new ArrayList<>();
 
+    for (Project i : model.getAllProjects().returnAsArrayList())
+    {
+      if (i.getStatus().equals("Ongoing"))
+      {
+        ongoingProjects.add(i);
+      }
+    }
+
+    VBox container = new VBox();
+
+    if(ongoingProjects.isEmpty()){
+      noProjects.setVisible(true);
+    }
+    else {
+      for (Project i : ongoingProjects)
+      {
+        try
+        {
+          FXMLLoader loader = new FXMLLoader(
+              getClass().getResource("ProjectTemplateView.fxml"));
+
+          Parent projectTemplate = loader.load();
+          ProjectTemplateViewController controller = loader.getController();
+
+          controller.setProjectInfo(i);
+          container.getChildren().add(projectTemplate);
+
+        }
+        catch (Exception e)
+        {
+          e.printStackTrace();
+        }
+      }
+      scrollPane.setContent(container);
+      noProjects.setVisible(true);}
   }
 
   public Region getRoot()

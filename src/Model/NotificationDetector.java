@@ -30,20 +30,38 @@ public class NotificationDetector
     else return null;
   }
 
-  public String checkFunds() {
-    int expectedExpenses = project.getExpectedExpenses();
+  public String checkBudget() {
+    int expenses = project.getExpenses();
     long budget = project.getBudget();
-    double precentage = (double) budget /expectedExpenses*100;
+    double precentage = (double) expenses /budget*100;
     double roundOff = Math.round(precentage *100.0)/100.0;
 
-    if (budget >= expectedExpenses * 0.9 && budget > expectedExpenses) {
+    if (expenses >= budget * 0.9 && expenses > budget) {
       return("Warning: The project " + project.getName() +
-          " has went over the expected price by: " + (budget-expectedExpenses) +" DK");
+          " has went over the budget by: " + (expenses-budget) +" DKk");
     }
-    else if (budget >= expectedExpenses * 0.9 && budget <= expectedExpenses)
+    else if (expenses >= budget * 0.9 && expenses <= budget)
     {
       return("Warning: The project " + project.getName() +
-          " has reached " + roundOff + "% of the expected price.");
+          " has reached " + roundOff + "% of the budget.");
+    }
+    else return null;
+  }
+
+  public String checkExpenses() {
+    int expectedExpenses = project.getExpectedExpenses();
+    long expenses = project.getExpenses();
+    double precentage = (double) expenses /expectedExpenses*100;
+    double roundOff = Math.round(precentage *100.0)/100.0;
+
+    if (expenses >= expectedExpenses * 0.9 && expenses > expectedExpenses) {
+      return("Warning: The project " + project.getName() +
+          " has went over the expected expenses by: " + (expenses-expectedExpenses) +" DKK");
+    }
+    else if (expenses >= expectedExpenses * 0.9 && expenses <= expectedExpenses)
+    {
+      return("Warning: The project " + project.getName() +
+          " has reached " + roundOff + "% of expected expenses.");
     }
     else return null;
   }

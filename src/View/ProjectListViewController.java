@@ -93,6 +93,9 @@ public class ProjectListViewController {
       unselected();
     }
   }
+  @FXML private void clickRefreshButt(){
+    reset();
+  }
   private void unselected(){
     AddButton.requestFocus();
     EditButton.disableProperty().setValue(true);
