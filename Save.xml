@@ -2,22 +2,6 @@
 <root>
 	<ProjectList>
 		<ResidentialProjects>
-			<Project>
-				<Name>Dupa3</Name>
-				<Description>Zupa3</Description>
-				<ExpectedTotalHours>3901</ExpectedTotalHours>
-				<ExpectedExpenses>8213</ExpectedExpenses>
-				<Budget>350000</Budget>
-				<Timeline>05/09/2024</Timeline>
-				<Status>Ongoing</Status>
-				<Expenses>0</Expenses>
-				<TotalHours>0</TotalHours>
-				<Size>9312</Size>
-				<NumKitchens>10</NumKitchens>
-				<NumBathrooms>11</NumBathrooms>
-				<NumOthWPlumbing>12</NumOthWPlumbing>
-				<IsNewBuild>false</IsNewBuild>
-			</Project>
 		</ResidentialProjects>
 		<CommercialProjects>
 			<Project>
@@ -36,18 +20,33 @@
 			</Project>
 		</CommercialProjects>
 		<RoadProjects>
+			<Project>
+				<Name>zuPA</Name>
+				<Description>DUPA</Description>
+				<ExpectedTotalHours>2031</ExpectedTotalHours>
+				<ExpectedExpenses>2302</ExpectedExpenses>
+				<Budget>1500000</Budget>
+				<Timeline>06/06/2025</Timeline>
+				<Status>Ongoing</Status>
+				<Expenses>0</Expenses>
+				<TotalHours>0</TotalHours>
+				<Length>312</Length>
+				<Width>21</Width>
+				<NumBridTun>0</NumBridTun>
+				<GeoChallenge>[none]</GeoChallenge>
+			</Project>
 		</RoadProjects>
 		<IndustrialProjects>
 			<Project>
 				<Name>Dupa2</Name>
 				<Description>Zupa2</Description>
-				<ExpectedTotalHours>830</ExpectedTotalHours>
+				<ExpectedTotalHours>1500000</ExpectedTotalHours>
 				<ExpectedExpenses>120</ExpectedExpenses>
 				<Budget>7500000</Budget>
 				<Timeline>05/06/2026</Timeline>
-				<Status>Ongoing</Status>
+				<Status>Finished</Status>
 				<Expenses>60</Expenses>
-				<TotalHours>700</TotalHours>
+				<TotalHours>1000000</TotalHours>
 				<Type>Fajna</Type>
 				<Size>89301</Size>
 			</Project>

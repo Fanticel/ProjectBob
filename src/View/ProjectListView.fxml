@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ProjectListViewController">
+<VBox alignment="CENTER" prefHeight="400.0" prefWidth="620.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.ProjectListViewController">
     <HBox alignment="CENTER">
         <children>
             <VBox alignment="CENTER" prefHeight="400.0" prefWidth="158.0" style="-fx-background-color: white;">
@@ -24,7 +24,7 @@
                      <Insets />
                   </VBox.margin>
                     </Text>
-                    <Button fx:id="AddButton" mnemonicParsing="false" onAction="#clickAddButt" prefWidth="100.0" style="-fx-background-color: #f5ba41;" text="ADD">
+                    <Button fx:id="AddButton" mnemonicParsing="false" onAction="#clickAddButt" prefWidth="120.0" style="-fx-background-color: #f5ba41;" text="ADD">
                         <VBox.margin>
                             <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                         </VBox.margin>
@@ -32,7 +32,7 @@
                             <Font size="20.0" />
                         </font>
                     </Button>
-                    <Button fx:id="SearchButton" mnemonicParsing="false" onAction="#clickSearchButt" prefHeight="43.0" prefWidth="100.0" style="-fx-background-color: #f5ba41;" text="SEARCH">
+                    <Button fx:id="SearchButton" mnemonicParsing="false" onAction="#clickSearchButt" prefHeight="43.0" prefWidth="120.0" style="-fx-background-color: #f5ba41;" text="SEARCH">
                         <font>
                             <Font size="20.0" />
                         </font>
@@ -40,7 +40,18 @@
                             <Insets />
                         </VBox.margin>
                     </Button>
-                    <Button fx:id="BackButton" mnemonicParsing="false" onAction="#clickBackButt" prefWidth="100.0" style="-fx-background-color: #f5ba41;" text="BACK">
+                    <Button fx:id="RefreshButton" mnemonicParsing="false" onAction="#clickRefreshButt" prefWidth="120.0" style="-fx-background-color: #f5ba41;" text="REFRESH">
+                        <font>
+                            <Font size="20.0" />
+                        </font>
+                        <HBox.margin>
+                            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                        </HBox.margin>
+                  <VBox.margin>
+                     <Insets top="10.0" />
+                  </VBox.margin>
+                    </Button>
+                    <Button fx:id="BackButton" mnemonicParsing="false" onAction="#clickBackButt" prefWidth="120.0" style="-fx-background-color: #f5ba41;" text="BACK">
                         <font>
                             <Font size="20.0" />
                         </font>

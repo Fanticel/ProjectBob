@@ -11,6 +11,7 @@ import javafx.util.converter.LongStringConverter;
 import javafx.util.converter.NumberStringConverter;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
 

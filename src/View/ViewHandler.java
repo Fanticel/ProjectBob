@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import javafx.scene.image.Image;
 import Model.ProjectListModel;
 
 public class ViewHandler {
@@ -54,6 +55,8 @@ public class ViewHandler {
       title += root.getUserData();
     }
     primaryStage.setTitle(title);
+    Image icon = new Image("Images/IconOrange.png");
+    primaryStage.getIcons().add(icon);
     primaryStage.setScene(currentScene);
     primaryStage.setWidth(root.getPrefWidth());
     primaryStage.setHeight(root.getPrefHeight());
@@ -78,6 +81,8 @@ public class ViewHandler {
     }
     popupStage.setTitle(title);
     popupStage.setScene(popupScene);
+    Image icon = new Image("Images/IconOrange.png");
+    popupStage.getIcons().add(icon);
     popupStage.setWidth(root.getPrefWidth());
     popupStage.setHeight(root.getPrefHeight());
     popupStage.show();
