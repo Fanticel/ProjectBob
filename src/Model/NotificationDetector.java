@@ -31,19 +31,18 @@ public class NotificationDetector
   }
 
   public String checkBudget() {
-    int expenses = project.getExpenses();
+    int expectedExpenses = project.getExpectedExpenses();
     long budget = project.getBudget();
-    double precentage = (double) expenses /budget*100;
+    double precentage = (double) expectedExpenses /budget*100;
     double roundOff = Math.round(precentage *100.0)/100.0;
 
-    if (expenses >= budget * 0.9 && expenses > budget) {
-      return("Warning: The project " + project.getName() +
-          " has went over the budget by: " + (expenses-budget) +" DKk");
+    if (expectedExpenses >= budget * 0.9 && expectedExpenses > budget) {
+      return("Warning: The expected expenses of the project " + project.getName() +
+          " have went over the budget by: " + (expectedExpenses-budget) +" DKK");
     }
-    else if (expenses >= budget * 0.9 && expenses <= budget)
+    else if (expectedExpenses >= budget * 0.9 && expectedExpenses <= budget)
     {
-      return("Warning: The project " + project.getName() +
-          " has reached " + roundOff + "% of the budget.");
+      return("Warning:" + project.getName() + " expected expenses have reached " + roundOff + "% of the budget.");
     }
     else return null;
   }
