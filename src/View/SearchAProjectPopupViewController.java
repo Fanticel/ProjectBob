@@ -7,9 +7,11 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.layout.Region;
+import javafx.util.converter.LongStringConverter;
 import javafx.util.converter.NumberStringConverter;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
 
@@ -26,11 +28,9 @@ public class SearchAProjectPopupViewController {
   @FXML private TextField priceRangeMax;
   @FXML private TextField manHoursMin;
   @FXML private TextField manHoursMax;
-  @FXML private Button backButton;
-  @FXML private Button searchButton;
   UnaryOperator<TextFormatter.Change> filter = change -> {
     String newText = change.getControlNewText();
-    if (Pattern.matches("[0-9]*", newText)) {
+    if (Pattern.matches("[0-9,]*", newText)) {
       return change; // Allow the change
     } else {
       return null; // Reject the change
@@ -84,10 +84,10 @@ public class SearchAProjectPopupViewController {
     if (statusChoiceBox.getValue() == null || statusChoiceBox.getValue().equals("All")) {data.add(null);} else {
       data.add(statusChoiceBox.getValue());
     }
-    if(!priceRangeMin.getText().isEmpty()){data.add(priceRangeMin.getText());}else{data.add(null);}
-    if(!priceRangeMax.getText().isEmpty()){data.add(priceRangeMax.getText());}else{data.add(null);}
-    if(!manHoursMin.getText().isEmpty()){data.add(manHoursMin.getText());}else{data.add(null);}
-    if(!manHoursMax.getText().isEmpty()){data.add(manHoursMax.getText());}else{data.add(null);}
+    if(!priceRangeMin.getText().isEmpty()){data.add(priceRangeMin.getText().replaceAll(",", ""));}else{data.add(null);}
+    if(!priceRangeMax.getText().isEmpty()){data.add(priceRangeMax.getText().replaceAll(",", ""));}else{data.add(null);}
+    if(!manHoursMin.getText().isEmpty()){data.add(manHoursMin.getText().replaceAll(",", ""));}else{data.add(null);}
+    if(!manHoursMax.getText().isEmpty()){data.add(manHoursMax.getText().replaceAll(",", ""));}else{data.add(null);}
     System.out.println(data);
     viewState.setData(data);
     System.out.println("Searching...");
