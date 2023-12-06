@@ -54,18 +54,77 @@ public class HomeViewController
     {
       NotificationDetector notificationDetector = new NotificationDetector(i);
 
-      Label funds = new Label(notificationDetector.checkFunds());
-      Label hours = new Label(notificationDetector.checkManHours());
-      Label deadline = new Label(notificationDetector.checkDeadline());
-      warnings.getChildren().add(funds);
-      warnings.getChildren().add(hours);
-      warnings.getChildren().add(deadline);
+      if(notificationDetector.checkBudget()!=null)
+      {
+        Label budget = new Label(notificationDetector.checkBudget());
+        warnings.getChildren().add(budget);
+      }
+
+      if (notificationDetector.checkExpenses()!=null)
+      {
+        Label expenses = new Label(notificationDetector.checkExpenses());
+        warnings.getChildren().add(expenses);
+      }
+
+      if(notificationDetector.checkManHours()!=null)
+      {
+        Label hours = new Label(notificationDetector.checkManHours());
+        warnings.getChildren().add(hours);
+      }
+
+      if (notificationDetector.checkDeadline()!=null)
+      {
+        Label deadline = new Label(notificationDetector.checkDeadline());
+        warnings.getChildren().add(deadline);
+      }
     }
+
   }
 
   public void reset()
   {
     popup.setVisible(false);
+    warnings.getChildren().clear();
+    ArrayList<Project> ongoingProjects = new ArrayList<>();
+
+    for (Project i : model.getAllProjects().returnAsArrayList())
+    {
+      if (i.getStatus().equals("Ongoing"))
+      {
+        ongoingProjects.add(i);
+      }
+    }
+
+    for (Project i : ongoingProjects)
+    {
+      NotificationDetector notificationDetector = new NotificationDetector(i);
+
+      if(notificationDetector.checkBudget()!=null)
+      {
+        Label budget = new Label(notificationDetector.checkBudget());
+        warnings.getChildren().add(budget);
+      }
+
+      if (notificationDetector.checkExpenses()!=null)
+      {
+        Label expenses = new Label(notificationDetector.checkExpenses());
+        warnings.getChildren().add(expenses);
+      }
+
+      if(notificationDetector.checkManHours()!=null)
+      {
+        Label hours = new Label(notificationDetector.checkManHours());
+        warnings.getChildren().add(hours);
+      }
+
+      if (notificationDetector.checkDeadline()!=null)
+      {
+        Label deadline = new Label(notificationDetector.checkDeadline());
+        warnings.getChildren().add(deadline);
+      }
+    }
+
+
   }
 
   public Region getRoot()

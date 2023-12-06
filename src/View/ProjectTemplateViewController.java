@@ -4,12 +4,10 @@ import Model.NotificationDetector;
 import Model.Project;
 import Model.ProjectListModel;
 import Model.ProjectListModelManager;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
@@ -27,9 +25,14 @@ public class ProjectTemplateViewController
   @FXML private Label deadlineNotification;
   @FXML private Label fundsNotification;
   @FXML private Label hoursNotification;
+  @FXML private Label expensesNotification;
   @FXML private Label name;
   @FXML private Label expectedPrice;
   @FXML private Label estimatedHours;
+  @FXML private Label manHours;
+  @FXML private Label budget;
+  @FXML private Label expenses;
+  @FXML private ProgressBar progressBar;
 
 
   public ProjectTemplateViewController(){}
@@ -50,11 +53,11 @@ public class ProjectTemplateViewController
       deadlineNotification.setText(notificationDetector.checkDeadline());
     }
 
-    if (notificationDetector.checkFunds() == null) {
+    if (notificationDetector.checkBudget() == null) {
       Pane parent = (Pane) fundsNotification.getParent();
       parent.getChildren().remove(fundsNotification);
     } else {
-      fundsNotification.setText(notificationDetector.checkFunds());
+      fundsNotification.setText(notificationDetector.checkBudget());
     }
 
     if (notificationDetector.checkManHours() == null) {
@@ -64,11 +67,32 @@ public class ProjectTemplateViewController
       hoursNotification.setText(notificationDetector.checkManHours());
     }
 
+    if (notificationDetector.checkExpenses() == null) {
+      Pane parent = (Pane) expensesNotification.getParent();
+      parent.getChildren().remove(expensesNotification);
+    } else {
+      expensesNotification.setText(notificationDetector.checkExpenses());
+    }
+
+    String projectType = (
+        switch (project.getClass().toString()){
+          case ("class Model.CommercialProject") -> "Commercial";
+          case ("class Model.IndustrialProject") -> "Industrial";
+          case ("class Model.RoadProject") -> "Road";
+          case ("class Model.ResidentialProject") -> "Residential";
+          default -> "Error";
+        }
+    );
+
+   progressBar.setProgress(project.getProgress());
     name.setText(project.getName());
-    type.setText(type.getText() + " " + project.getClass().getSimpleName());
+    budget.setText(budget.getText() + " " + String.valueOf(project.getBudget()) + " DKK");
+    manHours.setText(manHours.getText() + " " + String.valueOf(project.getTotalHours()) + " hours");
+    expenses.setText(expenses.getText()+ " " + String.valueOf(project.getExpenses()) + " DKK");
+    type.setText(type.getText() + " " + projectType);
     description.setText(project.getDescription());
     estimatedHours.setText(estimatedHours.getText() + " " + String.valueOf(project.getExpectedTotalHours()) + " hours");
-    expectedPrice.setText(expectedPrice.getText() + " " + String.valueOf(project.getExpectedExpenses()) + " DK");
+    expectedPrice.setText(expectedPrice.getText() + " " + String.valueOf(project.getExpectedExpenses()) + " DKK");
   }
 
 

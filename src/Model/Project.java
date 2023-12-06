@@ -101,6 +101,10 @@ public abstract class Project {
     this.status = status;
   }
 
+  public double getProgress(){
+    return (double) (((double)totalHours / expectedTotalHours * 100) + ((double)expenses / expectedExpenses * 100)) / 2/100;
+  }
+
   public boolean equals(Object other) {
     if (!(other instanceof Project otherProject)) {
       return false;
