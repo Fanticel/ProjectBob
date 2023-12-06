@@ -12,6 +12,7 @@ import javafx.util.converter.NumberStringConverter;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Optional;
@@ -128,31 +129,67 @@ public class EmbeddedIndustrialProjectViewController {
     return root;
   }
   public void create(){
+    if (expectedTotalHoursField.getText() == null || expectedExpensesField.getText() == null || budgetField.getText() == null || sizeField.getText() == null || facilityTypeField.getText() == null){
+      throw new IllegalArgumentException("Fields cannot be empty");
+    }
+    if (expectedTotalHoursField.getText().equals("") || expectedExpensesField.getText().equals("") || budgetField.getText().equals("") || sizeField.getText().equals("") || facilityTypeField.getText().equals("")){
+      throw new IllegalArgumentException("Fields cannot be empty");
+    }
     ArrayList<Object> data = viewState.getData();
-    data.add(Integer.valueOf(expectedTotalHoursField.getText()));
-    data.add(Integer.valueOf(expectedExpensesField.getText()));
-    data.add(budgetField.getText());
+    data.add(Integer.valueOf(expectedTotalHoursField.getText().replace(",","")));
+    data.add(Integer.valueOf(expectedExpensesField.getText().replace(",","")));
+    data.add(budgetField.getText().replace(",",""));
     LocalDate chosenDate = timelineDatePicker.getValue();
+    if (chosenDate.isBefore( LocalDate.now())){
+      throw new IllegalArgumentException("Date has to be after today");
+    }
+    try {
+      timelineDatePicker.getConverter().fromString(
+          timelineDatePicker.getEditor().getText());
+    } catch (DateTimeParseException e) {
+      throw new IllegalArgumentException("Date is not valid");
+    }
+    if(chosenDate.getDayOfMonth() > 31 || chosenDate.getMonthValue() > 12 || chosenDate.getYear() > 5000000000L){
+      throw new IllegalArgumentException("Invalid date values");
+    }
     MyDate date = new MyDate(chosenDate.getDayOfMonth(), chosenDate.getMonthValue(), chosenDate.getYear());
     data.add(date);
     data.add("Ongoing");
     data.add(facilityTypeField.getText());
-    data.add(Integer.valueOf(sizeField.getText()));
+    data.add(Integer.valueOf(sizeField.getText().replace(",","")));
 
     model.addProject(data);
   }
 
   public void edit(Project project){
+    if (expectedTotalHoursField.getText() == null || expectedExpensesField.getText() == null || budgetField.getText() == null || sizeField.getText() == null || facilityTypeField.getText() == null || totalHoursField.getText() == null || expensesField.getText() == null){
+      throw new IllegalArgumentException("Fields cannot be empty");
+    }
+    if (expectedTotalHoursField.getText().equals("") || expectedExpensesField.getText().equals("") || budgetField.getText().equals("") || sizeField.getText().equals("") || facilityTypeField.getText().equals("") || totalHoursField.getText().equals("") || expensesField.getText().equals("")){
+      throw new IllegalArgumentException("Fields cannot be empty");
+    }
     Map<String,Object> data = (Map<String,Object>) viewState.getData().get(1);
-    data.put("expectedTotalHours", expectedTotalHoursField.getText());
-    data.put("expectedExpenses", expectedExpensesField.getText());
-    data.put("totalHours", totalHoursField.getText());
-    data.put("expenses", expensesField.getText());
-    data.put("budget", budgetField.getText());
+    data.put("expectedTotalHours", expectedTotalHoursField.getText().replace(",",""));
+    data.put("expectedExpenses", expectedExpensesField.getText().replace(",",""));
+    data.put("totalHours", totalHoursField.getText().replace(",",""));
+    data.put("expenses", expensesField.getText().replace(",",""));
+    data.put("budget", budgetField.getText().replace(",",""));
     LocalDate chosenDate = timelineDatePicker.getValue();
+    if (chosenDate.isBefore( LocalDate.now())){
+      throw new IllegalArgumentException("Date has to be after today");
+    }
+    try {
+      timelineDatePicker.getConverter().fromString(
+          timelineDatePicker.getEditor().getText());
+    } catch (DateTimeParseException e) {
+      throw new IllegalArgumentException("Date is not valid");
+    }
+    if(chosenDate.getDayOfMonth() > 31 || chosenDate.getMonthValue() > 12 || chosenDate.getYear() > 5000000000L){
+      throw new IllegalArgumentException("Invalid date values");
+    }
     MyDate date = new MyDate(chosenDate.getDayOfMonth(), chosenDate.getMonthValue(), chosenDate.getYear());
     data.put("timeline", date);
-    data.put("size", sizeField.getText());
+    data.put("size", sizeField.getText().replace(",",""));
     data.put("type", facilityTypeField.getText());
 
     model.editProject(project, data);

@@ -15,6 +15,7 @@ import javafx.util.converter.NumberStringConverter;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Optional;
@@ -123,6 +124,12 @@ public class EmbeddedRoadProjectViewController {
   }
 
   public void editReset(){
+    if (expectedTotalHoursField.getText() == null || expectedExpensesField.getText() == null || budgetField.getText() == null || lengthField.getText() == null || widthField.getText() == null || numBridTunField.getText() == null){
+      throw new IllegalArgumentException("Fields cannot be empty");
+    }
+    if (expectedTotalHoursField.getText().equals("") || expectedExpensesField.getText().equals("") || budgetField.getText().equals("") || lengthField.getText().equals("") || widthField.getText().equals("") || numBridTunField.getText().equals("")){
+      throw new IllegalArgumentException("Fields cannot be empty");
+    }
     RoadProject project;
     project = (RoadProject) model.getProject((String) viewState.getData().get(0));
     expectedTotalHoursField.setText(String.valueOf(project.getExpectedTotalHours()));
@@ -157,21 +164,45 @@ public class EmbeddedRoadProjectViewController {
     scrollAnchorPane.setPrefHeight(scrollAnchorPane.getPrefHeight() + 20);
   }
   public void create(){
+    if (expectedTotalHoursField.getText() == null || expectedExpensesField.getText() == null || budgetField.getText() == null || lengthField.getText() == null || widthField.getText() == null || numBridTunField.getText() == null || totalHoursField.getText() == null || expensesField.getText() == null){
+      throw new IllegalArgumentException("Fields cannot be empty");
+    }
+    if (expectedTotalHoursField.getText().equals("") || expectedExpensesField.getText().equals("") || budgetField.getText().equals("") || lengthField.getText().equals("") || widthField.getText().equals("") || numBridTunField.getText().equals("") || totalHoursField.getText().equals("") || expensesField.getText().equals("")){
+      throw new IllegalArgumentException("Fields cannot be empty");
+    }
     ArrayList<Object> data = viewState.getData();
     ArrayList<String> geoChallenges = new ArrayList<String>();
-    data.add(Integer.valueOf(expectedTotalHoursField.getText()));
-    data.add(Integer.valueOf(expectedExpensesField.getText()));
-    data.add(budgetField.getText());
+    data.add(Integer.valueOf(expectedTotalHoursField.getText().replace(",","")));
+    data.add(Integer.valueOf(expectedExpensesField.getText().replace(",","")));
+    data.add(budgetField.getText().replace(",",""));
     LocalDate chosenDate = timelineDatePicker.getValue();
+    if (chosenDate.isBefore( LocalDate.now())){
+      throw new IllegalArgumentException("Date has to be after today");
+    }
+    try {
+      timelineDatePicker.getConverter().fromString(
+          timelineDatePicker.getEditor().getText());
+    } catch (DateTimeParseException e) {
+      throw new IllegalArgumentException("Date is not valid");
+    }
+    if(chosenDate.getDayOfMonth() > 31 || chosenDate.getMonthValue() > 12 || chosenDate.getYear() > 5000000000L){
+      throw new IllegalArgumentException("Invalid date values");
+    }
     MyDate date = new MyDate(chosenDate.getDayOfMonth(), chosenDate.getMonthValue(), chosenDate.getYear());
     data.add(date);
     data.add("Ongoing");
-    data.add(Integer.valueOf(lengthField.getText()));
-    data.add(Integer.valueOf(widthField.getText()));
-    data.add(Integer.valueOf(numBridTunField.getText()));
+    data.add(Integer.valueOf(lengthField.getText().replace(",","")));
+    data.add(Integer.valueOf(widthField.getText().replace(",","")));
+    data.add(Integer.valueOf(numBridTunField.getText().replace(",","")));
 
     for (Node node : geoChallengeVBox.getChildren()){
-      geoChallenges.add(((TextField)node).getText());
+      if (!((TextField)node).getText().equals(""))
+      {
+        geoChallenges.add(((TextField) node).getText());
+      }
+    }
+    if (geoChallenges.size() == 0){
+      geoChallenges.add("none");
     }
     data.add(geoChallenges);
     geoChallengeVBox.getChildren().removeAll(geoChallengeVBox.getChildren());
@@ -181,23 +212,38 @@ public class EmbeddedRoadProjectViewController {
   public void edit(Project project){
     Map<String,Object> data = (Map<String,Object>) viewState.getData().get(1);
     ArrayList<String> geoChallenges = new ArrayList<String>();
-    data.put("expectedTotalHours", expectedTotalHoursField.getText());
-    data.put("expectedExpenses", expectedExpensesField.getText());
-    data.put("totalHours", totalHoursField.getText());
-    data.put("expenses", expensesField.getText());
-    data.put("budget", budgetField.getText());
+    data.put("expectedTotalHours", expectedTotalHoursField.getText().replace(",",""));
+    data.put("expectedExpenses", expectedExpensesField.getText().replace(",",""));
+    data.put("totalHours", totalHoursField.getText().replace(",",""));
+    data.put("expenses", expensesField.getText().replace(",",""));
+    data.put("budget", budgetField.getText().replace(",",""));
     LocalDate chosenDate = timelineDatePicker.getValue();
+    if (chosenDate.isBefore( LocalDate.now())){
+      throw new IllegalArgumentException("Date has to be after today");
+    }
+    try {
+      timelineDatePicker.getConverter().fromString(
+          timelineDatePicker.getEditor().getText());
+    } catch (DateTimeParseException e) {
+      throw new IllegalArgumentException("Date is not valid");
+    }
+    if(chosenDate.getDayOfMonth() > 31 || chosenDate.getMonthValue() > 12 || chosenDate.getYear() > 5000000000L){
+      throw new IllegalArgumentException("Invalid date values");
+    }
     MyDate date = new MyDate(chosenDate.getDayOfMonth(), chosenDate.getMonthValue(), chosenDate.getYear());
     data.put("timeline", date);
-    data.put("length", lengthField.getText());
-    data.put("width", widthField.getText());
-    data.put("numBridTun", numBridTunField.getText());
+    data.put("length", lengthField.getText().replace(",",""));
+    data.put("width", widthField.getText().replace(",",""));
+    data.put("numBridTun", numBridTunField.getText().replace(",",""));
     int i = 0;
     for (Node node : geoChallengeVBox.getChildren()){
       if (!((TextField)node).getText().equals(""))
       {
         geoChallenges.add(((TextField) node).getText());
       }
+    }
+    if (geoChallenges.size() == 0){
+      geoChallenges.add("none");
     }
 
   //  geoChallengeVBox.getChildren().add(new TextField());

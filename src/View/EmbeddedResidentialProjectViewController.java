@@ -10,6 +10,7 @@ import javafx.util.converter.NumberStringConverter;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Optional;
@@ -160,18 +161,36 @@ public class EmbeddedResidentialProjectViewController
     }
   }
   public void create(){
+    if (expectedTotalHoursField.getText() == null || expectedExpensesField.getText() == null || budgetField.getText() == null || sizeField.getText() == null || numBathroomsField.getText() == null || numKitchensField.getText() == null || othWPlumbingField.getText() == null){
+      throw new IllegalArgumentException("Fields cannot be empty");
+    }
+    if (expectedTotalHoursField.getText().equals("") || expectedExpensesField.getText().equals("") || budgetField.getText().equals("") || sizeField.getText().equals("") || numBathroomsField.getText().equals("") || totalHoursField.getText().equals("") || numKitchensField.getText().equals("")){
+      throw new IllegalArgumentException("Fields cannot be empty");
+    }
     ArrayList<Object> data = viewState.getData();
-    data.add(Integer.valueOf(expectedTotalHoursField.getText()));
-    data.add(Integer.valueOf(expectedExpensesField.getText()));
-    data.add(budgetField.getText());
+    data.add(Integer.valueOf(expectedTotalHoursField.getText().replace(",","")));
+    data.add(Integer.valueOf(expectedExpensesField.getText().replace(",","")));
+    data.add(budgetField.getText().replace(",",""));
     LocalDate chosenDate = timelineDatePicker.getValue();
+    if (chosenDate.isBefore( LocalDate.now())){
+      throw new IllegalArgumentException("Date has to be after today");
+    }
+    try {
+      timelineDatePicker.getConverter().fromString(
+          timelineDatePicker.getEditor().getText());
+    } catch (DateTimeParseException e) {
+      throw new IllegalArgumentException("Date is not valid");
+    }
+    if(chosenDate.getDayOfMonth() > 31 || chosenDate.getMonthValue() > 12 || chosenDate.getYear() > 5000000000L){
+      throw new IllegalArgumentException("Invalid date values");
+    }
     MyDate date = new MyDate(chosenDate.getDayOfMonth(), chosenDate.getMonthValue(), chosenDate.getYear());
     data.add(date);
     data.add("Ongoing");
-    data.add(Integer.valueOf(sizeField.getText()));
-    data.add(Integer.valueOf(numKitchensField.getText()));
-    data.add(Integer.valueOf(numBathroomsField.getText()));
-    data.add(Integer.valueOf(othWPlumbingField.getText()));
+    data.add(Integer.valueOf(sizeField.getText().replace(",","")));
+    data.add(Integer.valueOf(numKitchensField.getText().replace(",","")));
+    data.add(Integer.valueOf(numBathroomsField.getText().replace(",","")));
+    data.add(Integer.valueOf(othWPlumbingField.getText().replace(",","")));
 
     if (newBuildGroup.getSelectedToggle() == buildRButton)
       data.add( true);
@@ -180,20 +199,37 @@ public class EmbeddedResidentialProjectViewController
     model.addProject(data);
   }
   public void edit(Project project){
+    if (expectedTotalHoursField.getText() == null || expectedExpensesField.getText() == null || budgetField.getText() == null || sizeField.getText() == null || numBathroomsField.getText() == null || numKitchensField.getText() == null || othWPlumbingField.getText() == null || totalHoursField.getText() == null || expensesField.getText() == null){
+      throw new IllegalArgumentException("Fields cannot be empty");
+    }
+    if (expectedTotalHoursField.getText().equals("") || expectedExpensesField.getText().equals("") || budgetField.getText().equals("") || sizeField.getText().equals("") || numBathroomsField.getText().equals("") || totalHoursField.getText().equals("") || numKitchensField.getText().equals("") || othWPlumbingField.getText().equals("") || expensesField.getText().equals("")){
+      throw new IllegalArgumentException("Fields cannot be empty");
+    }
     Map<String,Object> data = (Map<String,Object>) viewState.getData().get(1);
-    data.put("expectedTotalHours", expectedTotalHoursField.getText());
-    data.put("expectedExpenses", expectedExpensesField.getText());
-    data.put("totalHours", totalHoursField.getText());
-    data.put("expenses", expensesField.getText());
-    data.put("budget", budgetField.getText());
+    data.put("expectedTotalHours", expectedTotalHoursField.getText().replace(",",""));
+    data.put("expectedExpenses", expectedExpensesField.getText().replace(",",""));
+    data.put("totalHours", totalHoursField.getText().replace(",",""));
+    data.put("expenses", expensesField.getText().replace(",",""));
+    data.put("budget", budgetField.getText().replace(",",""));
     LocalDate chosenDate = timelineDatePicker.getValue();
+    if (chosenDate.isBefore( LocalDate.now())){
+      throw new IllegalArgumentException("Date has to be after today");
+    }
+    try {
+      timelineDatePicker.getConverter().fromString(
+          timelineDatePicker.getEditor().getText());
+    } catch (DateTimeParseException e) {
+      throw new IllegalArgumentException("Date is not valid");
+    }
+    if(chosenDate.getDayOfMonth() > 31 || chosenDate.getMonthValue() > 12 || chosenDate.getYear() > 5000000000L){
+      throw new IllegalArgumentException("Invalid date values");
+    }
     MyDate date = new MyDate(chosenDate.getDayOfMonth(), chosenDate.getMonthValue(), chosenDate.getYear());
     data.put("timeline", date);
-    data.put("size", sizeField.getText());
-    data.put("numKitchens", numKitchensField.getText());
-    data.put("numBathrooms", numBathroomsField.getText());
-    data.put("othWPlumbing", othWPlumbingField.getText());
-    data.put("isNewBuild", othWPlumbingField.getText());
+    data.put("size", sizeField.getText().replace(",",""));
+    data.put("numKitchens", numKitchensField.getText().replace(",",""));
+    data.put("numBathrooms", numBathroomsField.getText().replace(",",""));
+    data.put("othWPlumbing", othWPlumbingField.getText().replace(",",""));
     if (newBuildGroup.getSelectedToggle() == buildRButton)
       data.put("isNewBuild", true);
     else data.put("isNewBuild", false);
