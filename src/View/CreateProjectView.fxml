@@ -19,7 +19,7 @@
                     <children>
                         <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="518.0" spacing="10.0">
                             <children>
-                                <Label prefHeight="27.0" prefWidth="70.0" text="Type" textFill="#f5ba41">
+                                <Label prefHeight="27.0" prefWidth="70.0" text="Type" wrapText="true" textFill="#f5ba41">
                                     <font>
                                         <Font name="System Bold" size="18.0" />
                                     </font>
@@ -53,7 +53,7 @@
                                 <TextArea fx:id="descriptionArea" prefHeight="109.0" prefWidth="263.0" style="-fx-background-color: white; -fx-border-color: #f5ba41; -fx-border-radius: 7; -fx-border-width: 2;" />
                             </children>
                         </HBox>
-                        <Label fx:id="errorLabel" alignment="TOP_LEFT" prefHeight="44.0" prefWidth="437.0" textFill="#f20303" wrapText="true">
+                        <Label fx:id="errorLabel" alignment="TOP_LEFT" prefHeight="62.0" prefWidth="374.0" textFill="#f20303" wrapText="true">
                             <font>
                                 <Font size="16.0" />
                             </font>
@@ -63,7 +63,7 @@
                         </Label>
                         <HBox alignment="CENTER_LEFT" prefHeight="78.0" prefWidth="518.0" spacing="10.0">
                             <children>
-                                <Button mnemonicParsing="false" onAction="#create" prefHeight="34.0" prefWidth="91.0" style="-fx-background-color: #f5ba41;" text="Create" textFill="WHITE">
+                                <Button fx:id="createButton" disable="true" mnemonicParsing="false" onAction="#create" prefHeight="34.0" prefWidth="91.0" style="-fx-background-color: #f5ba41;" text="Create" textFill="WHITE">
                            <font>
                               <Font name="System Bold" size="12.0" />
                            </font></Button>

@@ -39,6 +39,9 @@ public class ProjectListModelManager implements ProjectListModel {
   {
     try
     {
+      if (!project.getName().equals(data.get("name")) && projectList.getProject((String) data.get("name")) != null){
+        throw new IllegalArgumentException("Name has to be unique");
+      }
       project.setName((String) data.get("name"));
       project.setDescription((String) data.get("description"));
       project.setExpectedTotalHours(Integer.parseInt(data.get("expectedTotalHours").toString()));
@@ -89,6 +92,9 @@ public class ProjectListModelManager implements ProjectListModel {
     try
     {
       Project project;
+      if (projectList.getProject((String) data.get(0)) != null){
+        throw new IllegalArgumentException("Name has to be unique");
+      }
       if (data.size() == 12) {
         project = new ResidentialProject((String) data.get(0),
             (String) data.get(1), (Integer) data.get(2), (Integer) data.get(3),

@@ -7,10 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.Label;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 
@@ -28,6 +25,8 @@ public class CreateProjectViewController {
   @FXML private TextArea descriptionArea;
 
   @FXML private TextField nameField;
+
+  @FXML private Button createButton;
 
   @FXML private ChoiceBox<String> typeChoiceBox;
   @FXML private EmbeddedCommercialProjectViewController view1Controller;
@@ -69,6 +68,7 @@ public class CreateProjectViewController {
     view3Controller.reset();
     view4Controller.reset();
 
+    createButton.setDisable(true);
     ObservableList<Node> children = stackPane.getChildren();
     for (Node i : children) {
       i.setVisible(false);
@@ -82,6 +82,9 @@ public class CreateProjectViewController {
   @FXML void create(ActionEvent event) {
     try
     {
+      if (nameField.getText().isEmpty() || descriptionArea.getText().isEmpty()){
+        throw new IllegalArgumentException("Fields cannot be empty");
+      }
       ArrayList<Object> data = new ArrayList<Object>();
       data.add(nameField.getText());
       data.add(descriptionArea.getText());
@@ -97,7 +100,8 @@ public class CreateProjectViewController {
     }
     catch (NumberFormatException e)
     {
-      errorLabel.setText("Input error: " + e.getMessage());
+      String[] error = e.getMessage().split(":", -1);
+      errorLabel.setText("Invalid value entered: " + error[1]);
     }
     catch (Exception e)
     {
@@ -117,6 +121,7 @@ public class CreateProjectViewController {
       case "Road" -> id = "view4";
       default -> id = null;
     }
+    createButton.setDisable(false);
     if (id == null) {
       return;
     }

@@ -108,18 +108,33 @@ public class EditProjectViewController
 
   @FXML
   void confirm(ActionEvent event) {
-    Map<String,Object> data = new HashMap<>();
-    data.put("name", nameField.getText());
-    data.put("description", descriptionArea.getText());
-    data.put("status", statusChoiceBox.getValue());
-    viewState.getData().add(data);
-    switch (project.getClass().toString()){
-      case ("class Model.CommercialProject") -> view1Controller.edit(project);
-      case ("class Model.IndustrialProject") -> view2Controller.edit(project);
-      case ("class Model.ResidentialProject") -> view3Controller.edit(project);
-      case ("class Model.RoadProject") -> view4Controller.edit(project);
+    try
+    {
+      if (nameField.getText().isEmpty() || descriptionArea.getText().isEmpty()){
+        throw new IllegalArgumentException("Fields cannot be empty");
+      }
+      Map<String, Object> data = new HashMap<>();
+      data.put("name", nameField.getText());
+      data.put("description", descriptionArea.getText());
+      data.put("status", statusChoiceBox.getValue());
+      viewState.getData().add(data);
+      switch (project.getClass().toString())
+      {
+        case ("class Model.CommercialProject") -> view1Controller.edit(project);
+        case ("class Model.IndustrialProject") -> view2Controller.edit(project);
+        case ("class Model.ResidentialProject") -> view3Controller.edit(project);
+        case ("class Model.RoadProject") -> view4Controller.edit(project);
+      }
+      viewHandler.openView("ProjectList");
+    }catch (NumberFormatException e)
+    {
+      String[] error = e.getMessage().split(":", -1);
+      errorLabel.setText("Invalid value entered: " + error[1]);
     }
-    viewHandler.openView("ProjectList");
+    catch (Exception e)
+    {
+      errorLabel.setText(e.getMessage());
+    }
   }
 
   @FXML

@@ -13,9 +13,9 @@ public abstract class Project {
 
   public Project(String name, String description, int expectedTotalHours,
       int expectedExpenses, long budget, MyDate timeline, String status) {
+
     this.name = name;
     this.description = description;
-    //if (expectedTotalHours <0 || expectedExpenses)
     this.expectedTotalHours = expectedTotalHours;
     this.expectedExpenses = expectedExpenses;
     this.totalHours = 0;

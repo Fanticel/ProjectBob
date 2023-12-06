@@ -6,12 +6,15 @@ import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
+import javafx.util.converter.NumberStringConverter;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.Optional;
+import java.util.function.UnaryOperator;
+import java.util.regex.Pattern;
 
 public class EmbeddedResidentialProjectViewController
 {
@@ -67,6 +70,15 @@ public class EmbeddedResidentialProjectViewController
 
   private ViewState viewState;
 
+  UnaryOperator<TextFormatter.Change> filter = change -> {
+    String newText = change.getControlNewText();
+    if (Pattern.matches("[0-9,]*", newText)) {
+      return change; // Allow the change
+    } else {
+      return null; // Reject the change
+    }
+  };
+
   public EmbeddedResidentialProjectViewController()
   {
   }
@@ -77,6 +89,16 @@ public class EmbeddedResidentialProjectViewController
     this.viewHandler = viewHandler;
     this.root = root;
     this.viewState = viewState;
+
+    budgetField.setTextFormatter(new TextFormatter<>(new NumberStringConverter(),0, filter));
+    expectedTotalHoursField.setTextFormatter(new TextFormatter<>(new NumberStringConverter(),0, filter));
+    expectedExpensesField.setTextFormatter(new TextFormatter<>(new NumberStringConverter(),0, filter));
+    totalHoursField.setTextFormatter(new TextFormatter<>(new NumberStringConverter(),0, filter));
+    expensesField.setTextFormatter(new TextFormatter<>(new NumberStringConverter(),0, filter));
+    sizeField.setTextFormatter(new TextFormatter<>(new NumberStringConverter(),0, filter));
+    numKitchensField.setTextFormatter(new TextFormatter<>(new NumberStringConverter(),0, filter));
+    numBathroomsField.setTextFormatter(new TextFormatter<>(new NumberStringConverter(),0, filter));
+    othWPlumbingField.setTextFormatter(new TextFormatter<>(new NumberStringConverter(),0, filter));
   }
 
   public void reset(){
