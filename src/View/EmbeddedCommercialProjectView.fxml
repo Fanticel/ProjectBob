@@ -138,12 +138,12 @@
                             </HBox>
                             <HBox fx:id="hoursHbox" alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="598.0" spacing="10.0" visible="false">
                                 <children>
-                                    <Label prefHeight="27.0" prefWidth="228.0" text="Total hours">
+                                    <Label prefHeight="27.0" prefWidth="228.0" text="Total hours" textFill="#f5ba41">
                                         <font>
                                             <Font size="18.0" />
                                         </font>
                                     </Label>
-                                    <TextField fx:id="totalHoursField" prefHeight="40.0" prefWidth="275.0">
+                                    <TextField fx:id="totalHoursField" prefHeight="40.0" prefWidth="275.0" style="-fx-background-color: white; -fx-border-color: #f5ba41; -fx-border-radius: 10; -fx-border-width: 2;">
                                         <font>
                                             <Font size="18.0" />
                                         </font>
@@ -155,12 +155,12 @@
                             </HBox>
                             <HBox fx:id="expensesHbox" alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="598.0" spacing="10.0" visible="false">
                                 <children>
-                                    <Label prefHeight="27.0" prefWidth="228.0" text="Expenses">
+                                    <Label prefHeight="27.0" prefWidth="228.0" text="Expenses" textFill="#f5ba41">
                                         <font>
                                             <Font size="18.0" />
                                         </font>
                                     </Label>
-                                    <TextField fx:id="expensesField" prefHeight="40.0" prefWidth="275.0">
+                                    <TextField fx:id="expensesField" prefHeight="40.0" prefWidth="275.0" style="-fx-background-color: white; -fx-border-color: #f5ba41; -fx-border-radius: 10; -fx-border-width: 2;">
                                         <font>
                                             <Font size="18.0" />
                                         </font>

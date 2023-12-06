@@ -9,10 +9,10 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.SearchAProjectPopupViewController">
+<VBox prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.SearchAProjectPopupViewController">
    <HBox alignment="CENTER" prefHeight="78.0" prefWidth="600.0">
       <children>
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Search">
+         <Text fill="#f5ba41" strokeType="OUTSIDE" strokeWidth="0.0" text="Search">
             <font>
                <Font name="System Bold" size="25.0" />
             </font>
@@ -21,15 +21,15 @@
    </HBox>
    <HBox prefHeight="100.0" prefWidth="200.0">
       <children>
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NAME: ">
+         <Text fill="#f5ba41" strokeType="OUTSIDE" strokeWidth="0.0" text="NAME: ">
             <font>
-               <Font size="20.0" />
+               <Font name="System Bold" size="20.0" />
             </font>
             <HBox.margin>
                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </HBox.margin>
          </Text>
-         <TextField fx:id="nameField">
+         <TextField fx:id="nameField" style="-fx-background-color: white; -fx-border-color: #f5ba41; -fx-border-radius: 10; -fx-border-width: 2;">
             <HBox.margin>
                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </HBox.margin>
@@ -38,15 +38,15 @@
    </HBox>
    <HBox prefHeight="100.0" prefWidth="200.0">
       <children>
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="TYPE:">
+         <Text fill="#f5ba41" strokeType="OUTSIDE" strokeWidth="0.0" text="TYPE:">
             <font>
-               <Font size="20.0" />
+               <Font name="System Bold" size="20.0" />
             </font>
             <HBox.margin>
                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </HBox.margin>
          </Text>
-         <ChoiceBox fx:id="typeChoiceBox" prefWidth="150.0">
+         <ChoiceBox fx:id="typeChoiceBox" prefWidth="150.0" style="-fx-background-color: #f5ba41;">
             <HBox.margin>
                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </HBox.margin>
@@ -55,15 +55,15 @@
    </HBox>
    <HBox prefHeight="100.0" prefWidth="200.0">
       <children>
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="PRICE RANGE:">
+         <Text fill="#f5ba41" strokeType="OUTSIDE" strokeWidth="0.0" text="PRICE RANGE:">
             <font>
-               <Font size="20.0" />
+               <Font name="System Bold" size="20.0" />
             </font>
             <HBox.margin>
                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </HBox.margin>
          </Text>
-         <TextField fx:id="priceRangeMin" promptText="Min">
+         <TextField fx:id="priceRangeMin" promptText="Min" style="-fx-background-color: white; -fx-border-color: #f5ba41; -fx-border-radius: 10; -fx-border-width: 2;">
             <HBox.margin>
                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </HBox.margin>
@@ -76,7 +76,7 @@
                <Insets top="10.0" />
             </HBox.margin>
          </Text>
-         <TextField fx:id="priceRangeMax" promptText="Max">
+         <TextField fx:id="priceRangeMax" promptText="Max" style="-fx-background-color: white; -fx-border-color: #f5ba41; -fx-border-radius: 10; -fx-border-width: 2;">
             <HBox.margin>
                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </HBox.margin>
@@ -85,15 +85,15 @@
    </HBox>
    <HBox prefHeight="100.0" prefWidth="200.0">
       <children>
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="MAN HOURS:">
+         <Text fill="#f5ba41" strokeType="OUTSIDE" strokeWidth="0.0" text="MAN HOURS:">
             <font>
-               <Font size="20.0" />
+               <Font name="System Bold" size="20.0" />
             </font>
             <HBox.margin>
                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </HBox.margin>
          </Text>
-         <TextField fx:id="manHoursMin" promptText="Min">
+         <TextField fx:id="manHoursMin" promptText="Min" style="-fx-background-color: white; -fx-border-color: #f5ba41; -fx-border-radius: 10; -fx-border-width: 2;">
             <HBox.margin>
                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </HBox.margin>
@@ -106,7 +106,7 @@
                <Insets top="10.0" />
             </HBox.margin>
          </Text>
-         <TextField fx:id="manHoursMax" promptText="Max">
+         <TextField fx:id="manHoursMax" promptText="Max" style="-fx-background-color: white; -fx-border-color: #f5ba41; -fx-border-radius: 10; -fx-border-width: 2;">
             <HBox.margin>
                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </HBox.margin>
@@ -115,15 +115,15 @@
    </HBox>
    <HBox prefHeight="100.0" prefWidth="200.0">
       <children>
-         <Text strokeType="OUTSIDE" strokeWidth="0.0" text="STATUS: ">
+         <Text fill="#f5ba41" strokeType="OUTSIDE" strokeWidth="0.0" text="STATUS: ">
             <font>
-               <Font size="20.0" />
+               <Font name="System Bold" size="20.0" />
             </font>
             <HBox.margin>
                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </HBox.margin>
          </Text>
-         <ChoiceBox fx:id="statusChoiceBox" prefWidth="150.0">
+         <ChoiceBox fx:id="statusChoiceBox" prefWidth="150.0" style="-fx-background-color: #f5ba41;">
             <HBox.margin>
                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
             </HBox.margin>
@@ -132,12 +132,12 @@
    </HBox>
    <HBox alignment="TOP_CENTER" prefHeight="100.0" prefWidth="200.0">
       <children>
-         <Button fx:id="searchButton" mnemonicParsing="false" onAction="#clickSearchButt" text="Search">
+         <Button fx:id="searchButton" mnemonicParsing="false" onAction="#clickSearchButt" style="-fx-background-color: #f5ba41;" text="Search">
             <HBox.margin>
                <Insets bottom="10.0" left="10.0" right="50.0" top="10.0" />
             </HBox.margin>
          </Button>
-         <Button fx:id="backButton" mnemonicParsing="false" onAction="#clickBackButt" text="Back">
+         <Button fx:id="backButton" mnemonicParsing="false" onAction="#clickBackButt" style="-fx-background-color: #f5ba41;" text="Back">
             <HBox.margin>
                <Insets bottom="10.0" left="50.0" right="10.0" top="10.0" />
             </HBox.margin>
