@@ -39,7 +39,17 @@ p {
   margin-right: auto;
 }
 
-.puce{
-  box-shadow: 0 0 10px rgba(0,0,0, 0.2);
+.puce {
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   border-radius: 15px;
+}
+
+.customButton {
+  background-color: #f5ba41;
+  color: white;
+}
+
+.customButton:hover {
+  background-color: #f3ad22;
+  color: white;
 }

@@ -1,258 +1,355 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <title>Bob the Builder</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, inital-scale=1" />
+    <link href="Styles/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <link href="Styles/style.css" type="text/css" rel="stylesheet" />
+    <link href="Styles/common.css" type="text/css" rel="stylesheet" />
+    <link href="Styles/animation.css" type="text/css" rel="stylesheet" />
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<head>
-  <title>Bob the Builder</title>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, inital-scale=1">
-  <link href="Styles/bootstrap.min.css" type="text/css" rel="stylesheet">
-  <link href="Styles/style.css" type="text/css" rel="stylesheet">
-  <link href="Styles/common.css" type="text/css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
-</head>
+  <body>
+    <div class="landingPage">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+          <img class="navbar-brand p-0" src="Images/logo.png" alt="logo" />
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="Index.html">Home</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="navbarDropdown"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Projects
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li>
+                    <a class="dropdown-item" href="Ongoing_page.html"
+                      >Ongoing projects</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="previousProjects.html"
+                      >Past projects</a
+                    >
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="projectTypes.html">Types</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="Contact.html">Contact</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
-<body>
-  <div class="landingPage">
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <div class="container-fluid">
-        <img class="navbar-brand p-0" src="Images/logo.png" alt="logo">
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="Index.html">Home</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                Projects
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
-                  <a class="dropdown-item" href="Ongoing_page.html">Ongoing projects</a>
-                </li>
-                <li><a class="dropdown-item" href="previousProjects.html">Past projects</a></li>
-                <li><a class="dropdown-item" href="projectTypes.html">Types</a></li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Contact.html">Contact</a>
-            </li>
-          </ul>
+      <!--Logo and welcome text-->
+      <div class="welcome">
+        <img class="firstAnimation" src="Images/logoOrange.png" alt="logo" />
+        <h1 class="firstAnimation">
+          Discover the art of building excellence with our dedicated
+          construction team
+        </h1>
+      </div>
+    </div>
+
+    <!--Our goals and vision part of the page-->
+    <div class="container-fluid section p-3 p-md-3 animation">
+      <div class="row">
+        <div class="col-md-6 d-flex align-items-center">
+          <div>
+            <h2>Our goals</h2>
+            <p>
+              We are driven by a singular vision – to create exceptional,
+              enduring spaces that exceed your expectations. We believe that
+              every structure we build should be a testament to precision,
+              quality, and innovation. Our commitment is to not just meet your
+              construction needs but to elevate them to new heights. With a
+              dedicated team of experts, state-of-the-art technology, and a
+              passion for perfection, we turn your ideas into tangible,
+              remarkable constructions. We can build and fix everything for you!
+            </p>
+            <a class="btn customButton mb-3" href="about.html"> About us </a>
+          </div>
+        </div>
+        <div class="col-md-6 text-center">
+          <img src="Images/goals.png" class="img-fluid rounded-3" alt="goals" />
         </div>
       </div>
-    </nav>
-
-    <!--Logo and welcome text-->
-    <div class="welcome">
-      <img src="Images/logoOrange.png" alt="logo">
-      <h1>
-        Discover the art of building excellence with our dedicated
-        construction team
-      </h1>
     </div>
-  </div>
 
-  <!--Our goals and vision part of the page-->
-  <div class="container-fluid section p-3 p-md-3">
-    <div class="row">
-      <div class="col-md-6 d-flex align-items-center">
-        <div>
-          <h2>Our goals</h2>
-          <p>
-            We are driven by a singular vision – to create exceptional,
-            enduring spaces that exceed your expectations. We believe that
-            every structure we build should be a testament to precision,
-            quality, and innovation. Our commitment is to not just meet your
-            construction needs but to elevate them to new heights. With a
-            dedicated team of experts, state-of-the-art technology, and a
-            passion for perfection, we turn your ideas into tangible,
-            remarkable constructions. We can build and fix everything for you!
+    <!--Types of projects carousel part-->
+    <div class="container section animation">
+      <div class="row text-center">
+        <h2>Types of projects</h2>
+      </div>
+      <div>
+        <div
+          id="demo"
+          class="carousel slide mx-auto mt-3 col-md-8"
+          data-bs-ride="carousel"
+        >
+          <!-- Indicators/dots -->
+          <div class="carousel-indicators">
+            <button
+              type="button"
+              data-bs-target="#demo"
+              data-bs-slide-to="0"
+              class="active"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#demo"
+              data-bs-slide-to="1"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#demo"
+              data-bs-slide-to="2"
+            ></button>
+            <button
+              type="button"
+              data-bs-target="#demo"
+              data-bs-slide-to="3"
+            ></button>
+          </div>
+
+          <!-- The slideshow/carousel -->
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img
+                src="Images/commercialConstruction.png"
+                alt="commercialConstruction"
+                class="d-block img-fluid rounded-3"
+              />
+              <div class="carousel-caption">
+                <h3>Commercial Project</h3>
+                <p>Elevating Business Spaces</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="Images/residentConstruction.png"
+                alt="residentConstruction"
+                class="d-block img-fluid rounded-3"
+              />
+              <div class="carousel-caption">
+                <h3>Resident Project</h3>
+                <p>Crafting Dream Homes</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="Images/industrialConstruction.png"
+                alt="industrialConstruction"
+                class="d-block img-fluid rounded-3"
+              />
+              <div class="carousel-caption">
+                <h3>Industrial Project</h3>
+                <p>Building the Future</p>
+              </div>
+            </div>
+            <div class="carousel-item">
+              <img
+                src="Images/roadConstruction.png"
+                alt="roadConstruction"
+                class="d-block img-fluid rounded-3"
+              />
+              <div class="carousel-caption">
+                <h3>Road Construction Project</h3>
+                <p>Connecting Communities</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Left and right controls/icons -->
+          <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#demo"
+            data-bs-slide="prev"
+          >
+            <span class="carousel-control-prev-icon"></span>
+          </button>
+          <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#demo"
+            data-bs-slide="next"
+          >
+            <span class="carousel-control-next-icon"></span>
+          </button>
+        </div>
+      </div>
+      <div class="row mt-3">
+        <div class="col-md-12 text-center">
+          <a
+            class="btn customButton mx-2 mx-sm-1 mb-3"
+            href="previousProjects.html"
+          >
+            View previous projects
+          </a>
+          <a
+            class="btn customButton mx-2 mx-sm-1 mb-3"
+            href="Ongoing_page.html"
+          >
+            View ongoing projects
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Testimonials section -->
+    <div class="container-fluid section p-3 p-md-3 animation">
+      <h2 class="text-center mb-5">Testimonials</h2>
+      <div class="row justify-content-around">
+        <div class="col-md-3 rounded-3 border testimonialContainer p-3 m-3">
+          <div class="testimonial">
+            <div class="testimonial-image text-center">
+              <img src="Images/testimonial1.png" alt="testimonial1" />
+            </div>
+            <div class="testimonial-content">
+              <p class="testimonial-text text-center">
+                "We were extremely satisfied with the construction work done by
+                Bobs Construction company. From the initial consultation to the
+                final nail, their team showed a level of professionalism and
+                craftsmanship that exceeded our expectations. We highly
+                recommend Bob to anyone looking for reliable and skilled
+                builders."
+              </p>
+              <div class="testimonial-meta text-center">- Ang Zui</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 rounded-3 border testimonialContainer p-3 m-3">
+          <div class="testimonial">
+            <div class="testimonial-image text-center">
+              <img src="Images/testimonial2.png" alt="testimonial1" />
+            </div>
+            <div class="testimonial-content justify-content-center">
+              <p class="testimonial-text text-center">
+                "Working with Bob on our commercial construction project was a
+                breeze. Their attention to detail and commitment to safety were
+                truly commendable. We're grateful to Bobs construction company
+                for their expertise and dedication."
+              </p>
+              <div class="testimonial-meta text-center">- Aya Nikolajsen</div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 rounded-3 border testimonialContainer p-3 m-3">
+          <div class="testimonial">
+            <div class="testimonial-image text-center">
+              <img src="Images/testimonial3.png" alt="testimonial1" />
+            </div>
+            <div class="testimonial-content">
+              <p class="testimonial-text text-center">
+                "I cannot speak highly enough about the team. They transformed
+                our dream of a custom-built home into a reality. Throughout the
+                construction process, their open communication, flexibility, and
+                problem-solving abilities were remarkable. They turned our
+                vision into a masterpiece, and we couldn't be happier with the
+                outcome."
+              </p>
+              <div class="testimonial-meta text-center">- Duje Nizamov</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contact us section -->
+    <div class="container-fluid section p-3 p-md-3 animation">
+      <div class="row">
+        <div class="col-md-6 d-flex align-items-center">
+          <div>
+            <h2>Contact us today</h2>
+            <p>
+              Ready to turn your construction dreams into reality? Contact us
+              today to discuss your project, get a free estimate, or simply ask
+              any questions you may have. Our team of experienced professionals
+              is here to assist you at every step of the way. Let's build
+              something great together!
+            </p>
+            <a class="btn customButton mb-3" href="Contact.html">
+              Contact us
+            </a>
+          </div>
+        </div>
+        <div class="col-md-6 text-center">
+          <img
+            src="Images/contact.png"
+            class="img-fluid rounded-3"
+            alt="contact"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!--Footer-->
+    <footer class="container-fluid">
+      <div class="row">
+        <div class="col-sm-6 text-center">
+          <p class="copyRight mt-4">
+            &copy; 2021 Bob the Builder. All rights reserved.
           </p>
-          <a class="btn customButton mb-3" href="about.html"> About us </a>
+        </div>
+        <div class="col-sm-6 mt-4 text-center">
+          <img
+            src="Images/facebook.png"
+            alt="facebook"
+            class="social-icon mr-2"
+          />
+          <img
+            src="Images/instagram.png"
+            alt="instagram"
+            class="social-icon mr-2"
+          />
+          <img
+            src="Images/linkedin.png"
+            alt="linkedin"
+            class="social-icon mr-2"
+          />
+          <img
+            src="Images/youtube.png"
+            alt="twitter"
+            class="social-icon mr-2"
+          />
         </div>
       </div>
-      <div class="col-md-6 text-center">
-        <img src="Images/goals.png" class="img-fluid rounded-3" alt="goals">
-      </div>
-    </div>
-  </div>
-
-  <!--Types of projects carousel part-->
-  <div class="container section">
-    <div class="row text-center">
-      <h2>Types of projects</h2>
-    </div>
-    <div>
-      <div id="demo" class="carousel slide mx-auto mt-3 col-md-8" data-bs-ride="carousel">
-        <!-- Indicators/dots -->
-        <div class="carousel-indicators">
-          <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-          <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-          <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-          <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
-        </div>
-
-        <!-- The slideshow/carousel -->
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="Images/commercialConstruction.png" alt="commercialConstruction"
-              class="d-block img-fluid rounded-3">
-            <div class="carousel-caption">
-              <h3>Commercial Project</h3>
-              <p>Elevating Business Spaces</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="Images/residentConstruction.png" alt="residentConstruction" class="d-block img-fluid rounded-3">
-            <div class="carousel-caption">
-              <h3>Resident Project</h3>
-              <p>Crafting Dream Homes</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="Images/industrialConstruction.png" alt="industrialConstruction"
-              class="d-block img-fluid rounded-3" />
-            <div class="carousel-caption">
-              <h3>Industrial Project</h3>
-              <p>Building the Future</p>
-            </div>
-          </div>
-          <div class="carousel-item">
-            <img src="Images/roadConstruction.png" alt="roadConstruction" class="d-block img-fluid rounded-3" />
-            <div class="carousel-caption">
-              <h3>Road Construction Project</h3>
-              <p>Connecting Communities</p>
-            </div>
-          </div>
-        </div>
-
-        <!-- Left and right controls/icons -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-          <span class="carousel-control-next-icon"></span>
-        </button>
-      </div>
-    </div>
-    <div class="row mt-3">
-      <div class="col-md-12 text-center">
-        <a class="btn customButton mx-2 mx-sm-1 mb-3" href="previousProjects.html">
-          View previous projects
-        </a>
-        <a class="btn customButton mx-2 mx-sm-1 mb-3" href="Ongoing_page.html">
-          View ongoing projects
-        </a>
-      </div>
-    </div>
-  </div>
-
-  <!-- Testimonials section -->
-  <div class="container-fluid section p-3 p-md-3">
-    <h2 class="text-center mb-5">Testimonials</h2>
-    <div class="row justify-content-around">
-      <div class="col-md-3 rounded-3 border testimonialContainer p-3 m-3">
-        <div class="testimonial">
-          <div class="testimonial-image text-center">
-            <img src="Images/testimonial1.png" alt="testimonial1" />
-          </div>
-          <div class="testimonial-content">
-            <p class="testimonial-text text-center">
-              "We were extremely satisfied with the construction work done by
-              Bobs Construction company. From the initial consultation to the
-              final nail, their team showed a level of professionalism and
-              craftsmanship that exceeded our expectations. We highly
-              recommend Bob to anyone looking for reliable and skilled
-              builders."
-            </p>
-            <div class="testimonial-meta text-center">- Ang Zui</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 rounded-3 border testimonialContainer p-3 m-3">
-        <div class="testimonial">
-          <div class="testimonial-image text-center">
-            <img src="Images/testimonial2.png" alt="testimonial1" />
-          </div>
-          <div class="testimonial-content justify-content-center">
-            <p class="testimonial-text text-center">
-              "Working with Bob on our commercial construction project was a
-              breeze. Their attention to detail and commitment to safety were
-              truly commendable. We're grateful to Bobs construction company
-              for their expertise and dedication."
-            </p>
-            <div class="testimonial-meta text-center">- Aya Nikolajsen</div>
-          </div>
-        </div>
-      </div>
-      <div class="col-md-3 rounded-3 border testimonialContainer p-3 m-3">
-        <div class="testimonial">
-          <div class="testimonial-image text-center">
-            <img src="Images/testimonial3.png" alt="testimonial1" />
-          </div>
-          <div class="testimonial-content">
-            <p class="testimonial-text text-center">
-              "I cannot speak highly enough about the team. They transformed
-              our dream of a custom-built home into a reality. Throughout the
-              construction process, their open communication, flexibility, and
-              problem-solving abilities were remarkable. They turned our
-              vision into a masterpiece, and we couldn't be happier with the
-              outcome."
-            </p>
-            <div class="testimonial-meta text-center">- Duje Nizamov</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Contact us section -->
-  <div class="container-fluid section p-3 p-md-3">
-    <div class="row">
-      <div class="col-md-6 d-flex align-items-center">
-        <div>
-          <h2>Contact us today</h2>
-          <p>
-            Ready to turn your construction dreams into reality? Contact us
-            today to discuss your project, get a free estimate, or simply ask
-            any questions you may have. Our team of experienced professionals
-            is here to assist you at every step of the way. Let's build
-            something great together!
-          </p>
-          <a class="btn customButton mb-3" href="Contact.html"> Contact us </a>
-        </div>
-      </div>
-      <div class="col-md-6 text-center">
-        <img src="Images/contact.png" class="img-fluid rounded-3" alt="contact" />
-      </div>
-    </div>
-  </div>
-
-  <!--Footer-->
-  <footer class="container-fluid">
-    <div class="row">
-      <div class="col-md-6 text-end">
-        <p class="copyRight mt-4">
-          &copy; 2021 Bob the Builder. All rights reserved.
-        </p>
-      </div>
-      <div class="col-md-6 mt-4 text-center">
-        <img src="Images/facebook.png" alt="facebook" class="social-icon mr-2">
-        <img src="Images/instagram.png" alt="instagram" class="social-icon mr-2">
-        <img src="Images/linkedin.png" alt="linkedin" class="social-icon mr-2">
-        <img src="Images/youtube.png" alt="twitter" class="social-icon mr-2">
-      </div>
-    </div>
-  </footer>
-</body>
-
+    </footer>
+    <script src="JS/animations.js"></script>
+  </body>
 </html>

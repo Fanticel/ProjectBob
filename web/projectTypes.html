@@ -1,151 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <title>Project types</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, inital-scale=1">
-    <link href="Styles/bootstrap.min.css" type="text/css" rel="stylesheet">
-    <link href="Styles/types.css" type="text/css" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, inital-scale=1" />
+    <link href="Styles/bootstrap.min.css" type="text/css" rel="stylesheet" />
+    <link href="Styles/types.css" type="text/css" rel="stylesheet" />
     <link href="Styles/common.css" type="text/css" rel="stylesheet" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-</head>
+    <link href="Styles/animation.css" type="text/css" rel="stylesheet" />
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </head>
 
-<body>
+  <body>
     <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container-fluid">
-            <img class="navbar-brand p-0" src="Images/logo.png" alt="logo" />
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" href="Index.html">Home</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Projects
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li>
-                                <a class="dropdown-item" href="Ongoing_page.html">Ongoing projects</a>
-                            </li>
-                            <li><a class="dropdown-item" href="previousProjects.html">Past projects</a></li>
-                            <li><a class="dropdown-item" href="projectTypes.html">Types</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Contact.html">Contact</a>
-                    </li>
-                </ul>
-            </div>
+      <div class="container-fluid">
+        <img class="navbar-brand p-0" src="Images/logo.png" alt="logo" />
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="Index.html">Home</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Projects
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li>
+                  <a class="dropdown-item" href="Ongoing_page.html"
+                    >Ongoing projects</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="previousProjects.html"
+                    >Past projects</a
+                  >
+                </li>
+                <li>
+                  <a class="dropdown-item" href="projectTypes.html">Types</a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="about.html">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="Contact.html">Contact</a>
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
     <div class="container-fluid">
-        <div class="row text-center mt-5">
-            <!--Title -->
-            <h1 class="text-decoration-underline">Our Types of Projects</h1>
-        </div>
-        <div class="section puce">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="ms-2">
-                        <h2>Residental projects</h2>
-                        <p>Whether it is renovations on your house, or even building one from scratch we have you
-                            covered.</p>
-                        <div class="details">
-                            <p>General budget range: $100,000-$500,000</p>
-                            <p>Timeline: from 6 to 12 months</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <img class="img-fluid rounded-3" src="Images/Residential_project.png" alt="Residental project">
-                </div>
+      <div class="row text-center mt-5">
+        <!--Title -->
+        <h1 class="text-decoration-underline">Our Types of Projects</h1>
+      </div>
+      <div class="section puce firstAnimation">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="ms-2">
+              <h2>Residental projects</h2>
+              <p>
+                Whether it is renovations on your house, or even building one
+                from scratch we have you covered.
+              </p>
+              <div class="details">
+                <p>General budget range: $100,000-$500,000</p>
+                <p>Timeline: from 6 to 12 months</p>
+              </div>
             </div>
+          </div>
+          <div class="col-md-6">
+            <img
+              class="img-fluid rounded-3"
+              src="Images/Residential_project.png"
+              alt="Residental project"
+            />
+          </div>
         </div>
-        <div class="section puce">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="ms-2">
-                        <h2>Commercial projects</h2>
-                        <p>From building smaller restaurants to large skyscrapers for office space we have experience
-                            with construction of commercial buildings with a wide range of uses.</p>
-                        <div class="details">
-                            <p>General budget range: $500,000 to $2,000,000</p>
-                            <p>Timeline: from 12 to 24 months</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <img class="img-fluid rounded-3" src="Images/Commercial_project.png" alt="Commercial project">
-                </div>
+      </div>
+      <div class="section puce animation">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="ms-2">
+              <h2>Commercial projects</h2>
+              <p>
+                From building smaller restaurants to large skyscrapers for
+                office space we have experience with construction of commercial
+                buildings with a wide range of uses.
+              </p>
+              <div class="details">
+                <p>General budget range: $500,000 to $2,000,000</p>
+                <p>Timeline: from 12 to 24 months</p>
+              </div>
             </div>
+          </div>
+          <div class="col-md-6">
+            <img
+              class="img-fluid rounded-3"
+              src="Images/Commercial_project.png"
+              alt="Commercial project"
+            />
+          </div>
         </div>
-        <div class="section puce">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="ms-2">
-                        <h2>Industrial projects</h2>
-                        <p>If your company is in need of new industrial facilities like manufacturing plants, warehouses
-                            or
-                            perhaps distribution centers we can proudly say that we have plenty of experience in the
-                            field.
-                        </p>
-                        <div class="details">
-                            <p>General budget range: $2,000,000 to $10,000,000</p>
-                            <p>Timeline: from 24 to 36 months</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <img class="img-fluid rounded-3" src="Images/Industrial_project.png" alt="Industrial project">
-                </div>
+      </div>
+      <div class="section puce animation">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="ms-2">
+              <h2>Industrial projects</h2>
+              <p>
+                If your company is in need of new industrial facilities like
+                manufacturing plants, warehouses or perhaps distribution centers
+                we can proudly say that we have plenty of experience in the
+                field.
+              </p>
+              <div class="details">
+                <p>General budget range: $2,000,000 to $10,000,000</p>
+                <p>Timeline: from 24 to 36 months</p>
+              </div>
             </div>
+          </div>
+          <div class="col-md-6">
+            <img
+              class="img-fluid rounded-3"
+              src="Images/Industrial_project.png"
+              alt="Industrial project"
+            />
+          </div>
         </div>
-        <div class="section puce">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="ms-2">
-                        <h2>Road construction</h2>
-                        <p>If your buildings and facilities aren't yet connected with roads we can solve that problem
-                            for
-                            you. We have experience with construction of both highways and regular roads, bridges and
-                            tunnels included.</p>
-                        <div class="details">
-                            <p>General budget range: $1,000,000 to $5,000,000</p>
-                            <p>Timeline: from 12 to 24 months</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <img class="img-fluid rounded-3" src="Images/Road_construction.png" alt="Road construction">
-                </div>
+      </div>
+      <div class="section puce animation">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="ms-2">
+              <h2>Road construction</h2>
+              <p>
+                If your buildings and facilities aren't yet connected with roads
+                we can solve that problem for you. We have experience with
+                construction of both highways and regular roads, bridges and
+                tunnels included.
+              </p>
+              <div class="details">
+                <p>General budget range: $1,000,000 to $5,000,000</p>
+                <p>Timeline: from 12 to 24 months</p>
+              </div>
             </div>
+          </div>
+          <div class="col-md-6">
+            <img
+              class="img-fluid rounded-3"
+              src="Images/Road_construction.png"
+              alt="Road construction"
+            />
+          </div>
         </div>
+      </div>
     </div>
     <footer class="container-fluid">
-        <div class="row">
-            <div class="col-md-6 text-end">
-                <p class="copyRight mt-4">
-                    &copy; 2021 Bob the Builder. All rights reserved.
-                </p>
-            </div>
-            <div class="col-md-6 mt-4 text-center">
-                <img src="Images/facebook.png" alt="facebook" class="social-icon mr-2" />
-                <img src="Images/instagram.png" alt="instagram" class="social-icon mr-2" />
-                <img src="Images/linkedin.png" alt="linkedin" class="social-icon mr-2" />
-                <img src="Images/youtube.png" alt="twitter" class="social-icon mr-2" />
-            </div>
+      <div class="row">
+        <div class="col-md-6 text-end">
+          <p class="copyRight mt-4">
+            &copy; 2021 Bob the Builder. All rights reserved.
+          </p>
         </div>
+        <div class="col-md-6 mt-4 text-center">
+          <img
+            src="Images/facebook.png"
+            alt="facebook"
+            class="social-icon mr-2"
+          />
+          <img
+            src="Images/instagram.png"
+            alt="instagram"
+            class="social-icon mr-2"
+          />
+          <img
+            src="Images/linkedin.png"
+            alt="linkedin"
+            class="social-icon mr-2"
+          />
+          <img
+            src="Images/youtube.png"
+            alt="twitter"
+            class="social-icon mr-2"
+          />
+        </div>
+      </div>
     </footer>
-</body>
+    <script src="JS/animations.js"></script>
+  </body>
+</html>

@@ -29,16 +29,6 @@ h1 {
   text-align: center;
 }
 
-.customButton {
-  background-color: #f5ba41;
-  color: white;
-}
-
-.customButton:hover {
-  background-color: #f3ad22;
-  color: white;
-}
-
 .carousel-caption p,
 .carousel-caption h3 {
   color: #f5ba41;
