@@ -76,7 +76,7 @@ public class EmbeddedIndustrialProjectViewController extends EmbeddedViewsContro
     ArrayList<Object> data = getViewState().getData();
     super.create(data);
     data.add(facilityTypeField.getText());
-    data.add(Integer.valueOf(sizeField.getText().replace(",","")));
+    data.add(Integer.valueOf(sizeField.getText().replace(",","").replace(".","")));
 
     getModel().addProject(data);
   }
@@ -90,7 +90,7 @@ public class EmbeddedIndustrialProjectViewController extends EmbeddedViewsContro
     }
     Map<String,Object> data = (Map<String,Object>) getViewState().getData().get(1);
     super.edit(data);
-    data.put("size", sizeField.getText().replace(",",""));
+    data.put("size", sizeField.getText().replace(",","").replace(".",""));
     data.put("type", facilityTypeField.getText());
 
     getModel().editProject(project, data);

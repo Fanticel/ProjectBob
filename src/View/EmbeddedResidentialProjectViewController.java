@@ -119,10 +119,10 @@ public class EmbeddedResidentialProjectViewController extends EmbeddedViewsContr
     }
     ArrayList<Object> data = getViewState().getData();
     super.create(data);
-    data.add(Integer.valueOf(sizeField.getText().replace(",","")));
-    data.add(Integer.valueOf(numKitchensField.getText().replace(",","")));
-    data.add(Integer.valueOf(numBathroomsField.getText().replace(",","")));
-    data.add(Integer.valueOf(othWPlumbingField.getText().replace(",","")));
+    data.add(Integer.valueOf(sizeField.getText().replace(",","").replace(".","")));
+    data.add(Integer.valueOf(numKitchensField.getText().replace(",","").replace(".","")));
+    data.add(Integer.valueOf(numBathroomsField.getText().replace(",","").replace(".","")));
+    data.add(Integer.valueOf(othWPlumbingField.getText().replace(",","").replace(".","")));
 
     if (newBuildGroup.getSelectedToggle() == buildRButton)
       data.add( true);
@@ -139,10 +139,10 @@ public class EmbeddedResidentialProjectViewController extends EmbeddedViewsContr
     }
     Map<String,Object> data = (Map<String,Object>) getViewState().getData().get(1);
     super.edit(data);
-    data.put("size", sizeField.getText().replace(",",""));
-    data.put("numKitchens", numKitchensField.getText().replace(",",""));
-    data.put("numBathrooms", numBathroomsField.getText().replace(",",""));
-    data.put("othWPlumbing", othWPlumbingField.getText().replace(",",""));
+    data.put("size", sizeField.getText().replace(",","").replace(".",""));
+    data.put("numKitchens", numKitchensField.getText().replace(",","").replace(".",""));
+    data.put("numBathrooms", numBathroomsField.getText().replace(",","").replace(".",""));
+    data.put("othWPlumbing", othWPlumbingField.getText().replace(",","").replace(".",""));
     if (newBuildGroup.getSelectedToggle() == buildRButton)
       data.put("isNewBuild", true);
     else data.put("isNewBuild", false);

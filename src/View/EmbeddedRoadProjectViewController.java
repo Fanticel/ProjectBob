@@ -138,9 +138,9 @@ public class EmbeddedRoadProjectViewController extends EmbeddedViewsController{
     ArrayList<Object> data = getViewState().getData();
     super.create(data);
     ArrayList<String> geoChallenges = new ArrayList<String>();
-    data.add(Integer.valueOf(lengthField.getText().replace(",","")));
-    data.add(Integer.valueOf(widthField.getText().replace(",","")));
-    data.add(Integer.valueOf(numBridTunField.getText().replace(",","")));
+    data.add(Integer.valueOf(lengthField.getText().replace(",","").replace(".","")));
+    data.add(Integer.valueOf(widthField.getText().replace(",","").replace(".","")));
+    data.add(Integer.valueOf(numBridTunField.getText().replace(",","").replace(".","")));
 
     for (Node node : geoChallengeVBox.getChildren()){
       if (!((TextField)node).getText().equals(""))
@@ -160,9 +160,9 @@ public class EmbeddedRoadProjectViewController extends EmbeddedViewsController{
     Map<String,Object> data = (Map<String,Object>) getViewState().getData().get(1);
     ArrayList<String> geoChallenges = new ArrayList<String>();
     super.edit(data);
-    data.put("length", lengthField.getText().replace(",",""));
-    data.put("width", widthField.getText().replace(",",""));
-    data.put("numBridTun", numBridTunField.getText().replace(",",""));
+    data.put("length", lengthField.getText().replace(",","").replace(".",""));
+    data.put("width", widthField.getText().replace(",","").replace(".",""));
+    data.put("numBridTun", numBridTunField.getText().replace(",","").replace(".",""));
     int i = 0;
     for (Node node : geoChallengeVBox.getChildren()){
       if (!((TextField)node).getText().equals(""))
