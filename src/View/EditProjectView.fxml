@@ -128,7 +128,7 @@
                 </VBox>
                 <StackPane fx:id="stackPane" prefHeight="484.0"
                            prefWidth="632.0"
-                           style="-fx-background-color: light grey; -fx-border-color: #f5ba41; -fx-border-radius: 10; -fx-border-width: 2;">
+                           style="-fx-border-color: #f5ba41; -fx-border-radius: 10; -fx-border-width: 2;">
                     <children>
                         <fx:include fx:id="view1"
                                     source="EmbeddedCommercialProjectView.fxml"
