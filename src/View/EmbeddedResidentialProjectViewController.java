@@ -17,23 +17,10 @@ import java.util.Optional;
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
 
-public class EmbeddedResidentialProjectViewController
+public class EmbeddedResidentialProjectViewController extends EmbeddedViewsController
 {
-
-  @FXML
-  private TextField budgetField;
-
   @FXML
   private RadioButton buildRButton;
-
-  @FXML
-  private TextField expectedExpensesField;
-
-  @FXML
-  private TextField expectedTotalHoursField;
-
-  @FXML
-  private TextField expensesField;
 
   @FXML
   private ToggleGroup newBuildGroup;
@@ -53,49 +40,14 @@ public class EmbeddedResidentialProjectViewController
   @FXML
   private TextField sizeField;
 
-  @FXML
-  private DatePicker timelineDatePicker;
-
-  @FXML
-  private TextField totalHoursField;
-  @FXML
-  private HBox expensesHbox;
-  @FXML
-  private HBox hoursHbox;
-  @FXML
-  private AnchorPane scrollAnchorPane;
-
-  private Region root;
-  private ProjectListModel model;
-  private ViewHandler viewHandler;
-
-  private ViewState viewState;
-
-  UnaryOperator<TextFormatter.Change> filter = change -> {
-    String newText = change.getControlNewText();
-    if (Pattern.matches("[0-9,]*", newText)) {
-      return change; // Allow the change
-    } else {
-      return null; // Reject the change
-    }
-  };
-
   public EmbeddedResidentialProjectViewController()
   {
+    super();
   }
 
   public void init(ViewHandler viewHandler, ProjectListModel model, Region root, ViewState viewState)
   {
-    this.model = model;
-    this.viewHandler = viewHandler;
-    this.root = root;
-    this.viewState = viewState;
-
-    budgetField.setTextFormatter(new TextFormatter<>(new NumberStringConverter(),0, filter));
-    expectedTotalHoursField.setTextFormatter(new TextFormatter<>(new NumberStringConverter(),0, filter));
-    expectedExpensesField.setTextFormatter(new TextFormatter<>(new NumberStringConverter(),0, filter));
-    totalHoursField.setTextFormatter(new TextFormatter<>(new NumberStringConverter(),0, filter));
-    expensesField.setTextFormatter(new TextFormatter<>(new NumberStringConverter(),0, filter));
+    super.init(viewHandler, model, root, viewState);
     sizeField.setTextFormatter(new TextFormatter<>(new NumberStringConverter(),0, filter));
     numKitchensField.setTextFormatter(new TextFormatter<>(new NumberStringConverter(),0, filter));
     numBathroomsField.setTextFormatter(new TextFormatter<>(new NumberStringConverter(),0, filter));
@@ -103,19 +55,12 @@ public class EmbeddedResidentialProjectViewController
   }
 
   public void reset(){
-    Map<String, Optional<Object>> defaults = model.getDefaults("Residential");
-    setField("budget",budgetField, defaults);
-
-    if (defaults.get("timeline").isPresent()){
-      LocalDate defaultDate = model.getDateMonthsAway((Integer) defaults.get("timeline").get());
-      timelineDatePicker.setValue(defaultDate);
-    }
+    Map<String, Optional<Object>> defaults = getModel().getDefaults("Residential");
+    super.reset(defaults);
     setField("size",sizeField, defaults);
     setField("numKitchens",numKitchensField, defaults);
     setField("numBathrooms",numBathroomsField, defaults);
     setField("othWPlumbing",othWPlumbingField, defaults);
-    setField("expectedTotalHours",expectedTotalHoursField, defaults);
-    setField("expectedExpenses",expectedExpensesField, defaults);
 
     if (defaults.get("isNewBuild").isPresent()){
       if (defaults.get("isNewBuild").get().toString().equals("new build")){
@@ -126,19 +71,9 @@ public class EmbeddedResidentialProjectViewController
   }
   public void editReset(){
     ResidentialProject project;
-    project = (ResidentialProject) model.getProject((String) viewState.getData().get(0));
-    expectedTotalHoursField.setText(String.valueOf(project.getExpectedTotalHours()));
-    expectedExpensesField.setText(String.valueOf(project.getExpectedExpenses()));
-    budgetField.setText(String.valueOf(project.getBudget()));
-    LocalDate date = LocalDate.parse(project.getTimeline().toString(), DateTimeFormatter.ofPattern("dd/MM/yyyy"));
-    timelineDatePicker.setValue(date);
+    project = (ResidentialProject) getModel().getProject((String) getViewState().getData().get(0));
+    super.editReset();
     sizeField.setText(String.valueOf(project.getSize()));
-    hoursHbox.setVisible(true);
-    expensesHbox.setVisible(true);
-    scrollAnchorPane.setPrefHeight(582);
-    totalHoursField.setText(String.valueOf(project.getTotalHours()));
-    expensesField.setText(String.valueOf(project.getExpenses()));
-
     numKitchensField.setText(String.valueOf(project.getNumKitchens()));
     numBathroomsField.setText(String.valueOf(project.getNumBathrooms()));
     othWPlumbingField.setText(String.valueOf(project.getOthWPlumbing()));
@@ -148,45 +83,15 @@ public class EmbeddedResidentialProjectViewController
     }else newBuildGroup.selectToggle(renovationRButton);
 
   }
-  public Region getRoot(){
-    return root;
-  }
-
-  private static void setField(String fieldName, TextField field,Map<String, Optional<Object>> defaults){
-    if (defaults.get(fieldName).isPresent()){
-      field.setText(defaults.get(fieldName).get().toString());
-    }
-    else {
-      field.setText(null);
-    }
-  }
   public void create(){
-    if (expectedTotalHoursField.getText() == null || expectedExpensesField.getText() == null || budgetField.getText() == null || sizeField.getText() == null || numBathroomsField.getText() == null || numKitchensField.getText() == null || othWPlumbingField.getText() == null){
+    if (sizeField.getText() == null || numBathroomsField.getText() == null || numKitchensField.getText() == null || othWPlumbingField.getText() == null){
       throw new IllegalArgumentException("Fields cannot be empty");
     }
-    if (expectedTotalHoursField.getText().equals("") || expectedExpensesField.getText().equals("") || budgetField.getText().equals("") || sizeField.getText().equals("") || numBathroomsField.getText().equals("") || totalHoursField.getText().equals("") || numKitchensField.getText().equals("")){
+    if (sizeField.getText().equals("") || numBathroomsField.getText().equals("") || numKitchensField.getText().equals("") || othWPlumbingField.getText().equals("")){
       throw new IllegalArgumentException("Fields cannot be empty");
     }
-    ArrayList<Object> data = viewState.getData();
-    data.add(Integer.valueOf(expectedTotalHoursField.getText().replace(",","")));
-    data.add(Integer.valueOf(expectedExpensesField.getText().replace(",","")));
-    data.add(budgetField.getText().replace(",",""));
-    LocalDate chosenDate = timelineDatePicker.getValue();
-    if (chosenDate.isBefore( LocalDate.now())){
-      throw new IllegalArgumentException("Date has to be after today");
-    }
-    try {
-      timelineDatePicker.getConverter().fromString(
-          timelineDatePicker.getEditor().getText());
-    } catch (DateTimeParseException e) {
-      throw new IllegalArgumentException("Date is not valid");
-    }
-    if(chosenDate.getDayOfMonth() > 31 || chosenDate.getMonthValue() > 12 || chosenDate.getYear() > 5000000000L){
-      throw new IllegalArgumentException("Invalid date values");
-    }
-    MyDate date = new MyDate(chosenDate.getDayOfMonth(), chosenDate.getMonthValue(), chosenDate.getYear());
-    data.add(date);
-    data.add("Ongoing");
+    ArrayList<Object> data = getViewState().getData();
+    super.create(data);
     data.add(Integer.valueOf(sizeField.getText().replace(",","")));
     data.add(Integer.valueOf(numKitchensField.getText().replace(",","")));
     data.add(Integer.valueOf(numBathroomsField.getText().replace(",","")));
@@ -196,36 +101,17 @@ public class EmbeddedResidentialProjectViewController
       data.add( true);
     else data.add( false);
 
-    model.addProject(data);
+    getModel().addProject(data);
   }
   public void edit(Project project){
-    if (expectedTotalHoursField.getText() == null || expectedExpensesField.getText() == null || budgetField.getText() == null || sizeField.getText() == null || numBathroomsField.getText() == null || numKitchensField.getText() == null || othWPlumbingField.getText() == null || totalHoursField.getText() == null || expensesField.getText() == null){
+    if (sizeField.getText() == null || numBathroomsField.getText() == null || numKitchensField.getText() == null || othWPlumbingField.getText() == null){
       throw new IllegalArgumentException("Fields cannot be empty");
     }
-    if (expectedTotalHoursField.getText().equals("") || expectedExpensesField.getText().equals("") || budgetField.getText().equals("") || sizeField.getText().equals("") || numBathroomsField.getText().equals("") || totalHoursField.getText().equals("") || numKitchensField.getText().equals("") || othWPlumbingField.getText().equals("") || expensesField.getText().equals("")){
+    if (sizeField.getText().equals("") || numBathroomsField.getText().equals("") || numKitchensField.getText().equals("") || othWPlumbingField.getText().equals("")){
       throw new IllegalArgumentException("Fields cannot be empty");
     }
-    Map<String,Object> data = (Map<String,Object>) viewState.getData().get(1);
-    data.put("expectedTotalHours", expectedTotalHoursField.getText().replace(",",""));
-    data.put("expectedExpenses", expectedExpensesField.getText().replace(",",""));
-    data.put("totalHours", totalHoursField.getText().replace(",",""));
-    data.put("expenses", expensesField.getText().replace(",",""));
-    data.put("budget", budgetField.getText().replace(",",""));
-    LocalDate chosenDate = timelineDatePicker.getValue();
-    if (chosenDate.isBefore( LocalDate.now())){
-      throw new IllegalArgumentException("Date has to be after today");
-    }
-    try {
-      timelineDatePicker.getConverter().fromString(
-          timelineDatePicker.getEditor().getText());
-    } catch (DateTimeParseException e) {
-      throw new IllegalArgumentException("Date is not valid");
-    }
-    if(chosenDate.getDayOfMonth() > 31 || chosenDate.getMonthValue() > 12 || chosenDate.getYear() > 5000000000L){
-      throw new IllegalArgumentException("Invalid date values");
-    }
-    MyDate date = new MyDate(chosenDate.getDayOfMonth(), chosenDate.getMonthValue(), chosenDate.getYear());
-    data.put("timeline", date);
+    Map<String,Object> data = (Map<String,Object>) getViewState().getData().get(1);
+    super.edit(data);
     data.put("size", sizeField.getText().replace(",",""));
     data.put("numKitchens", numKitchensField.getText().replace(",",""));
     data.put("numBathrooms", numBathroomsField.getText().replace(",",""));
@@ -233,7 +119,7 @@ public class EmbeddedResidentialProjectViewController
     if (newBuildGroup.getSelectedToggle() == buildRButton)
       data.put("isNewBuild", true);
     else data.put("isNewBuild", false);
-    model.editProject(project, data);
+    getModel().editProject(project, data);
   }
 
 }
