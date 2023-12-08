@@ -84,10 +84,10 @@ public class SearchAProjectPopupViewController {
     if (statusChoiceBox.getValue() == null || statusChoiceBox.getValue().equals("All")) {data.add(null);} else {
       data.add(statusChoiceBox.getValue());
     }
-    if(!priceRangeMin.getText().isEmpty()){data.add(priceRangeMin.getText().replaceAll(",", ""));}else{data.add(null);}
-    if(!priceRangeMax.getText().isEmpty()){data.add(priceRangeMax.getText().replaceAll(",", ""));}else{data.add(null);}
-    if(!manHoursMin.getText().isEmpty()){data.add(manHoursMin.getText().replaceAll(",", ""));}else{data.add(null);}
-    if(!manHoursMax.getText().isEmpty()){data.add(manHoursMax.getText().replaceAll(",", ""));}else{data.add(null);}
+    if(!priceRangeMin.getText().isEmpty()){data.add(priceRangeMin.getText().replaceAll(",", "").replace(".",""));}else{data.add(null);}
+    if(!priceRangeMax.getText().isEmpty()){data.add(priceRangeMax.getText().replaceAll(",", "").replace(".",""));}else{data.add(null);}
+    if(!manHoursMin.getText().isEmpty()){data.add(manHoursMin.getText().replaceAll(",", "").replace(".",""));}else{data.add(null);}
+    if(!manHoursMax.getText().isEmpty()){data.add(manHoursMax.getText().replaceAll(",", "").replace(".",""));}else{data.add(null);}
     System.out.println(data);
     viewState.setData(data);
     System.out.println("Searching...");

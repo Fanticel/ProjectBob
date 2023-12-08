@@ -153,9 +153,9 @@ public abstract class EmbeddedViewsController {
       throw new IllegalArgumentException("Fields cannot be empty");
     }
     data.add(
-        Integer.valueOf(expectedTotalHoursField.getText().replace(",", "")));
-    data.add(Integer.valueOf(expectedExpensesField.getText().replace(",", "")));
-    data.add(budgetField.getText().replace(",", ""));
+        Integer.valueOf(expectedTotalHoursField.getText().replace(",", "").replace(".","")));
+    data.add(Integer.valueOf(expectedExpensesField.getText().replace(",", "").replace(".","")));
+    data.add(budgetField.getText().replace(",", "").replace(".",""));
     LocalDate chosenDate = timelineDatePicker.getValue();
     if (chosenDate.isBefore(LocalDate.now())) {
       throw new IllegalArgumentException("Date has to be after today");
@@ -196,12 +196,12 @@ public abstract class EmbeddedViewsController {
       throw new IllegalArgumentException("Fields cannot be empty");
     }
     data.put("expectedTotalHours",
-        expectedTotalHoursField.getText().replace(",", ""));
+        expectedTotalHoursField.getText().replace(",", "").replace(".",""));
     data.put("expectedExpenses",
-        expectedExpensesField.getText().replace(",", ""));
-    data.put("totalHours", totalHoursField.getText().replace(",", ""));
-    data.put("expenses", expensesField.getText().replace(",", ""));
-    data.put("budget", budgetField.getText().replace(",", ""));
+        expectedExpensesField.getText().replace(",", "").replace(".",""));
+    data.put("totalHours", totalHoursField.getText().replace(",", "").replace(".",""));
+    data.put("expenses", expensesField.getText().replace(",", "").replace(".",""));
+    data.put("budget", budgetField.getText().replace(",", "").replace(".",""));
     LocalDate chosenDate = timelineDatePicker.getValue();
     if (chosenDate.isBefore(LocalDate.now())) {
       throw new IllegalArgumentException("Date has to be after today");
