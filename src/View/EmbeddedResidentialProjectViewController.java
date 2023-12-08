@@ -2,6 +2,7 @@ package View;
 
 import Model.*;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -77,11 +78,37 @@ public class EmbeddedResidentialProjectViewController extends EmbeddedViewsContr
     numKitchensField.setText(String.valueOf(project.getNumKitchens()));
     numBathroomsField.setText(String.valueOf(project.getNumBathrooms()));
     othWPlumbingField.setText(String.valueOf(project.getOthWPlumbing()));
-
     if (project.isNewBuild()){
       newBuildGroup.selectToggle(buildRButton);
     }else newBuildGroup.selectToggle(renovationRButton);
-
+    setEditable(true);
+    numKitchensField.setEditable(true);
+    numBathroomsField.setEditable(true);
+    othWPlumbingField.setEditable(true);
+    newBuildGroup.getToggles().forEach(toggle -> {
+      Node node = (Node) toggle;
+      node.setDisable(false);
+    });
+  }
+  public void detailsReset(){
+    ResidentialProject project;
+    project = (ResidentialProject) getModel().getProject((String) getViewState().getData().get(0));
+    super.editReset();
+    sizeField.setText(String.valueOf(project.getSize()));
+    numKitchensField.setText(String.valueOf(project.getNumKitchens()));
+    numBathroomsField.setText(String.valueOf(project.getNumBathrooms()));
+    othWPlumbingField.setText(String.valueOf(project.getOthWPlumbing()));
+    if (project.isNewBuild()){
+      newBuildGroup.selectToggle(buildRButton);
+    }else newBuildGroup.selectToggle(renovationRButton);
+    setEditable(false);
+    numKitchensField.setEditable(false);
+    numBathroomsField.setEditable(false);
+    othWPlumbingField.setEditable(false);
+    newBuildGroup.getToggles().forEach(toggle -> {
+      Node node = (Node) toggle;
+      node.setDisable(true);
+    });
   }
   public void create(){
     if (sizeField.getText() == null || numBathroomsField.getText() == null || numKitchensField.getText() == null || othWPlumbingField.getText() == null){

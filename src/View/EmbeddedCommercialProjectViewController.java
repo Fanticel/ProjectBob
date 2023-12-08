@@ -61,11 +61,26 @@ public class EmbeddedCommercialProjectViewController extends EmbeddedViewsContro
   public void editReset(){
     CommercialProject project;
     project = (CommercialProject) getModel().getProject((String) getViewState().getData().get(0));
-
     super.editReset();
     sizeField.setText(String.valueOf(project.getSize()));
     numFloorsField.setText(String.valueOf(project.getNumFloor()));
     intendedUseArea.setText(String.valueOf(project.getIntendedUse()));
+    setEditable(true);
+    intendedUseArea.setEditable(true);
+    numFloorsField.setEditable(true);
+    sizeField.setEditable(true);
+  }
+  public void detailsReset(){
+    CommercialProject project;
+    project = (CommercialProject) getModel().getProject((String) getViewState().getData().get(0));
+    super.editReset();
+    sizeField.setText(String.valueOf(project.getSize()));
+    numFloorsField.setText(String.valueOf(project.getNumFloor()));
+    intendedUseArea.setText(String.valueOf(project.getIntendedUse()));
+    setEditable(false);
+    intendedUseArea.setEditable(false);
+    numFloorsField.setEditable(false);
+    sizeField.setEditable(false);
   }
 
   public void create(){
@@ -98,4 +113,5 @@ public class EmbeddedCommercialProjectViewController extends EmbeddedViewsContro
 
     getModel().editProject(project, data);
   }
+
 }

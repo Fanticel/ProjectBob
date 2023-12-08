@@ -78,7 +78,12 @@ public class ProjectListViewController {
     unselected();
   }
   @FXML private void clickDetailButt(){
+    ArrayList<Object> data = new ArrayList<Object>();
+    data.add(projectName);
+    viewState.setData(data);
+    viewHandler.openView("ProjectDetails");
     System.out.println("Details: " + projectName);
+    unselected();
   }
   @FXML private void clickAddButt(){
     viewHandler.openView("CreateProject");

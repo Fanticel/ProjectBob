@@ -35,6 +35,7 @@ public class EmbeddedRoadProjectViewController extends EmbeddedViewsController{
 
   @FXML
   private TextField widthField;
+  @FXML private Button addButton;
 
   public EmbeddedRoadProjectViewController()
   {
@@ -83,6 +84,44 @@ public class EmbeddedRoadProjectViewController extends EmbeddedViewsController{
       getScrollAnchorPane().setPrefHeight(getScrollAnchorPane().getPrefHeight() + 20);
       geoChallengeVBox.getChildren().add(new TextField(geoChallenges.get(i)));
     }
+    geoChallengeVBox.getChildren().forEach(node -> {
+      TextField textField = (TextField) node;
+      textField.setEditable(true);
+    });
+    setEditable(true);
+    lengthField.setEditable(true);
+    widthField.setEditable(true);
+    numBridTunField.setEditable(true);
+    addButton.setDisable(false);
+  }
+  public void detailsReset(){
+    if (lengthField.getText() == null || widthField.getText() == null || numBridTunField.getText() == null){
+      throw new IllegalArgumentException("Fields cannot be empty");
+    }
+    if (lengthField.getText().equals("") || widthField.getText().equals("") || numBridTunField.getText().equals("")){
+      throw new IllegalArgumentException("Fields cannot be empty");
+    }
+    RoadProject project;
+    project = (RoadProject) getModel().getProject((String) getViewState().getData().get(0));
+    super.editReset();
+    lengthField.setText(String.valueOf(project.getLength()));
+    widthField.setText(String.valueOf(project.getWidth()));
+    numBridTunField.setText(String.valueOf(project.getnumBridTun()));
+    ArrayList<String> geoChallenges = project.getgeoChallenge();
+    geoChallengeVBox.getChildren().removeAll(geoChallengeVBox.getChildren());
+    for (int i = 0; i < geoChallenges.size(); i++){
+      getScrollAnchorPane().setPrefHeight(getScrollAnchorPane().getPrefHeight() + 20);
+      geoChallengeVBox.getChildren().add(new TextField(geoChallenges.get(i)));
+    }
+    geoChallengeVBox.getChildren().forEach(node -> {
+      TextField textField = (TextField) node;
+      textField.setEditable(false);
+    });
+    setEditable(false);
+    lengthField.setEditable(false);
+    widthField.setEditable(false);
+    numBridTunField.setEditable(false);
+    addButton.setDisable(true);
   }
 
   @FXML private void addField(){

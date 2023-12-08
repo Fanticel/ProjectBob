@@ -54,6 +54,17 @@ public class EmbeddedIndustrialProjectViewController extends EmbeddedViewsContro
     sizeField.setText(String.valueOf(project.getSize()));
     facilityTypeField.setText(project.getType());
   }
+  public void detailsReset(){
+    IndustrialProject project;
+    project = (IndustrialProject) getModel().getProject((String) getViewState().getData().get(0));
+    super.editReset();
+    sizeField.setText(String.valueOf(project.getSize()));
+    facilityTypeField.setText(project.getType());
+    setEditable(false);
+    facilityTypeField.setEditable(false);
+    sizeField.setEditable(false);
+    facilityTypeField.setEditable(false);
+  }
 
   public void create(){
     if (sizeField.getText() == null || facilityTypeField.getText() == null){

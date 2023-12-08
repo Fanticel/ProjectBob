@@ -21,6 +21,7 @@ public class ViewHandler {
   private SearchAProjectPopupViewController searchAProjectPopupViewController;
   private EditProjectViewController editProjectViewController;
   private DeletePopupViewController deletePopupViewController;
+  private ProjectDetailsViewController projectDetailsViewController;
   private CreationNotificationPopupViewController creationNotificationPopupViewController;
 
   public ViewHandler(ProjectListModel model) {
@@ -47,7 +48,7 @@ public class ViewHandler {
       case "Dashboard" -> root = loadDashboardView("DashboardView.fxml");
       case "CreateProject" -> root = loadCreateProjectView("CreateProjectView.fxml");
       case "EditProject" -> root = loadEditProjectView("EditProjectView.fxml");
-
+      case "ProjectDetails" -> root = loadProjectDetailsView("ProjectDetails.fxml");
     }
     currentScene.setRoot(root);
     String title = "";
@@ -193,6 +194,26 @@ public class ViewHandler {
     }
     System.out.println("Edit root works");
     return editProjectViewController.getRoot();
+  }
+  private Region loadProjectDetailsView(String fxmlFile){
+    Region root = null;
+    if (projectDetailsViewController==null){
+      try{
+        FXMLLoader loader =new FXMLLoader();
+        loader.setLocation(getClass().getResource(fxmlFile));
+        root = loader.load();
+        projectDetailsViewController = loader.getController();
+        projectDetailsViewController.init(this, model, root, viewState);
+      }
+      catch (Exception e){
+        e.printStackTrace();
+      }
+    }
+    else {
+      projectDetailsViewController.reset();
+    }
+    System.out.println("Edit root works");
+    return projectDetailsViewController.getRoot();
   }
   private Region loadSearchAProjectPopupView(String fxmlFile){
     Region root = null;
