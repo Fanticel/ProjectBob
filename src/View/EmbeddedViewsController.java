@@ -48,7 +48,7 @@ public abstract class EmbeddedViewsController {
   private ViewState viewState;
   UnaryOperator<TextFormatter.Change> filter = change -> {
     String newText = change.getControlNewText();
-    if (Pattern.matches("[0-9,]*", newText)) {
+    if (Pattern.matches("[0-9,.]*", newText)) {
       return change; // Allow the change
     }
     else {

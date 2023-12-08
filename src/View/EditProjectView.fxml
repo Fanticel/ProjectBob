@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="533.0" prefWidth="1042.0" spacing="10.0"
+<VBox stylesheets="@../CSS/Common.css" alignment="CENTER" prefHeight="533.0" prefWidth="1042.0" spacing="10.0"
       style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21"
       xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="View.EditProjectViewController">

@@ -30,7 +30,7 @@ public class SearchAProjectPopupViewController {
   @FXML private TextField manHoursMax;
   UnaryOperator<TextFormatter.Change> filter = change -> {
     String newText = change.getControlNewText();
-    if (Pattern.matches("[0-9,]*", newText)) {
+    if (Pattern.matches("[0-9,.]*", newText)) {
       return change; // Allow the change
     } else {
       return null; // Reject the change
