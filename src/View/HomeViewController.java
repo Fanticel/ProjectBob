@@ -14,6 +14,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import Model.ProjectListModel;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 
 import javax.swing.text.html.ImageView;
 import java.io.IOException;
@@ -57,24 +58,28 @@ public class HomeViewController
       if(notificationDetector.checkBudget()!=null)
       {
         Label budget = new Label(notificationDetector.checkBudget());
+        budget.setTextFill(Color.RED);
         warnings.getChildren().add(budget);
       }
 
       if (notificationDetector.checkExpenses()!=null)
       {
         Label expenses = new Label(notificationDetector.checkExpenses());
+        expenses.setTextFill(Color.RED);
         warnings.getChildren().add(expenses);
       }
 
       if(notificationDetector.checkManHours()!=null)
       {
         Label hours = new Label(notificationDetector.checkManHours());
+        hours.setTextFill(Color.RED);
         warnings.getChildren().add(hours);
       }
 
       if (notificationDetector.checkDeadline()!=null)
       {
         Label deadline = new Label(notificationDetector.checkDeadline());
+        deadline.setTextFill(Color.RED);
         warnings.getChildren().add(deadline);
       }
     }
@@ -102,24 +107,28 @@ public class HomeViewController
       if(notificationDetector.checkBudget()!=null)
       {
         Label budget = new Label(notificationDetector.checkBudget());
+        budget.setTextFill(Color.RED);
         warnings.getChildren().add(budget);
       }
 
       if (notificationDetector.checkExpenses()!=null)
       {
         Label expenses = new Label(notificationDetector.checkExpenses());
+        expenses.setTextFill(Color.RED);
         warnings.getChildren().add(expenses);
       }
 
       if(notificationDetector.checkManHours()!=null)
       {
         Label hours = new Label(notificationDetector.checkManHours());
+        hours.setTextFill(Color.RED);
         warnings.getChildren().add(hours);
       }
 
       if (notificationDetector.checkDeadline()!=null)
       {
         Label deadline = new Label(notificationDetector.checkDeadline());
+        deadline.setTextFill(Color.RED);
         warnings.getChildren().add(deadline);
       }
     }
