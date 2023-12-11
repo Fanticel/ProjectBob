@@ -15,7 +15,7 @@
     ></script>
   </head>
 
-  <body>
+  <body class="d-flex flex-column">
     <nav class="navbar navbar-expand-lg navbar-dark">
       <div class="container-fluid">
         <img class="navbar-brand p-0" src="Images/logo.png" alt="logo" />
@@ -72,26 +72,71 @@
         </div>
       </div>
     </nav>
-    <div class="container-fluid justify-content-center">
-      <div class="row text-center mt-5">
-        <!--Title -->
-        <h1 class="text-decoration-underline">Our Ongoing Projects</h1>
+
+    <main class="flex-grow-1">
+      <div class="container-fluid justify-content-center">
+        <div class="row text-center mt-5">
+          <!--Title -->
+          <h1 class="text-decoration-underline">Our Ongoing Projects</h1>
+        </div>
+
+        <!--Search bar-->
+        <div class="form-outline w-50 container mt-5" data-mdb-input-init>
+          <input
+            type="search"
+            id="form1"
+            class="form-control"
+            placeholder="Search for a project"
+          />
+        </div>
+
+        <!--Filter buttons-->
+        <div class="row justify-content-center mb-3 mt-5">
+          <div class="col-sm-auto">
+            <p class="mb-2">Filters:</p>
+          </div>
+          <div class="col-sm-auto">
+            <div class="btn-group" role="group">
+              <button
+                class="btn filter-btn mr-2 filterButton"
+                data-type="Commercial"
+              >
+                Commercial
+              </button>
+              <button
+                class="btn filterButton filter-btn mr-2"
+                data-type="Industrial"
+              >
+                Industrial
+              </button>
+              <button
+                class="btn filterButton filter-btn mr-2"
+                data-type="Residential"
+              >
+                Residential
+              </button>
+              <button class="btn filterButton filter-btn" data-type="Road">
+                Road construction
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="hereBeProjects"></div>
+        <!--Marks the beginning where main.js will start generating projects-->
       </div>
 
-      <!--Search bar-->
-      <div class="form-outline w-50 container mt-5" data-mdb-input-init>
-        <input
-          type="search"
-          id="form1"
-          class="form-control"
-          placeholder="Search for a project"
-          aria-label="Search"
-        />
+      <!--Message that gets displayed when there are no projects that match with the search or filters-->
+      <div class="noProjects text-center">
+        <p>There are no projects matching projects.</p>
       </div>
 
-      <div id="hereBeProjects"></div>
-      <!--Marks the beginning where main.js will start generating projects-->
-    </div>
+      <!--Message that gets displayed when there are no projects in the list-->
+      <div id="noProjectsMessage" class="alert alert-info d-none">
+        <p>No projects found.</p>
+      </div>
+    </main>
+
     <footer class="container-fluid">
       <div class="row">
         <div class="col-md-6 text-end">

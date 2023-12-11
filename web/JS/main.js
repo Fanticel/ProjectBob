@@ -40,13 +40,16 @@ $.get("../Save.xml", function (xml, status) {
       console.log(type);
       switch (type) {
         case "Commercial":
-          template[3] = "Images/commercialConstruction.png";
+          template[3] = "Images/Commercial1.jpg";
           break;
         case "Industrial":
-          template[3] = "Images/industrialConstruction.png";
+          template[3] = "Images/industrial_building.png";
           break;
         case "Residential":
-          template[3] = "Images/residentConstruction.png";
+          template[3] = "Images/Residential_project.png";
+          break;
+        case "Road":
+          template[3] = "Images/Road_construction.png";
           break;
       }
       template[3]; //image
@@ -70,15 +73,34 @@ $.get("../Save.xml", function (xml, status) {
     }
   }
 
+  function checkNoProjects() {
+    var visibleProjects = $(".puce:visible").length;
+    if (visibleProjects === 0) {
+      $("#noProjectsMessage").removeClass("d-none");
+    } else {
+      $("#noProjectsMessage").addClass("d-none");
+    }
+  }
+
+  checkNoProjects();
+
   function filterProjects(searchTerm) {
+    var projectsFound = false;
     $(".puce").each(function () {
       var projectName = $(this).find("h2").text().toLowerCase();
       if (projectName.includes(searchTerm.toLowerCase())) {
         $(this).show();
+        projectsFound = true;
       } else {
         $(this).hide();
       }
     });
+    // Show/hide no match message based on the flag
+    if (!projectsFound) {
+      $(".noProjects").show();
+    } else {
+      $(".noProjects").hide();
+    }
   }
   // Initial display of all projects
   filterProjects("");
@@ -87,5 +109,43 @@ $.get("../Save.xml", function (xml, status) {
   $("#form1").on("input", function () {
     var searchValue = $(this).val();
     filterProjects(searchValue);
+  });
+
+  // Function to filter projects by type
+  function filterByType(type) {
+    var projectsFound = false;
+    $(".puce").each(function () {
+      var projectType1 = $(this).find("h3").eq(0).text().trim(); // Index 7 in the template array
+      var projectType2 = $(this).find("h3").eq(1).text().trim(); // Index 9 in the template array
+      if (projectType1 === type || projectType2 === type) {
+        $(this).show();
+        projectsFound = true;
+      } else {
+        $(this).hide();
+      }
+    });
+    // Show/hide no match message based on the flag
+    if (!projectsFound) {
+      $(".noProjects").show();
+    } else {
+      $(".noProjects").hide();
+    }
+  }
+
+  // Event listener for filter buttons
+  $(".filter-btn").on("click", function () {
+    var type = $(this).data("type");
+    var isActive = $(this).hasClass("active");
+
+    // Toggle active class and filter based on the button state
+    if (isActive) {
+      $(".filter-btn").removeClass("active");
+      $(".puce").show();
+      $(".noProjects").hide();
+    } else {
+      $(".filter-btn").removeClass("active");
+      $(this).addClass("active");
+      filterByType(type);
+    }
   });
 });

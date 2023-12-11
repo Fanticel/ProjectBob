@@ -1,21 +1,35 @@
-.puce{
-    border-radius: 15px;
-    box-shadow: 0 0 10px rgba(0,0,0, 0.2);
+.puce {
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
-.proPho{
-    aspect-ratio: 2/1;
-    width: 100%;
-    margin-top: 5px;
+.proPho {
+  aspect-ratio: 2/1;
+  width: 100%;
+  margin-top: 5px;
 }
 .tab {
-    display: inline-block;
-    margin-left: 2em;
+  display: inline-block;
+  margin-left: 2em;
 }
-.progress{
-    height: 30px;
+.progress {
+  height: 30px;
 }
-h3{
-    font-size: 25px;
-    padding-bottom: 10px;
-    color: black;
+h3 {
+  font-size: 25px;
+  padding-bottom: 10px;
+  color: black;
+}
+
+.noProjects {
+  display: none;
+  margin-top: 30px;
+}
+
+.filterButton {
+  background-color: #f5ba41;
+  color: white;
+}
+
+.active {
+  background-color: #f3ad22;
 }
