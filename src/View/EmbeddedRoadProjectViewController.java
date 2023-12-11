@@ -42,6 +42,7 @@ public class EmbeddedRoadProjectViewController extends EmbeddedViewsController{
     super();
   }
 
+  //Initiates the view and applies a filter to text fields, so they only accept numerical values.
   public void init(ViewHandler viewHandler, ProjectListModel model, Region root, ViewState viewState)
   {
     super.init(viewHandler, model, root, viewState);
@@ -50,6 +51,7 @@ public class EmbeddedRoadProjectViewController extends EmbeddedViewsController{
     numBridTunField.setTextFormatter(new TextFormatter<>(new NumberStringConverter(),0, filter));
   }
 
+  // sets the default values when creating projects
   public void reset(){
     Map<String, Optional<Object>> defaults = getModel().getDefaults("Road");
     super.reset(defaults);
@@ -64,6 +66,7 @@ public class EmbeddedRoadProjectViewController extends EmbeddedViewsController{
     }
   }
 
+  //gets the existing project values and displays them in text fields when editing projects
   public void editReset(){
     if (lengthField.getText() == null || widthField.getText() == null || numBridTunField.getText() == null){
       throw new IllegalArgumentException("Fields cannot be empty");
@@ -124,10 +127,13 @@ public class EmbeddedRoadProjectViewController extends EmbeddedViewsController{
     addButton.setDisable(true);
   }
 
+  //adds a field in the VBox and increases the height of the anchor pane for scrolling.
   @FXML private void addField(){
     geoChallengeVBox.getChildren().add(new TextField());
     getScrollAnchorPane().setPrefHeight(getScrollAnchorPane().getPrefHeight() + 20);
   }
+  //Checks if any fields are empty and throws a corresponding message.
+  //Gets the values from fields and stores it in an arrayList and sends it to the model to create the project.
   public void create(){
     if (lengthField.getText() == null || widthField.getText() == null || numBridTunField.getText() == null){
       throw new IllegalArgumentException("Fields cannot be empty");
@@ -156,7 +162,15 @@ public class EmbeddedRoadProjectViewController extends EmbeddedViewsController{
     getModel().addProject(data);
   }
 
+  //Checks if any fields are empty and throws a corresponding message.
+  //Gets the values from fields, stores it in a map and sends it with the given project to the model.
   public void edit(Project project){
+    if (lengthField.getText() == null || widthField.getText() == null || numBridTunField.getText() == null){
+      throw new IllegalArgumentException("Fields cannot be empty");
+    }
+    if (lengthField.getText().equals("") || widthField.getText().equals("") || numBridTunField.getText().equals("")){
+      throw new IllegalArgumentException("Fields cannot be empty");
+    }
     Map<String,Object> data = (Map<String,Object>) getViewState().getData().get(1);
     ArrayList<String> geoChallenges = new ArrayList<String>();
     super.edit(data);

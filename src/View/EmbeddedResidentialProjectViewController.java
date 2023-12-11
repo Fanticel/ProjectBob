@@ -46,6 +46,7 @@ public class EmbeddedResidentialProjectViewController extends EmbeddedViewsContr
     super();
   }
 
+  //Initiates the view and applies a filter to text fields, so they only accept numerical values.
   public void init(ViewHandler viewHandler, ProjectListModel model, Region root, ViewState viewState)
   {
     super.init(viewHandler, model, root, viewState);
@@ -55,6 +56,7 @@ public class EmbeddedResidentialProjectViewController extends EmbeddedViewsContr
     othWPlumbingField.setTextFormatter(new TextFormatter<>(new NumberStringConverter(),0, filter));
   }
 
+  // sets the default values when creating projects
   public void reset(){
     Map<String, Optional<Object>> defaults = getModel().getDefaults("Residential");
     super.reset(defaults);
@@ -70,6 +72,8 @@ public class EmbeddedResidentialProjectViewController extends EmbeddedViewsContr
     }
 
   }
+
+  //gets the existing project values and applies displays them in text fields when editing projects
   public void editReset(){
     ResidentialProject project;
     project = (ResidentialProject) getModel().getProject((String) getViewState().getData().get(0));
@@ -110,6 +114,9 @@ public class EmbeddedResidentialProjectViewController extends EmbeddedViewsContr
       node.setDisable(true);
     });
   }
+
+  //Checks if any fields are empty and throws a corresponding message.
+  //Gets the values from fields and stores it in an arrayList and sends it to the model to create the project.
   public void create(){
     if (sizeField.getText() == null || numBathroomsField.getText() == null || numKitchensField.getText() == null || othWPlumbingField.getText() == null){
       throw new IllegalArgumentException("Fields cannot be empty");
@@ -130,6 +137,8 @@ public class EmbeddedResidentialProjectViewController extends EmbeddedViewsContr
 
     getModel().addProject(data);
   }
+  //Checks if any fields are empty and throws a corresponding message.
+  //Gets the values from fields, stores it in a map and sends it with the given project to the model.
   public void edit(Project project){
     if (sizeField.getText() == null || numBathroomsField.getText() == null || numKitchensField.getText() == null || othWPlumbingField.getText() == null){
       throw new IllegalArgumentException("Fields cannot be empty");
