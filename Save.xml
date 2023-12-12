@@ -6,7 +6,7 @@
 				<Name>Dupa4</Name>
 				<Description>Zupa4_PrivateNUDPOUAPOSDA_PrivateNdKOWAK</Description>
 				<ExpectedTotalHours>830912</ExpectedTotalHours>
-				<ExpectedExpenses>1827391</ExpectedExpenses>
+				<ExpectedExpenses>200000</ExpectedExpenses>
 				<Budget>350000</Budget>
 				<Timeline>08/09/2024</Timeline>
 				<Status>Ongoing</Status>
@@ -33,6 +33,20 @@
 				<Size>203201</Size>
 				<NumFloors>10</NumFloors>
 				<IntendedUse>Nie powiem</IntendedUse>
+			</Project>
+			<Project>
+				<Name>Yay2</Name>
+				<Description>Zay2_PrivateN</Description>
+				<ExpectedTotalHours>3821931</ExpectedTotalHours>
+				<ExpectedExpenses>500000</ExpectedExpenses>
+				<Budget>600000</Budget>
+				<Timeline>10/06/2025</Timeline>
+				<Status>Ongoing</Status>
+				<Expenses>0</Expenses>
+				<TotalHours>0</TotalHours>
+				<Size>423</Size>
+				<NumFloors>1</NumFloors>
+				<IntendedUse>jdnawi_PrivateNdawjhbd</IntendedUse>
 			</Project>
 		</CommercialProjects>
 		<RoadProjects>

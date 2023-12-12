@@ -1,6 +1,5 @@
 package Model;
 
-import java.security.PublicKey;
 import java.util.ArrayList;
 
 public class ProjectList {
@@ -27,7 +26,7 @@ public class ProjectList {
     projects.add(project);
   }
 
-  public ProjectList getAllProjectByType(Object obj) {
+  public ProjectList getAllProjectsByType(Object obj) {
     ProjectList ans = new ProjectList();
     for (Project i : projects) {
       if (i.getClass().equals(obj)) {
@@ -45,22 +44,22 @@ public class ProjectList {
     ProjectList ans = new ProjectList();
     switch ((Integer) data.get(0)) {
       case 0: {
-        ans.projects = getAllProjectByType(
+        ans.projects = getAllProjectsByType(
             ResidentialProject.class).returnAsArrayList();
         break;
       }
       case 1: {
-        ans.projects = getAllProjectByType(
+        ans.projects = getAllProjectsByType(
             CommercialProject.class).returnAsArrayList();
         break;
       }
       case 2: {
-        ans.projects = getAllProjectByType(
+        ans.projects = getAllProjectsByType(
             RoadProject.class).returnAsArrayList();
         break;
       }
       case 3: {
-        ans.projects = getAllProjectByType(
+        ans.projects = getAllProjectsByType(
             IndustrialProject.class).returnAsArrayList();
         break;
       }
