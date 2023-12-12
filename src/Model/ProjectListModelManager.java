@@ -10,12 +10,13 @@ import java.util.Optional;
 public class ProjectListModelManager implements ProjectListModel {
   private ProjectList projectList;
   private FileManagerXML fileManagerXML;
-
+  //Alan Karasin Stifter
   public ProjectListModelManager() {
     this.projectList = new ProjectList();
     this.fileManagerXML = new FileManagerXML();
   }
-
+  //Alan Karasin Stifter
+  //reads from save file and returns a projectList with all projects
   @Override public ProjectList getAllProjects() {
     try {
       return fileManagerXML.readFromFile("Save.xml");
@@ -25,15 +26,18 @@ public class ProjectListModelManager implements ProjectListModel {
     }
     return projectList;
   }
-
+  //Alan Karasin Stifter
   @Override public Project getProject(int index) {
     return projectList.getProject(index);
   }
-
+  //Alan Karasin Stifter
   @Override public Project getProject(String name) {
     return projectList.getProject(name);
   }
 
+  //Alan Karasin Stifter
+  //Checks if the new name is unique and throws a corresponding message if it isn´t.
+  //Gets values from the given map and updates corresponding values in the given project and save file.
   @Override public void editProject(Project project, Map<String, Object> data)
   {
     try
@@ -85,8 +89,8 @@ public class ProjectListModelManager implements ProjectListModel {
       System.out.println(e.getMessage());
     }
   }
-
-
+  //Checks if the name is unique and throws a corresponding message if it isn´t.
+  //Gets values from the given arrayList and creates projects with them.
   @Override public void addProject(ArrayList<Object> data) {
     try
     {
@@ -128,23 +132,27 @@ public class ProjectListModelManager implements ProjectListModel {
       System.out.println(e.getMessage());
     }
   }
-
+  //Alan Karasin Stifter
   @Override public void removeProject(Project project) {
     projectList.removeProject(project);
   }
 
+  //Alan Karasin Stifter
   @Override public void removeProject(int index) {
     projectList.removeProject(index);
   }
 
+  //Alan Karasin Stifter
   @Override public void removeProject(String name) {
     projectList.removeProject(name);
   }
 
+  //Alan Karasin Stifter
   @Override public ProjectList getAllProjectsByType(Object project) {
     return projectList.getAllProjectsByType(project);
   }
 
+  //Alan Karasin Stifter
   @Override public ProjectList getAllProjectsByData(ArrayList<Object> data) {
     return projectList.getAllProjectsByData(data);
   }
@@ -174,7 +182,8 @@ public class ProjectListModelManager implements ProjectListModel {
     addProject(data2);
     addProject(data3);
   }
-
+  //Alan Karasin Stifter
+  //Depending on the given project type returns gets and returns corresponding default values.
   @Override public Map<String, Optional<Object>> getDefaults(String type){
     if (type.equals("Residential"))
     {
@@ -190,10 +199,13 @@ public class ProjectListModelManager implements ProjectListModel {
     }else
     return RoadProject.getDefaults();
   }
+  //Alan Karasin Stifter
+  //Passes given number of months to the method 
   @Override public LocalDate getDateMonthsAway(int months){
     return MyDate.getDateMonthsAway(months);
   }
 
+  //Deletes the project with the given name.
   @Override public void delete(String name)
   {
     try{
