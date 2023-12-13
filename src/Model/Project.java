@@ -101,6 +101,7 @@ public abstract class Project {
     this.status = status;
   }
 
+  //Made by Josip Brljevic: calculating the progress of the project by getting the percentage of total hours and expenses, then getting the average.
   public double getProgress(){
     return (double) (((double)totalHours / expectedTotalHours * 100) + ((double)expenses / expectedExpenses * 100)) / 2/100;
   }

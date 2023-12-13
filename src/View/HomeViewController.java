@@ -20,6 +20,7 @@ import javax.swing.text.html.ImageView;
 import java.io.IOException;
 import java.util.ArrayList;
 
+//Made by Josip Brljevic
 public class HomeViewController
 {
   private ProjectListModel model;
@@ -28,21 +29,29 @@ public class HomeViewController
 
   @FXML private VBox popup;
   @FXML private VBox warnings;
+
+  //setting the popup of the notifications invisible
   private boolean isPopupVisible = false;
 
+  //empty constructor
   public HomeViewController()
   {
   }
 
+  //init method
   public void init(ViewHandler viewHandler, ProjectListModel model, Region root)
   {
     this.viewHandler = viewHandler;
     this.model = model;
     this.root = root;
 
+    //this makes sure that the popup is invisible
     popup.setVisible(false);
+
+    //creating a new array list of ongoing projects
     ArrayList<Project> ongoingProjects = new ArrayList<>();
 
+    //for each ongoing project in the model, it is added to the array list
     for (Project i : model.getAllProjects().returnAsArrayList())
     {
       if (i.getStatus().equals("Ongoing"))
@@ -53,6 +62,8 @@ public class HomeViewController
 
     for (Project i : ongoingProjects)
     {
+      //The loop creates the notification detector object for each ongoing project
+      //if the method from the notification object isn't null, it adds a label to the VBox
       NotificationDetector notificationDetector = new NotificationDetector(i);
 
       if(notificationDetector.checkBudget()!=null)
@@ -86,6 +97,7 @@ public class HomeViewController
 
   }
 
+  //reset method does all the same functionality as the previous method, the only addition is the clear method in line 104, which clears all the messages displayed previously.
   public void reset()
   {
     popup.setVisible(false);
@@ -136,27 +148,32 @@ public class HomeViewController
 
   }
 
+  //gets root
   public Region getRoot()
   {
     return root;
   }
 
+  //method for navigating to the project list view
   @FXML private void clickProjectsButton()
   {
     viewHandler.openView("ProjectList");
   }
 
+  //method for navigating to the dashboard view
   @FXML private void clickDashboardButton()
   {
     viewHandler.openView("Dashboard");
   }
 
+  //method for toggling the visibility of the popup
   @FXML public void togglePopup()
   {
     isPopupVisible = !isPopupVisible;
     popup.setVisible(isPopupVisible);
   }
 
+  //method for clicking the popup
   @FXML public void clickNotificationButton()
   {
     togglePopup();

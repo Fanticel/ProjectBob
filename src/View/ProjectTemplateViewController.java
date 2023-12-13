@@ -15,10 +15,8 @@ import javafx.scene.layout.VBox;
 
 public class ProjectTemplateViewController
 {
-  private ProjectListModel model;
-  private ViewHandler viewHandler;
+
   private Region root;
-  private ProjectListViewModel projectListViewModel;
 
   @FXML private Label type;
   @FXML private TextArea description;
@@ -34,18 +32,18 @@ public class ProjectTemplateViewController
   @FXML private Label expenses;
   @FXML private ProgressBar progressBar;
 
-
+//empty constructor
   public ProjectTemplateViewController(){}
-  public void init(ViewHandler viewHandler, ProjectListModel model, Region root){
-    this.viewHandler = viewHandler;
-    this.model = model;
+  public void init(Region root){
     this.root = root;
   }
 
 
   public void setProjectInfo(Project project) {
+    //creating a notification detector class for a project
     NotificationDetector notificationDetector = new NotificationDetector(project);
 
+    //if the notification method returns null, it removes the label placeholder, otherwise it returns the notification message
     if (notificationDetector.checkDeadline() == null) {
       Pane parent = (Pane) deadlineNotification.getParent();
       parent.getChildren().remove(deadlineNotification);
@@ -74,6 +72,7 @@ public class ProjectTemplateViewController
       expensesNotification.setText(notificationDetector.checkExpenses());
     }
 
+    //getting the project type
     String projectType = (
         switch (project.getClass().toString()){
           case ("class Model.CommercialProject") -> "Commercial";
@@ -84,6 +83,7 @@ public class ProjectTemplateViewController
         }
     );
 
+    //these are the fxml components, setText method is used for adding the messages from the previous code.
    progressBar.setProgress(project.getProgress());
     name.setText(project.getName());
     budget.setText(budget.getText() + " " + String.valueOf(project.getBudget()) + " DKK");
