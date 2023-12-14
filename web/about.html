@@ -1,95 +1,91 @@
-<!--Made by Anthony Richards-->
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>About page</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link href="Styles/bootstrap.min.css" type="text/css" rel="stylesheet" />
-    <link href="Styles/common.css" type="text/css" rel="stylesheet" />
-    <link href="Styles/animation.css" type="text/css" rel="stylesheet" />
-    <script src="js/jquery-3.6.0.min.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <nav class="navbar navbar-expand-lg navbar-dark">
-      <div class="container-fluid">
-        <img class="navbar-brand p-0" src="Images/logo.png" alt="logo" />
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="Index.html">Home</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-bs-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Projects
-              </a>
-              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li>
-                  <a class="dropdown-item" href="Ongoing_page.html"
-                    >Ongoing projects</a
+    <head>
+        <title>About page</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="Styles/bootstrap.min.css" type="text/css" rel="stylesheet">
+        <link href="Styles/common.css" type="text/css" rel="stylesheet">
+        <link href="Styles/animation.css" type="text/css" rel="stylesheet">
+        <script src="js/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <div class="container-fluid">
+                <img class="navbar-brand p-0" src="Images/logo.png" alt="logo">
+                <button
+                    class="navbar-toggler"
+                    type="button"
+                    data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <!--This section  contains the code for the navigation dropdown and buttons-->
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="Index.html">Home</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a
+                                class="nav-link dropdown-toggle"
+                                href="#"
+                                id="navbarDropdown"
+                                role="button"
+                                data-bs-toggle="dropdown"
+                                aria-expanded="false"
+                            >
+                                Projects
+                            </a>
+                            <!--dropdown function connected to the navbar-->
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li>
+                                    <a class="dropdown-item" href="Ongoing_page.html">
+                                        Ongoing projects
+                                    </a
                   >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="previousProjects.html"
-                    >Past projects</a
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="previousProjects.html">
+                                        Past projects
+                                    </a
                   >
-                </li>
-                <li>
-                  <a class="dropdown-item" href="projectTypes.html">Types</a>
-                </li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="about.html">About</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="Contact.html">Contact</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-
-    <div class="container-fluid mt-5">
-      <div class="row text-center">
-        <h1 class="text-decoration-underline">About us</h1>
-      </div>
-      <!--About us, the company part-->
-      <section class="row about-us my-5 section puce">
-        <div class="col-lg-6 px-0">
-          <img
-            src="Images/company.jpg"
-            class="img-fluid rounded-3"
-            alt="company "
-          />
-        </div>
-        <div class="col-lg-6 firstAnimation">
-          <h2>The Company</h2>
-          <p>
-            Bob Construction has been at the forefront of building innovative
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="projectTypes.html">Types</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Contact.html">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container-fluid mt-5">
+            <div class="row text-center">
+                <h1 class="text-decoration-underline">About us</h1>
+            </div>
+            <!--About us, the company part-->
+            <section class="row about-us my-5 section puce">
+                <!-- the puce class defines the background colour of the selection element-->
+                <div class="col-lg-6 px-0">
+                    <img src="Images/company.jpg" class="img-fluid rounded-3" alt="company ">
+                </div>
+                <div class="col-lg-6 firstAnimation">
+                    <!-- fade in animation-->
+                    <h2>The Company</h2>
+                    <p>
+                        Bob Construction has been at the forefront of building innovative
             infrastructure that drives progress in our communities. Our
             reputation is built on a foundation of trust, excellence, and
             unwavering commitment to quality. With over two decades in the
@@ -97,16 +93,16 @@
             complexes and corporate offices to public amenities. We take pride
             in our team of skilled professionals who bring our clients' visions
             to life with expertise and integrity.
-          </p>
-        </div>
-      </section>
-
-      <!--Vision and goals-->
-      <section class="row mb-5 section puce animation" id="vision-section">
-        <div class="col-lg-6 flex-md-column">
-          <h2>Vision and Goals</h2>
-          <p>
-            Our vision at Bob Construction is to be the architect of a future
+                    </p>
+                </div>
+            </section>
+            <!--Vision and goals-->
+            <section class="row mb-5 section puce animation" id="vision-section">
+                <div class="col-lg-6 flex-md-column">
+                    <!-- Bootstrap coloumn that uses flexbox in the columns for responsivness-->
+                    <h2>Vision and Goals</h2>
+                    <p>
+                        Our vision at Bob Construction is to be the architect of a future
             where our work continues to speak for itself long after the
             construction dust settles. We aspire to not just build structures
             but to craft landmarks that stand the test of time. Sustainability,
@@ -114,49 +110,29 @@
             philosophy. We are dedicated to advancing the construction sector
             with eco-friendly practices, cutting-edge design, and structures
             that enrich lives for generations to come.
-          </p>
+                    </p>
+                </div>
+                <div class="col-lg-6 text-center px-0">
+                    <img src="Images/visionAndGoals.jpg" class="img-fluid rounded-3" alt="vision">
+                </div>
+            </section>
         </div>
-        <div class="col-lg-6 text-center px-0">
-          <img
-            src="Images/visionAndGoals.jpg"
-            class="img-fluid rounded-3"
-            alt="vision"
-          />
-        </div>
-      </section>
-    </div>
-    <!--Footer-->
-    <footer class="container-fluid">
-      <div class="row">
-        <div class="col-md-6 text-end">
-          <p class="copyRight mt-4">
-            &copy; 2021 Bob the Builder. All rights reserved.
-          </p>
-        </div>
-        <div class="col-md-6 mt-4 text-center">
-          <img
-            src="Images/facebook.png"
-            alt="facebook"
-            class="social-icon mr-2"
-          />
-          <img
-            src="Images/instagram.png"
-            alt="instagram"
-            class="social-icon mr-2"
-          />
-          <img
-            src="Images/linkedin.png"
-            alt="linkedin"
-            class="social-icon mr-2"
-          />
-          <img
-            src="Images/youtube.png"
-            alt="twitter"
-            class="social-icon mr-2"
-          />
-        </div>
-      </div>
-    </footer>
-    <script src="JS/animations.js"></script>
-  </body>
+        <!--Footer-->
+        <footer class="container-fluid">
+            <div class="row">
+                <div class="col-md-6 text-end">
+                    <p class="copyRight mt-4">
+                        &copy; 2021 Bob the Builder. All rights reserved.
+                    </p>
+                </div>
+                <div class="col-md-6 mt-4 text-center">
+                    <img src="Images/facebook.png" alt="facebook" class="social-icon mr-2">
+                    <img src="Images/instagram.png" alt="instagram" class="social-icon mr-2">
+                    <img src="Images/linkedin.png" alt="linkedin" class="social-icon mr-2">
+                    <img src="Images/youtube.png" alt="twitter" class="social-icon mr-2">
+                </div>
+            </div>
+        </footer>
+        <script src="JS/animations.js"></script>
+    </body>
 </html>
