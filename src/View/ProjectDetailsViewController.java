@@ -1,3 +1,4 @@
+//Made by Anthony Richards
 package View;
 
 import Model.Project;
@@ -32,7 +33,7 @@ public class ProjectDetailsViewController {
 
   public ProjectDetailsViewController() {
   }
-
+  //Initiates the details view and its embedded views
   public void init(ViewHandler viewHandler, ProjectListModel model, Region root,
       ViewState viewState) {
     this.model = model;
@@ -46,6 +47,7 @@ public class ProjectDetailsViewController {
     reset();
   }
 
+  //gets project data and displays them
   public void reset() {
     project = model.getProject((String) viewState.getData().get(0));
     projectNameLabel.setText(project.getName());
@@ -54,6 +56,7 @@ public class ProjectDetailsViewController {
     expTotalHoursLabel.setText(String.valueOf(project.getExpectedTotalHours()));
     budgetLabel.setText(String.valueOf(project.getTotalHours()));
     timelineLabel.setText(String.valueOf(project.getTimeline()));
+    //depending on the project class displays corresponding view
     switch (project.getClass().toString()) {
       case ("class Model.CommercialProject") -> {
         view1Controller.detailsReset();
@@ -78,6 +81,7 @@ public class ProjectDetailsViewController {
     return root;
   }
 
+  //Changes view visibility depending on the given id
   private void changeView(String id) {
     switch (id) {
       case "Commercial" -> id = "view1";

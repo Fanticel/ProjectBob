@@ -1,3 +1,4 @@
+//Made by Zygmunt Kwaśniewicz
 package View;
 
 import Model.ProjectListModel;
@@ -25,6 +26,8 @@ public class SearchAProjectPopupViewController {
   @FXML private TextField priceRangeMax;
   @FXML private TextField manHoursMin;
   @FXML private TextField manHoursMax;
+
+  //defines a filter for textfields
   UnaryOperator<TextFormatter.Change> filter = change -> {
     String newText = change.getControlNewText();
     if (Pattern.matches("[0-9,.]*", newText)) {
@@ -34,6 +37,8 @@ public class SearchAProjectPopupViewController {
     }
   };
   public SearchAProjectPopupViewController(){}
+  //Zygmunt Kwaśniewicz initiates search window
+  //Initates the search
   public void init(ViewHandler viewHandler, ProjectListModel model, Region root, ViewState viewState){
     this.viewHandler = viewHandler;
     this.model = model;
@@ -65,6 +70,7 @@ public class SearchAProjectPopupViewController {
   @FXML private void clickBackButt(){
     viewHandler.closePopupView();
   }
+  //Gets the search parameters from fields and sends it to viewstate
   @FXML private void clickSearchButt(){
     ArrayList<Object> data = new ArrayList<>();
     //for search use, the data is 0:type, 1:name, 2:status, 3:price range min, 4:price range max, 5:man-hours min, 6:man-hours max

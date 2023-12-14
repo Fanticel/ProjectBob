@@ -1,3 +1,4 @@
+//Made by Josip Brljevic
 package View;
 
 import Model.NotificationDetector;

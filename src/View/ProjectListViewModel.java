@@ -1,3 +1,4 @@
+//Made by Zygmunt Kwaśniewicz
 package View;
 
 import Model.Project;
@@ -22,12 +23,14 @@ public class ProjectListViewModel {
     return list;
   }
 
+  //updates the list
   public void update() {
     list.clear();
     for (Project i : model.getAllProjects().returnAsArrayList()) {
       list.add(new ProjectViewModel(i));
     }
   }
+  //updates the list based on the given search data
   public void updateSearch(ArrayList<Object> data){
     list.clear();
     for (Project i : model.getAllProjectsByData(data).returnAsArrayList()) {

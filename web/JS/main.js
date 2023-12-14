@@ -1,3 +1,4 @@
+//Made by Zygmunt Kwaśniewicz and Josip Brljevic
 $.get("../Save.xml", function (xml, status) {
   var template = [
     '<div class="puce section animation"><div class="row mx-0 px-0 my-1 py-2 m-lg-4 p-lg-3"><h2>',

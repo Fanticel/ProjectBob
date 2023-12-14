@@ -1,3 +1,4 @@
+//Made by Zygmunt Kwaśniewicz and Alan Karasin Stifter
 package View;
 
 import Model.*;
@@ -34,11 +35,13 @@ public class EmbeddedResidentialProjectViewController extends EmbeddedViewsContr
   @FXML
   private TextField sizeField;
 
+  //Alan Karasin Stifter
   public EmbeddedResidentialProjectViewController()
   {
     super();
   }
 
+  //Alan Karasin Stifter
   //Initiates the view and applies a filter to text fields, so they only accept numerical values.
   public void init(ViewHandler viewHandler, ProjectListModel model, Region root, ViewState viewState)
   {
@@ -49,6 +52,7 @@ public class EmbeddedResidentialProjectViewController extends EmbeddedViewsContr
     othWPlumbingField.setTextFormatter(new TextFormatter<>(new NumberStringConverter(),0, filter));
   }
 
+  //Alan Karasin Stifter
   // sets the default values when creating projects
   public void reset(){
     Map<String, Optional<Object>> defaults = getModel().getDefaults("Residential");
@@ -65,8 +69,8 @@ public class EmbeddedResidentialProjectViewController extends EmbeddedViewsContr
     }
 
   }
-
-  //gets the existing project values and applies displays them in text fields when editing projects
+  //Alan Karasin Stifter
+  //gets the existing project values and displays them in text fields when editing projects
   public void editReset(){
     ResidentialProject project;
     project = (ResidentialProject) getModel().getProject((String) getViewState().getData().get(0));
@@ -87,6 +91,8 @@ public class EmbeddedResidentialProjectViewController extends EmbeddedViewsContr
       node.setDisable(false);
     });
   }
+  //Zygmunt Kwaśniewicz
+  //gets the existing project values and displays them in text fields when viewing details of projects
   public void detailsReset(){
     ResidentialProject project;
     project = (ResidentialProject) getModel().getProject((String) getViewState().getData().get(0));
@@ -107,7 +113,7 @@ public class EmbeddedResidentialProjectViewController extends EmbeddedViewsContr
       node.setDisable(true);
     });
   }
-
+  //Alan Karasin Stifter
   //Checks if any fields are empty and throws a corresponding message.
   //Gets the values from fields and stores it in an arrayList and sends it to the model to create the project.
   public void create(){
@@ -130,6 +136,7 @@ public class EmbeddedResidentialProjectViewController extends EmbeddedViewsContr
 
     getModel().addProject(data);
   }
+  //Alan Karasin Stifter
   //Checks if any fields are empty and throws a corresponding message.
   //Gets the values from fields, stores it in a map and sends it with the given project to the model.
   public void edit(Project project){

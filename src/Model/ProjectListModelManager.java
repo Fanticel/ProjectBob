@@ -89,6 +89,7 @@ public class ProjectListModelManager implements ProjectListModel {
       System.out.println(e.getMessage());
     }
   }
+  //Alan Karasin Stifter
   //Checks if the name is unique and throws a corresponding message if it isn´t.
   //Gets values from the given arrayList and creates projects with them.
   @Override public void addProject(ArrayList<Object> data) {
@@ -156,6 +157,7 @@ public class ProjectListModelManager implements ProjectListModel {
   @Override public ProjectList getAllProjectsByData(ArrayList<Object> data) {
     return projectList.getAllProjectsByData(data);
   }
+  //Zygmunt Kwaśniewicz
   public void getFromFile(){ //Just a simple method that calls the readFromFile, then goes throgh each project in the returned ProjectList, and adds it to the main projectlist
     try{ //try catch for the theoretical IOException
       for (Project i : fileManagerXML.readFromFile("Save.xml").returnAsArrayList()) {

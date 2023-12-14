@@ -1,3 +1,4 @@
+//Made by Zygmunt Kwaśniewicz and Alan Karasin Stifter
 package View;
 
 import Model.MyDate;
@@ -44,6 +45,7 @@ public abstract class EmbeddedViewsController {
   private ProjectListModel model;
   private ViewHandler viewHandler;
   private ViewState viewState;
+  //Zygmunt Kwaśniewicz
   UnaryOperator<TextFormatter.Change> filter = change -> {
     String newText = change.getControlNewText();
     if (Pattern.matches("[0-9,.]*", newText)) {
@@ -56,7 +58,8 @@ public abstract class EmbeddedViewsController {
 
   public EmbeddedViewsController() {
   }
-
+  //Alan Karasin Stifter
+  //initiate view and apply the text filter to the fields
   public void init(ViewHandler viewHandler, ProjectListModel model, Region root,
       ViewState viewState) {
     this.model = model;
@@ -75,7 +78,8 @@ public abstract class EmbeddedViewsController {
     expensesField.setTextFormatter(
         new TextFormatter<>(new NumberStringConverter(), 0, filter));
   }
-
+  //Alan Karasin Stifter
+  //Get default values and set the fields when creating projects
   public void reset(Map<String, Optional<Object>> defaults) {
     setField("budget", budgetField, defaults);
 
@@ -87,7 +91,8 @@ public abstract class EmbeddedViewsController {
     setField("expectedTotalHours", expectedTotalHoursField, defaults);
     setField("expectedExpenses", expectedExpensesField, defaults);
   }
-
+  //Alan Karasin Stifter
+  //Get current project values and display them when editing the project
   public void editReset() {
     Project project = getModel().getProject(
         (String) getViewState().getData().get(0));
@@ -108,7 +113,8 @@ public abstract class EmbeddedViewsController {
     totalHoursField.setText(String.valueOf(project.getTotalHours()));
     expensesField.setText(String.valueOf(project.getExpenses()));
   }
-
+  //Alan Karasin Stifter
+  //Check if variable is present in the map and set the corresponding field
   static void setField(String fieldName, TextField field,
       Map<String, Optional<Object>> defaults) {
     if (defaults.get(fieldName).isPresent()) {
@@ -122,7 +128,8 @@ public abstract class EmbeddedViewsController {
   public Region getRoot() {
     return root;
   }
-
+  //Alan Karasin Stifter
+  //Get values from fields and add them to the given arrayList
   public void create(ArrayList<Object> data) {
     if (expectedTotalHoursField.getText() == null
         || expectedExpensesField.getText() == null
@@ -163,7 +170,8 @@ public abstract class EmbeddedViewsController {
     data.add(date);
     data.add("Ongoing");
   }
-
+  //Alan Karasin Stifter
+  //Get values from the fields and add them to the map
   public void edit(Map<String, Object> data) {
     if (expectedTotalHoursField.getText() == null
         || expectedExpensesField.getText() == null
@@ -245,6 +253,8 @@ public abstract class EmbeddedViewsController {
   public void setScrollAnchorPane(AnchorPane scrollAnchorPane) {
     this.scrollAnchorPane = scrollAnchorPane;
   }
+  //Zygmunt Kwaśniewicz
+  //Sets all fields editable or not depending on the given value
   public void setEditable(boolean value) {
     budgetField.setEditable(value);
     expectedExpensesField.setEditable(value);

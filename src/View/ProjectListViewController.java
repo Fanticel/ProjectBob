@@ -1,3 +1,4 @@
+// Made by Zygmunt Kwaśniewicz
 package View;
 
 import javafx.fxml.FXML;
@@ -28,6 +29,7 @@ public class ProjectListViewController {
   public ProjectListViewController() {
   }
 
+  //Initiates the list
   public void init(ViewHandler viewHandler, ProjectListModel model,
       Region root, ViewState viewState) {
     this.viewHandler = viewHandler;
@@ -70,6 +72,8 @@ public class ProjectListViewController {
   @FXML private void clickBackButt() {
     viewHandler.openView("");
   }
+
+  //Opens edit view and sends project name to viewState
   @FXML private void clickEditButt(){
     ArrayList<Object> data = new ArrayList<Object>();
     data.add(projectName);
@@ -77,6 +81,7 @@ public class ProjectListViewController {
     viewHandler.openView("EditProject");
     unselected();
   }
+  //Opens details view and sends project name to viewState
   @FXML private void clickDetailButt(){
     ArrayList<Object> data = new ArrayList<Object>();
     data.add(projectName);
@@ -98,6 +103,7 @@ public class ProjectListViewController {
       unselected();
     }
   }
+  //refreshes the list
   @FXML private void clickRefreshButt(){
     reset();
   }

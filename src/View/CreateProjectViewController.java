@@ -1,3 +1,4 @@
+//Made by Zygmunt Kwaśniewicz and Alan Karasin Stifter
 package View;
 
 import Model.ProjectListModel;
@@ -36,7 +37,7 @@ public class CreateProjectViewController {
 
   public CreateProjectViewController() {
   }
-
+//Alan Karasin Stifter
   public void init(ViewHandler viewHandler, ProjectListModel model,
       Region root, ViewState viewState) {
     this.model = model;
@@ -57,6 +58,7 @@ public class CreateProjectViewController {
     reset();
   }
 
+  //Alan Karasin Stifter
   public void reset() {
     typeChoiceBox.setValue("");
     nameField.setText("");
@@ -74,10 +76,12 @@ public class CreateProjectViewController {
     }
   }
 
+  //Alan Karasin Stifter
   public Region getRoot() {
     return root;
   }
 
+  //Alan Karasin Stifter
   @FXML void create(ActionEvent event) {
     try
     {
@@ -108,10 +112,11 @@ public class CreateProjectViewController {
     }
   }
 
+  //Zygmunt Kwaśniewicz
   @FXML void back(ActionEvent event) {
     viewHandler.openView("ProjectList");
   }
-
+//Zygmunt Kwaśniewicz
   private void changeView(String id) {
     switch (id) {
       case "Commercial" -> id = "view1";

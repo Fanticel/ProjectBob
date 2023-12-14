@@ -1,3 +1,4 @@
+//Made by Zygmunt Kwaśniewicz and Alan Karasin Stifter
 package View;
 
 import Model.*;
@@ -29,11 +30,13 @@ public class EmbeddedRoadProjectViewController extends EmbeddedViewsController{
   private TextField widthField;
   @FXML private Button addButton;
 
+  //Alan Karasin Stifter
   public EmbeddedRoadProjectViewController()
   {
     super();
   }
 
+  //Alan Karasin Stifter
   //Initiates the view and applies a filter to text fields, so they only accept numerical values.
   public void init(ViewHandler viewHandler, ProjectListModel model, Region root, ViewState viewState)
   {
@@ -42,7 +45,7 @@ public class EmbeddedRoadProjectViewController extends EmbeddedViewsController{
     widthField.setTextFormatter(new TextFormatter<>(new NumberStringConverter(),0, filter));
     numBridTunField.setTextFormatter(new TextFormatter<>(new NumberStringConverter(),0, filter));
   }
-
+  //Alan Karasin Stifter
   // sets the default values when creating projects
   public void reset(){
     Map<String, Optional<Object>> defaults = getModel().getDefaults("Road");
@@ -57,7 +60,7 @@ public class EmbeddedRoadProjectViewController extends EmbeddedViewsController{
       geoChallengeVBox.getChildren().add(new TextField(defaults.get("geoChallenge").get().toString()));
     }
   }
-
+  //Alan Karasin Stifter
   //gets the existing project values and displays them in text fields when editing projects
   public void editReset(){
     if (lengthField.getText() == null || widthField.getText() == null || numBridTunField.getText() == null){
@@ -89,13 +92,9 @@ public class EmbeddedRoadProjectViewController extends EmbeddedViewsController{
     numBridTunField.setEditable(true);
     addButton.setDisable(false);
   }
+  //Zygmunt Kwaśniewicz
+  //gets the existing project values and displays them in text fields when viewing details of projects
   public void detailsReset(){
-    if (lengthField.getText() == null || widthField.getText() == null || numBridTunField.getText() == null){
-      throw new IllegalArgumentException("Fields cannot be empty");
-    }
-    if (lengthField.getText().equals("") || widthField.getText().equals("") || numBridTunField.getText().equals("")){
-      throw new IllegalArgumentException("Fields cannot be empty");
-    }
     RoadProject project;
     project = (RoadProject) getModel().getProject((String) getViewState().getData().get(0));
     super.editReset();
@@ -118,12 +117,13 @@ public class EmbeddedRoadProjectViewController extends EmbeddedViewsController{
     numBridTunField.setEditable(false);
     addButton.setDisable(true);
   }
-
+  //Alan Karasin Stifter
   //adds a field in the VBox and increases the height of the anchor pane for scrolling.
   @FXML private void addField(){
     geoChallengeVBox.getChildren().add(new TextField());
     getScrollAnchorPane().setPrefHeight(getScrollAnchorPane().getPrefHeight() + 20);
   }
+  //Alan Karasin Stifter
   //Checks if any fields are empty and throws a corresponding message.
   //Gets the values from fields and stores it in an arrayList and sends it to the model to create the project.
   public void create(){
@@ -153,7 +153,7 @@ public class EmbeddedRoadProjectViewController extends EmbeddedViewsController{
     geoChallengeVBox.getChildren().removeAll(geoChallengeVBox.getChildren());
     getModel().addProject(data);
   }
-
+  //Alan Karasin Stifter
   //Checks if any fields are empty and throws a corresponding message.
   //Gets the values from fields, stores it in a map and sends it with the given project to the model.
   public void edit(Project project){
