@@ -24,24 +24,26 @@ public class ViewHandler {
   private ProjectDetailsViewController projectDetailsViewController;
   private CreationNotificationPopupViewController creationNotificationPopupViewController;
 
-  public ViewHandler(ProjectListModel model) {
+  public ViewHandler(ProjectListModel model) { //a simple constructor, creating everything we need, apart from the model that is passed to us
     this.currentScene = new Scene(new Region());
     this.popupScene = new Scene(new Region());
     this.model = model;
     viewState = new ViewState();
   }
 
-  public void start(Stage primaryStage) {
+  public void start(Stage primaryStage) { //original start that open the primaryStage
     this.primaryStage = primaryStage;
     openView("");
     System.out.println("Starting view.");
   }
-  public void startPopup(Stage popupStage){
+  public void startPopup(Stage popupStage){ //start that enables us to make popupViews
     this.popupStage = popupStage;
     System.out.println("Starting popupView");
   }
 
-  public void openView(String id) {
+  public void openView(String id) { //open view, first based on the String id, we select which view we want to open, then we set the root,
+    //the icon of the application, the dimensions of the window, finally we show the window itself
+    //Zygmunt Kwaśniewicz, Alan Stifter and Josip Brljevic
     Region root = loadHomeView("HomeView.fxml");
     switch (id) {
       case "ProjectList" -> root = loadProjectListView("ProjectListView.fxml");
@@ -66,8 +68,10 @@ public class ViewHandler {
   }
   public void closePopupView(){
     popupStage.close();
-  }
-  public void openPopupView(String id) {
+  } //function used for closing the popup
+  public void openPopupView(String id) { //follows the same design as openView, this however sets the popupStage, rather than primaryStage
+    //allowing us to control the popup views.
+    //Zygmunt Kwaśniewicz and Alan Stifter
     startPopup(new Stage());
     Region root = null;
     switch (id) {
@@ -91,9 +95,12 @@ public class ViewHandler {
   }
   public void searchHelper(){
     projectListViewController.search();
-  }
+  } //a way for SearchAProject to communicate with ProjectList
 
-  private Region loadHomeView(String fxmlFile) {
+  private Region loadHomeView(String fxmlFile) { //all of the following methods work in the same manner, and allow us to load each and every view
+    //if the controller doesn't exist, you create the controller, of course checking for any exceptions
+    //if it already exists, simply refresh (reset) the controller.
+    //Zygmunt Kwaśniewicz and Josip Brljevic
     Region root = null;
     if (homeViewController == null) {
       try {
@@ -114,7 +121,7 @@ public class ViewHandler {
     return homeViewController.getRoot();
   }
 
-  private Region loadProjectListView(String fxmlFile) {
+  private Region loadProjectListView(String fxmlFile) { //Zygmunt Kwaśniewicz
     Region root = null;
     if (projectListViewController == null) {
       try {
@@ -155,7 +162,7 @@ public class ViewHandler {
     }
     return dashboardViewController.getRoot();
   }
-  private Region loadCreateProjectView(String fxmlFile){
+  private Region loadCreateProjectView(String fxmlFile){ //Zygmunt Kwaśniewicz
     Region root = null;
     if (createProjectViewController==null){
       try{
@@ -175,7 +182,7 @@ public class ViewHandler {
     System.out.println("root works");
     return createProjectViewController.getRoot();
   }
-  private Region loadEditProjectView(String fxmlFile){
+  private Region loadEditProjectView(String fxmlFile){ //Alan Karasin Stifter
     Region root = null;
     if (editProjectViewController==null){
       try{
@@ -195,7 +202,7 @@ public class ViewHandler {
     System.out.println("Edit root works");
     return editProjectViewController.getRoot();
   }
-  private Region loadProjectDetailsView(String fxmlFile){
+  private Region loadProjectDetailsView(String fxmlFile){ //Zygmunt Kwaśniewicz
     Region root = null;
     if (projectDetailsViewController==null){
       try{
@@ -215,7 +222,7 @@ public class ViewHandler {
     System.out.println("Edit root works");
     return projectDetailsViewController.getRoot();
   }
-  private Region loadSearchAProjectPopupView(String fxmlFile){
+  private Region loadSearchAProjectPopupView(String fxmlFile){ //Zygmunt Kwaśniewicz
     Region root = null;
     if (searchAProjectPopupViewController==null){
       try{
@@ -235,7 +242,7 @@ public class ViewHandler {
     System.out.println("root works");
     return searchAProjectPopupViewController.getRoot();
   }
-  private Region loadDeletePopupViewController(String fxmlFile){
+  private Region loadDeletePopupViewController(String fxmlFile){ //Alan Karasin Stifter
     Region root = null;
     if (deletePopupViewController==null){
       try{
@@ -255,7 +262,7 @@ public class ViewHandler {
     System.out.println("Delete root works");
     return deletePopupViewController.getRoot();
   }
-  private Region loadCreationNotificationPopupViewController(String fxmlFile){
+  private Region loadCreationNotificationPopupViewController(String fxmlFile){ //Alan Karasin Stifter
     Region root = null;
     if (creationNotificationPopupViewController==null){
       try{

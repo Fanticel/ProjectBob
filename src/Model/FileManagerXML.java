@@ -7,7 +7,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class FileManagerXML implements FileManagerInterface {
+public class FileManagerXML implements FileManagerInterface { //entire class done by Zygmunt Kwaśniewicz
   public void writeToFile(String filePath, ProjectList list)
       throws IOException {
     PrintWriter out = new PrintWriter(filePath);
@@ -24,7 +24,7 @@ public class FileManagerXML implements FileManagerInterface {
         "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<root>\n\t<ProjectList>"); //write the general xml version along with root and project list
     out.println(
         "\t\t<ResidentialProjects>"); //begin the residential project section
-    for (ResidentialProject i : residentialProjectsAL) { //out.println("\t\t\t\t<>" + + "</>");
+    for (ResidentialProject i : residentialProjectsAL) {
       out.println("\t\t\t<Project>");
       out.println(writeGeneral(i));
       out.println("\t\t\t\t<Size>" + i.getSize() + "</Size>");
@@ -74,7 +74,7 @@ public class FileManagerXML implements FileManagerInterface {
     out.close();
   }
 
-  private String writeGeneral(Project i) {
+  private String writeGeneral(Project i) { //used for writing the variables that are common across all project types
     StringBuilder ans = new StringBuilder();
     ans.append("\t\t\t\t<Name>").append(i.getName()).append("</Name>\n");
     ans.append("\t\t\t\t<Description>").append(i.getDescription().replace("\n", "_PrivateN"))
@@ -128,11 +128,13 @@ public class FileManagerXML implements FileManagerInterface {
   }
 
   private Project convertValuesToProject(int caseID, ArrayList<Object> values) { //since there are no loops, but there is one .split which is O(n), this entire method is O(n)
-    String[] dateHelp = values.get(5).toString().split("/");
+    String[] dateHelp = values.get(5).toString().split("/"); //using the fact that data 5 is xx/yy/zzzz we can simply split it using '/' the use it to create a MyDate
     MyDate date = new MyDate(Integer.parseInt(dateHelp[0]),
         Integer.parseInt(dateHelp[1]), Integer.parseInt(dateHelp[2]));
+    values.remove(7); // these two are the data that aren't used in the constructor, but still need to be saved, so instead they are put to memory before this method is called, and removed in here
     values.remove(7);
-    values.remove(7);
+    //the method of work is all the same in here, based on the caseID, or in other words the project type, we call a construction of the correct type
+    //using correctly formatted data, from the values ArrayList
     if (caseID == 0) { //      __Residential__
       return new ResidentialProject(values.get(0).toString(),
           values.get(1).toString().replace("_PrivateN", "\n"), Integer.parseInt(values.get(2).toString()),
@@ -175,7 +177,8 @@ public class FileManagerXML implements FileManagerInterface {
     return null;
   }
 
-  private static ArrayList<String> getStrings(StringBuilder totalBuilder) {
+  private static ArrayList<String> getStrings(StringBuilder totalBuilder) { //a method that splits the string, gotten from file, into ArrayList<String> of length 4
+    // also removing the xml version and stuff, since it's useless to us
     String total = totalBuilder.toString();
     ArrayList<String> totalAL = new ArrayList<>();
     total = total.replace(
@@ -194,7 +197,7 @@ public class FileManagerXML implements FileManagerInterface {
     return totalAL;
   }
 
-  private static String stripXml(String xmlString) {
+  private static String stripXml(String xmlString) { //a patternmatcher that removes all the tags (<tag> </tag>) to leave us just with the content inside of it
     String regex = "<[^>]*>";
     Pattern pattern = Pattern.compile(regex);
     Matcher matcher = pattern.matcher(xmlString);

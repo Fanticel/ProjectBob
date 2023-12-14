@@ -156,8 +156,8 @@ public class ProjectListModelManager implements ProjectListModel {
   @Override public ProjectList getAllProjectsByData(ArrayList<Object> data) {
     return projectList.getAllProjectsByData(data);
   }
-  public void getFromFile(){
-    try{
+  public void getFromFile(){ //Just a simple method that calls the readFromFile, then goes throgh each project in the returned ProjectList, and adds it to the main projectlist
+    try{ //try catch for the theoretical IOException
       for (Project i : fileManagerXML.readFromFile("Save.xml").returnAsArrayList()) {
         projectList.addProject(i);
       }
@@ -165,22 +165,6 @@ public class ProjectListModelManager implements ProjectListModel {
     catch (IOException e){
       System.out.println(e.getMessage());
     }
-  }
-
-  public void createSampleData() {
-    ArrayList<Object> data1 = new ArrayList<>(
-        Arrays.asList("Dupa", "Zupa", 2, 3, 4, new MyDate(), "Ongoing", "Kupa",
-            10));
-    ArrayList<Object> data2 = new ArrayList<>(
-        Arrays.asList("Dupa2", "Zupa2", 5, 6, 7, new MyDate(), "Ongoing", 11,
-            12, "Kupa2"));
-    ArrayList<Object> data3 = new ArrayList<>(
-        Arrays.asList("Dupa3", "Zupa3", 8, 9, 10, new MyDate(), "Ongoing", 13,
-            14, 15,
-            new ArrayList<String>(Arrays.asList("Lupa1", "lupa2", "lupa3"))));
-    addProject(data1);
-    addProject(data2);
-    addProject(data3);
   }
   //Alan Karasin Stifter
   //Depending on the given project type returns gets and returns corresponding default values.
