@@ -3,15 +3,10 @@ package View;
 import Model.NotificationDetector;
 import Model.Project;
 import Model.ProjectListModel;
-import Model.ProjectListModelManager;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
-import javafx.scene.layout.VBox;
 
 public class ProjectTemplateViewController
 {
