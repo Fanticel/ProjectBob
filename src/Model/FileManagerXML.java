@@ -12,13 +12,13 @@ public class FileManagerXML implements FileManagerInterface {
       throws IOException {
     PrintWriter out = new PrintWriter(filePath);
     //reads all types of projects and then converts them into respective ArrayLists
-    ArrayList<ResidentialProject> residentialProjectsAL = (ArrayList<ResidentialProject>) ((ArrayList<?>) list.getAllProjectByType(
+    ArrayList<ResidentialProject> residentialProjectsAL = (ArrayList<ResidentialProject>) ((ArrayList<?>) list.getAllProjectsByType(
         ResidentialProject.class).returnAsArrayList());
-    ArrayList<RoadProject> roadProjectsAL = (ArrayList<RoadProject>) ((ArrayList<?>) list.getAllProjectByType(
+    ArrayList<RoadProject> roadProjectsAL = (ArrayList<RoadProject>) ((ArrayList<?>) list.getAllProjectsByType(
         RoadProject.class).returnAsArrayList());
-    ArrayList<CommercialProject> commercialProjectsAL = (ArrayList<CommercialProject>) ((ArrayList<?>) list.getAllProjectByType(
+    ArrayList<CommercialProject> commercialProjectsAL = (ArrayList<CommercialProject>) ((ArrayList<?>) list.getAllProjectsByType(
         CommercialProject.class).returnAsArrayList());
-    ArrayList<IndustrialProject> industrialProjectsAL = (ArrayList<IndustrialProject>) ((ArrayList<?>) list.getAllProjectByType(
+    ArrayList<IndustrialProject> industrialProjectsAL = (ArrayList<IndustrialProject>) ((ArrayList<?>) list.getAllProjectsByType(
         IndustrialProject.class).returnAsArrayList());
     out.println(
         "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<root>\n\t<ProjectList>"); //write the general xml version along with root and project list
@@ -93,40 +93,41 @@ public class FileManagerXML implements FileManagerInterface {
   }
 
   public ProjectList readFromFile(String filePath) throws IOException {
-    ProjectList answer = new ProjectList();
-    Scanner in = new Scanner(new File(filePath));
-    StringBuilder totalBuilder = new StringBuilder();
-    while (in.hasNext()) {
-      totalBuilder.append(in.nextLine()).append("\n");
+    ProjectList answer = new ProjectList();   //creating a new project list is a complexity of T(1)
+    Scanner in = new Scanner(new File(filePath)); //two new creations as such T(2)
+    StringBuilder totalBuilder = new StringBuilder(); //one more creation so T(1)
+    while (in.hasNext()) { //read the entire XML file as such checking each line is T(n)
+      totalBuilder.append(in.nextLine()).append("\n"); //both appending twice and reading the next line in file will give us T(3n)
     }
-    ArrayList<String> totalAL = getStrings(totalBuilder);
+    ArrayList<String> totalAL = getStrings(totalBuilder); //create and arraylist with already existing data, getStrings method has a complexity of O(n) so this line is T(n + 1)
     //After all this stripping and splitting we have an ArrayList of strings in which there are four string, first contains all
     //Residential projects, the second all commercial projects, the third all road projects, and the fourth all industrial ones
     //now we can simply deal with all of them based on what type they are
     //0-Residential   1-Commercial    2-Road    3-Industrial
-    for (int x = 0; x < 4; x++) {
-      String i = totalAL.get(x);
-      i = i.replaceAll("</Project>", "");
+    for (int x = 0; x < 4; x++) { //T(9) because 1 for creating x, four times checking if < 4, four times incrementing the x
+      String i = totalAL.get(x); //T(8) because it's a T(2) line run four times
+      i = i.replaceAll("</Project>", ""); //T(8) because it's a T(2) line run four times
       ArrayList<String> iss = new ArrayList<>(
-          Arrays.asList(i.split("<Project>")));
-      iss.remove(0);
-      for (String j : iss) {
-        j = stripXml(j.replaceAll("\t", ""));
-        ArrayList<Object> values = new ArrayList<>(
+          Arrays.asList(i.split("<Project>"))); //T(8 + 4n) because it's a T(2 + n)[one creation, Arrays.asList is O(1), .split is O(n)] run four times
+      iss.remove(0); //T(4), simply removing the first element four times
+      for (String j : iss) { //for each loop is O(n), as such this is T(4n)
+        j = stripXml(j.replaceAll("\t", "")); //Time complexity of stripXML is O(n), and so is .replace, so since they are inside of a T(n) loop this time complexity is T(8n^2)
+        ArrayList<Object> values = new ArrayList<>( //T(8n + 4n^2)
             Arrays.asList(j.split("\n")));
-        values.remove("");
-        int expenses = Integer.parseInt(values.get(7).toString());
-        int totalHours = Integer.parseInt(values.get(8).toString());
-        Project hold = convertValuesToProject(x, values);
-        hold.setExpenses(expenses);
-        hold.setTotalHours(totalHours);
-        answer.addProject(hold);
+        values.remove(""); //T(4n)
+        int expenses = Integer.parseInt(values.get(7).toString()); //T(4n)
+        int totalHours = Integer.parseInt(values.get(8).toString()); //T(4n)
+        Project hold = convertValuesToProject(x, values); //T(4n^2) because convertValuesToProject is O(n), and it is inside of a T(4n) loop
+        hold.setExpenses(expenses); //T(4n)
+        hold.setTotalHours(totalHours); //T(4n)
+        answer.addProject(hold); //T(4n)
       }
     }
     return answer;
+    //In total our T is equal to T(42 + 45n + 16n^2) giving us a big O notation of O(n^2)
   }
 
-  private Project convertValuesToProject(int caseID, ArrayList<Object> values) {
+  private Project convertValuesToProject(int caseID, ArrayList<Object> values) { //since there are no loops, but there is one .split which is O(n), this entire method is O(n)
     String[] dateHelp = values.get(5).toString().split("/");
     MyDate date = new MyDate(Integer.parseInt(dateHelp[0]),
         Integer.parseInt(dateHelp[1]), Integer.parseInt(dateHelp[2]));

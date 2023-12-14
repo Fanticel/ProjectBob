@@ -1,6 +1,5 @@
 package Model;
 
-import java.awt.image.AreaAveragingScaleFilter;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -150,7 +149,7 @@ public class ProjectListModelManager implements ProjectListModel {
 
   //Alan Karasin Stifter
   @Override public ProjectList getAllProjectsByType(Object project) {
-    return projectList.getAllProjectByType(project);
+    return projectList.getAllProjectsByType(project);
   }
 
   //Alan Karasin Stifter
