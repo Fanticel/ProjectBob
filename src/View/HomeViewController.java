@@ -3,21 +3,12 @@ package View;
 import Model.NotificationDetector;
 import Model.Project;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.geometry.Bounds;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.PopupControl;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
 import Model.ProjectListModel;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 
-import javax.swing.text.html.ImageView;
-import java.io.IOException;
 import java.util.ArrayList;
 
 //Made by Josip Brljevic
