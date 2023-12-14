@@ -1,7 +1,6 @@
 package View;
 
 import Model.ProjectListModel;
-import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;

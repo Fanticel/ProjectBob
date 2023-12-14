@@ -1,12 +1,10 @@
 package View;
 
-import Model.CommercialProject;
 import Model.MyDate;
 import Model.Project;
 import Model.ProjectListModel;
 import javafx.fxml.FXML;
 import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.layout.AnchorPane;

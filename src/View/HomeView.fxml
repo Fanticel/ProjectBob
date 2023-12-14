@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-
+<!--Made by Josip Brljevic -->
 <VBox fx:id="backgroundImage" alignment="CENTER" prefHeight="623.0" prefWidth="1023.0" styleClass="backgroundImage" stylesheets="@../CSS/HomeView.css, @../CSS/Common.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.HomeViewController">
    <children>
       <HBox alignment="CENTER_RIGHT" prefHeight="150.0" prefWidth="1023.0">

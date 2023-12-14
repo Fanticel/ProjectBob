@@ -71,6 +71,9 @@ $.get("../Save.xml", function (xml, status) {
     }
   }
 
+  //Josip Brljevic
+  //checking if there are no displayed projects
+  //if there are no projects, it displays a warning message (it adds the class)
   function checkNoProjects() {
     var visibleProjects = $(".puce:visible").length;
     if (visibleProjects === 0) {
@@ -80,16 +83,22 @@ $.get("../Save.xml", function (xml, status) {
     }
   }
 
+  //calling the method on render of the webpage
   checkNoProjects();
 
+  //filtering function using the search bar
   function filterProjects(searchTerm) {
+    //setting the variable to false
     var projectsFound = false;
     $(".puce").each(function () {
+      //finding the project name of each element
       var projectName = $(this).find("h2").text().toLowerCase();
       if (projectName.includes(searchTerm.toLowerCase())) {
+        //the element is shown if it matches the search term, and the projectFound variable is set to true
         $(this).show();
         projectsFound = true;
       } else {
+        //otherwise it is hidden
         $(this).hide();
       }
     });
@@ -111,11 +120,14 @@ $.get("../Save.xml", function (xml, status) {
 
   // Function to filter projects by type
   function filterByType(type) {
+    //setting the variable to false
     var projectsFound = false;
     $(".puce").each(function () {
+      //finding the project type of each elemnt
       var projectType1 = $(this).find("h3").eq(0).text().trim(); // Index 7 in the template array
       var projectType2 = $(this).find("h3").eq(1).text().trim(); // Index 9 in the template array
       if (projectType1 === type || projectType2 === type) {
+        //show the element if the projectType matches the type argument, also sets the variable to true
         $(this).show();
         projectsFound = true;
       } else {

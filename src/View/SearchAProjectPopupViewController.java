@@ -2,16 +2,13 @@ package View;
 
 import Model.ProjectListModel;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TextFormatter;
 import javafx.scene.layout.Region;
-import javafx.util.converter.LongStringConverter;
 import javafx.util.converter.NumberStringConverter;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.function.UnaryOperator;
 import java.util.regex.Pattern;
 

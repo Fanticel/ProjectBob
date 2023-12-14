@@ -1,11 +1,8 @@
 package View;
 
-import Model.Project;
 import Model.ProjectListModel;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.layout.Region;
 
 public class DeletePopupViewController

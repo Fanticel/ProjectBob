@@ -135,6 +135,7 @@ public class ViewHandler {
     return projectListViewController.getRoot();
   }
 
+  //Made by Josip Brljevic - dashboard view loader
   private Region loadDashboardView(String fxmlFile){
     Region root = null;
     if (dashboardViewController==null){
@@ -152,7 +153,6 @@ public class ViewHandler {
     else {
       dashboardViewController.reset();
     }
-    System.out.println("root works");
     return dashboardViewController.getRoot();
   }
   private Region loadCreateProjectView(String fxmlFile){

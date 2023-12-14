@@ -20,6 +20,7 @@ h3 {
   color: black;
 }
 
+/*Josip Brljevic - styling for messages that are hidden if there are ongoing projects and for the filter buttons*/
 .noProjects {
   display: none;
   margin-top: 30px;

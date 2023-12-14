@@ -1,7 +1,10 @@
+/*Made by Josip Brljevic*/
+/*The first class just hides the element, since it will appear initially on render*/
 .firstAnimation {
   display: none;
 }
 
+/* Sets the opacity to 0. This just hides the elements, but it doesnt remove them*/
 .animation {
   opacity: 0;
 }

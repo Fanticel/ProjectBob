@@ -1,9 +1,11 @@
+/*Made by Josip Brljevic*/
 .landingPage {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
+/*positioning and setting the background image*/
 .welcome {
   background-image: url("../Images/landingPageImg.png");
   background-size: cover;
@@ -17,6 +19,7 @@
   background-repeat: no-repeat;
 }
 
+/*making the logo image responsive using media queries*/
 @media (max-width: 768px) {
   .welcome img {
     width: 70%;
@@ -38,9 +41,10 @@ h1 {
   width: 100px;
 }
 
+/*adding box styling to the testimonials*/
 .testimonialContainer {
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  padding: 0 20px; /* Adjust the padding as per your preference */
+  padding: 0 20px;
   box-sizing: border-box;
 }
 
