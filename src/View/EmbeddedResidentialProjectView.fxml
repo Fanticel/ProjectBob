@@ -199,7 +199,7 @@
                         </HBox>
                         <HBox fx:id="expensesHbox" alignment="CENTER_LEFT" prefHeight="69.0" prefWidth="598.0" spacing="10.0" visible="false">
                            <children>
-                              <Label prefHeight="27.0" prefWidth="228.0" style="-fx-background-color: white; -fx-border-color: #f5ba41; -fx-border-radius: 10; -fx-border-width: 2;" text="Expenses" textFill="#f5ba41">
+                              <Label prefHeight="27.0" prefWidth="228.0" text="Expenses" textFill="#f5ba41">
                                  <font>
                                     <Font name="System Bold" size="18.0" />
                                  </font>
