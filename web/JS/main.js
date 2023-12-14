@@ -36,9 +36,8 @@ $.get("../Save.xml", function (xml, status) {
       var type = $($(names[i]).parent())
         .parent()[0]
         .tagName.replace("Projects", "");
-      template[1] = $(names[i]).text();
-      console.log(type);
-      switch (type) {
+      template[1] = $(names[i]).text(); //template[1] is the placeholder for the project name
+      switch (type) { //template[3] is the placeholder for the image url
         case "Commercial":
           template[3] = "Images/Commercial1.jpg";
           break;
@@ -52,19 +51,18 @@ $.get("../Save.xml", function (xml, status) {
           template[3] = "Images/Road_construction.png";
           break;
       }
-      template[3]; //image
       template[5] =
         (($(manHours[i]).text() * 100) / $(estimatedManHours[i]).text() +
           ($(spentPrices[i]).text() * 100) / $(expectedPrices[i]).text()) /
         2; //percantage
       template[7] = type;
       template[9] = type;
-      template[11] = $(manHours[i]).text();
-      template[13] = $(manHours[i]).text();
-      template[15] = $(expectedPrices[i]).text();
-      template[17] = $(expectedPrices[i]).text();
-      template[19] = $(estimatedManHours[i]).text();
-      template[21] = $(estimatedManHours[i]).text();
+      template[11] = $(manHours[i]).text()  + " Hours";
+      template[13] = $(manHours[i]).text()  + " Hours";
+      template[15] = $(expectedPrices[i]).text() + " DKK";
+      template[17] = $(expectedPrices[i]).text() + " DKK";
+      template[19] = $(estimatedManHours[i]).text()  + " Hours";
+      template[21] = $(estimatedManHours[i]).text()  + " Hours";
 
       template.forEach((element) => {
         ans += element;
